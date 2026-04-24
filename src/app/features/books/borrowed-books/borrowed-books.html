@@ -1,0 +1,13 @@
+<h2>Borrowed books</h2>
+
+@if ((borrowedBooks() | keyvalue).length > 0) {
+  <ul>
+    @for (book of borrowedBooks() | keyvalue; track book.key) {
+      <li>
+        Book {{ book.key }} from user {{ book.value }}
+      </li>
+    }
+  </ul>
+} @else {
+  <p>No borrowed books found</p>
+}
