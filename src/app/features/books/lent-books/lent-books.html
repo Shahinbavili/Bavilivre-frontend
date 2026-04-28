@@ -1,0 +1,13 @@
+<h2>Lent books</h2>
+
+@if ((lentBooks() | keyvalue).length > 0) {
+  <ul>
+    @for (book of lentBooks() | keyvalue; track book.key) {
+      <li>
+        Book {{ book.key }} owned by user {{ book.value }}
+      </li>
+    }
+  </ul>
+} @else {
+  <p>No lent books found</p>
+}

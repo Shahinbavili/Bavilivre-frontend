@@ -13,4 +13,10 @@ export const routes: Routes = [
       import('./features/books/borrowed-books/borrowed-books')
         .then(m => m.BorrowedBooks),
   },
+  {
+    path: 'users/:id/lent-books',
+    loadComponent: () =>
+      import('./features/books/lent-books/lent-books')
+        .then(m => m.LentBooks),
+  },
 ];
