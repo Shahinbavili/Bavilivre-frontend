@@ -1,0 +1,9 @@
+{
+  "home": {
+    "title": "Bienvenue sur Bavilivre"
+  },
+  "books": {
+    "borrowed": "Livres empruntés",
+    "lent": "Livres prêtés"
+  }
+}
