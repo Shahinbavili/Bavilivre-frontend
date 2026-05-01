@@ -1,9 +1,0 @@
-{
-  "home": {
-    "title": "Welcome to Bavilivre"
-  },
-  "books": {
-    "borrowed": "Borrowed books",
-    "lent": "Lent books"
-  }
-}
