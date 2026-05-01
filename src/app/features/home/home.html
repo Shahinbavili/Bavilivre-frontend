@@ -1,3 +1,39 @@
-<button (click)="setLang('fr')">FR</button>
-<button (click)="setLang('en')">EN</button>
-<button (click)="setLang('de')">DE</button>
+<section class="home">
+
+  <div class="language-switcher">
+
+    <span>{{ 'home.chooseLanguage' | translate }}</span>
+
+    <button type="button" (click)="setLang('fr')">FR</button>
+    <button type="button" (click)="setLang('en')">EN</button>
+    <button type="button" (click)="setLang('de')">DE</button>
+    <button type="button" (click)="setLang('fa')">FA</button>
+
+  </div>
+
+  <hr/>
+
+  <h1>{{ 'home.title' | translate }}</h1>
+
+  <p class="subtitle">
+    {{ 'home.subtitle' | translate }}
+  </p>
+
+  <nav class="actions">
+
+    <a
+      routerLink="/users/1/borrowed-books"
+      routerLinkActive="active-link">
+      {{ 'home.borrowedBooks' | translate }}
+    </a>
+
+    <a
+      routerLink="/users/1/lent-books"
+      routerLinkActive="active-link">
+      {{ 'home.lentBooks' | translate }}
+    </a>
+
+  </nav>
+
+
+</section>

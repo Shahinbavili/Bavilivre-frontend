@@ -1,16 +1,25 @@
 import {Component, inject} from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
+import {TranslatePipe, TranslateService} from '@ngx-translate/core';
+import {RouterLink, RouterLinkActive} from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  standalone: true,
+  imports: [
+    TranslatePipe,
+    RouterLink,
+    RouterLinkActive
+  ],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
 export class Home {
+
   private translate = inject(TranslateService);
 
-  setLang(lang: string) {
+  setLang(lang: string): void {
     this.translate.use(lang);
+    localStorage.setItem('lang', lang);
   }
+
 }
