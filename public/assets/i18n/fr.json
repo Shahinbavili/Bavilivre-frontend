@@ -1,0 +1,9 @@
+{
+  "home": {
+    "title": "Bienvenue sur Bavilivre",
+    "subtitle": "Partagez, empruntez et découvrez des livres autour de vous.",
+    "borrowedBooks": "Voir mes livres empruntés",
+    "lentBooks": "Voir mes livres prêtés",
+    "chooseLanguage": "Choisir la langue :"
+  }
+}

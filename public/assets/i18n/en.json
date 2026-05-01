@@ -1,0 +1,9 @@
+{
+  "home": {
+    "title": "Welcome to Bavilivre",
+    "subtitle": "Share, borrow and discover books around you.",
+    "borrowedBooks": "View borrowed books",
+    "lentBooks": "View lent books",
+    "chooseLanguage": "Choose language:"
+  }
+}
