@@ -12,19 +12,31 @@ export class App {
   protected readonly title = signal('bavilivre-frontend');
 
   private translate = inject(TranslateService);
+  private supportedLangs = ['fr', 'en', 'de', 'fa'];
 
   constructor() {
-
-    this.translate.addLangs(['fr', 'en', 'de']);
-
+    this.translate.addLangs(this.supportedLangs);
     this.translate.setFallbackLang('fr');
 
+    const savedLang = localStorage.getItem('lang');
     const browserLang = this.translate.getBrowserLang();
 
-    this.translate.use(
-      ['fr', 'en', 'de'].includes(browserLang ?? '')
-        ? browserLang!
-        : 'fr'
-    );
+    const selectedLang =
+      savedLang && this.supportedLangs.includes(savedLang)
+        ? savedLang
+        : this.supportedLangs.includes(browserLang ?? '')
+          ? browserLang!
+          : 'fr';
+
+    this.translate.use(selectedLang);
+    this.updateDirection(selectedLang);
+
+    this.translate.onLangChange.subscribe(event => {
+      this.updateDirection(event.lang);
+    });
+  }
+
+  private updateDirection(lang: string): void {
+    document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
   }
 }
