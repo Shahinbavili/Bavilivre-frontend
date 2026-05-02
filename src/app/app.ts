@@ -38,5 +38,6 @@ export class App {
 
   private updateDirection(lang: string): void {
     document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
+    document.documentElement.lang = lang;
   }
 }

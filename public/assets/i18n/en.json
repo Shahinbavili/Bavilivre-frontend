@@ -20,7 +20,7 @@
     "subtitle": "Share, borrow and discover books around you.",
     "borrowedBooks": "View my borrowed books",
     "lentBooks": "View my lent books",
-    "chooseLanguage": "Choose language:"
+    "chooseAnotherLanguage": "Choose another language:"
   },
   "books": {
     "borrowed": {

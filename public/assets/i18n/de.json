@@ -20,7 +20,7 @@
     "subtitle": "Teile, leihe und entdecke Bücher in deiner Umgebung.",
     "borrowedBooks": "Meine ausgeliehenen Bücher anzeigen",
     "lentBooks": "Meine verliehenen Bücher anzeigen",
-    "chooseLanguage": "Sprache auswählen:"
+    "chooseAnotherLanguage": "Andere Sprache auswählen:"
   },
   "books": {
     "borrowed": {
