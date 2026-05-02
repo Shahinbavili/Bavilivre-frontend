@@ -17,6 +17,12 @@ export class Home {
 
   private translate = inject(TranslateService);
 
+  languages = ['fr', 'en', 'de', 'fa'];
+
+  get currentLang(): string {
+    return this.translate.getCurrentLang();
+  }
+
   setLang(lang: string): void {
     this.translate.use(lang);
     localStorage.setItem('lang', lang);

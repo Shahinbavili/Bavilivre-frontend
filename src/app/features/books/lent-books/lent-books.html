@@ -1,4 +1,4 @@
-<h2>{{ 'books.lent' | translate }}</h2>
+<h2>{{ 'books.lent.title' | translate }}</h2>
 
 @if ((lentBooks() | keyvalue).length > 0) {
   <ul>
@@ -9,5 +9,5 @@
     }
   </ul>
 } @else {
-  <p>{{ 'books.emptyLent' | translate }}</p>
+  <p>{{ 'books.lent.empty' | translate }}</p>
 }

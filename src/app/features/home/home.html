@@ -4,10 +4,13 @@
 
     <span>{{ 'home.chooseLanguage' | translate }}</span>
 
-    <button type="button" (click)="setLang('fr')">FR</button>
-    <button type="button" (click)="setLang('en')">EN</button>
-    <button type="button" (click)="setLang('de')">DE</button>
-    <button type="button" (click)="setLang('fa')">FA</button>
+    @for (lang of languages; track lang) {
+      @if (lang !== currentLang) {
+        <button type="button" (click)="setLang(lang)">
+          {{ ('common.languages.' + lang) | translate }}
+        </button>
+      }
+    }
 
   </div>
 
