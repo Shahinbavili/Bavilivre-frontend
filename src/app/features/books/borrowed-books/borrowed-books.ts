@@ -2,12 +2,14 @@ import {Component, inject, signal} from '@angular/core';
 import {BookService} from '../../../core/services/book';
 import {KeyValuePipe} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-borrowed-books',
   templateUrl: './borrowed-books.html',
   imports: [
-    KeyValuePipe
+    KeyValuePipe,
+    TranslatePipe
   ]
 })
 export class BorrowedBooks {

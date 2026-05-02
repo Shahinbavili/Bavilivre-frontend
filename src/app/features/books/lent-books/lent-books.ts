@@ -2,10 +2,11 @@ import {Component, inject, signal} from '@angular/core';
 import {BookService} from '../../../core/services/book';
 import {ActivatedRoute} from '@angular/router';
 import {KeyValuePipe} from '@angular/common';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-lent-books',
-  imports: [KeyValuePipe],
+  imports: [KeyValuePipe, TranslatePipe],
   templateUrl: './lent-books.html',
   styleUrl: './lent-books.scss',
 })
@@ -19,7 +20,6 @@ export class LentBooks {
     const userId = Number(this.route.snapshot.paramMap.get('id'));
 
     this.bookService.getLentBooks(userId).subscribe(dto => {
-      console.log('lentBooks signal:', this.lentBooks());
       this.lentBooks.set(dto.lentBookList);
     })
   }

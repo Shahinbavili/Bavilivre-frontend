@@ -1,4 +1,4 @@
-<h2>Borrowed books</h2>
+<h2>{{ 'books.borrowed' | translate }}</h2>
 
 @if ((borrowedBooks() | keyvalue).length > 0) {
   <ul>
@@ -9,5 +9,5 @@
     }
   </ul>
 } @else {
-  <p>No borrowed books found</p>
+  <p>{{ 'books.emptyBorrowed' | translate }}</p>
 }
