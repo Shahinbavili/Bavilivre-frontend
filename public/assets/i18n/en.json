@@ -1,9 +1,37 @@
 {
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "empty": "No results",
+    "actions": {
+      "save": "Save",
+      "cancel": "Cancel",
+      "back": "Back"
+    },
+    "languages": {
+      "fr": "French",
+      "en": "English",
+      "de": "German",
+      "fa": "Persian"
+    }
+  },
   "home": {
     "title": "Welcome to Bavilivre",
     "subtitle": "Share, borrow and discover books around you.",
-    "borrowedBooks": "View borrowed books",
-    "lentBooks": "View lent books",
+    "borrowedBooks": "View my borrowed books",
+    "lentBooks": "View my lent books",
     "chooseLanguage": "Choose language:"
+  },
+  "books": {
+    "borrowed": {
+      "title": "Borrowed books",
+      "empty": "No borrowed books",
+      "item": "Book {{ bookId }} borrowed from user {{ ownerId }}"
+    },
+    "lent": {
+      "title": "Lent books",
+      "empty": "No lent books",
+      "item": "Book {{ bookId }} lent by user {{ ownerId }}"
+    }
   }
 }

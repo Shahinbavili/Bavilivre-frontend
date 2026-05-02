@@ -1,9 +1,37 @@
 {
+  "common": {
+    "loading": "Wird geladen...",
+    "error": "Ein Fehler ist aufgetreten",
+    "empty": "Keine Ergebnisse",
+    "actions": {
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "back": "Zurück"
+    },
+    "languages": {
+      "fr": "Französisch",
+      "en": "Englisch",
+      "de": "Deutsch",
+      "fa": "Persisch"
+    }
+  },
   "home": {
     "title": "Willkommen bei Bavilivre",
-    "subtitle": "Teilen, ausleihen und Bücher in deiner Nähe entdecken.",
-    "borrowedBooks": "Ausgeliehene Bücher anzeigen",
-    "lentBooks": "Verliehene Bücher anzeigen",
-    "chooseLanguage": "Sprache wählen:"
+    "subtitle": "Teile, leihe und entdecke Bücher in deiner Umgebung.",
+    "borrowedBooks": "Meine ausgeliehenen Bücher anzeigen",
+    "lentBooks": "Meine verliehenen Bücher anzeigen",
+    "chooseLanguage": "Sprache auswählen:"
+  },
+  "books": {
+    "borrowed": {
+      "title": "Ausgeliehene Bücher",
+      "empty": "Keine ausgeliehenen Bücher",
+      "item": "Buch {{ bookId }} ausgeliehen von Benutzer {{ ownerId }}"
+    },
+    "lent": {
+      "title": "Verliehene Bücher",
+      "empty": "Keine verliehenen Bücher",
+      "item": "Buch {{ bookId }} verliehen von Benutzer {{ ownerId }}"
+    }
   }
 }
