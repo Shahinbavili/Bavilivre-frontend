@@ -4,7 +4,7 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![RxJS](https://img.shields.io/badge/RxJS-B7178C?style=for-the-badge&logo=reactivex&logoColor=white)
-![i18n](https://img.shields.io/badge/i18n-FR%20%7C%20EN%20%7C%20DE%20%7C%20FA-blue?style=for-the-badge)
+![i18n](https://img.shields.io/badge/i18n-FR%20%7C%20EN%20%7C%20DE%20%7C%20FA-1E90FF?style=for-the-badge)
 ![RTL](https://img.shields.io/badge/RTL-Persian%20Support-purple?style=for-the-badge)
 
 Frontend de **Bavilivre**, une plateforme web multilingue de partage de livres entre particuliers.
@@ -155,7 +155,7 @@ this.http.get('http://localhost:8080/users/1/borrowed-books');
 
 ---
 
-### Run the Project
+# Run the Project
 
 Install dependencies:
 ```bash
@@ -166,15 +166,17 @@ Start development server:
 ng serve
 ```
 Then open:
+```text
 http://localhost:4200
+```
 
 ---
 
-### Build
+## Build
 ```bash
 ng build
 ```
-### Tests
+## Tests
 ```bash
 ng test
 ```
