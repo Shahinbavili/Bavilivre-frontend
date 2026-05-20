@@ -1,11 +1,11 @@
 # Bavilivre Frontend
 
-![Angular](https://img.shields.io/badge/Angular-21-DD0031?logo=angular&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?logo=tailwindcss&logoColor=white)
-![RxJS](https://img.shields.io/badge/RxJS-B7178C?logo=reactivex&logoColor=white)
-![i18n](https://img.shields.io/badge/i18n-FR%20%7C%20EN%20%7C%20DE%20%7C%20FA-blue)
-![RTL](https://img.shields.io/badge/RTL-Persian%20Support-purple)
+![Angular](https://img.shields.io/badge/Angular-21-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![RxJS](https://img.shields.io/badge/RxJS-B7178C?style=for-the-badge&logo=reactivex&logoColor=white)
+![i18n](https://img.shields.io/badge/i18n-FR%20%7C%20EN%20%7C%20DE%20%7C%20FA-blue?style=for-the-badge)
+![RTL](https://img.shields.io/badge/RTL-Persian%20Support-purple?style=for-the-badge)
 
 Frontend de **Bavilivre**, une plateforme web multilingue de partage de livres entre particuliers.
 
