@@ -2,7 +2,6 @@
 
 ![Angular](https://img.shields.io/badge/Angular%2021-DD0031?style=for-the-badge&logo=angular&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![RxJS](https://img.shields.io/badge/RxJS-B7178C?style=for-the-badge&logo=reactivex&logoColor=white)
 ![i18n](https://img.shields.io/badge/i18n-FR%20%7C%20EN%20%7C%20DE%20%7C%20FA-1E90FF?style=for-the-badge)
 ![RTL](https://img.shields.io/badge/RTL-Persian%20Support-purple?style=for-the-badge)
@@ -204,6 +203,7 @@ The project is developed progressively with a focus on:
 * Add login/register UI
 * Integrate JWT authentication
 * Add protected routes
+* Integrate Angular Material UI components
 * Improve error/loading states
 * Add pagination for book lists
 * Polish responsive UI
