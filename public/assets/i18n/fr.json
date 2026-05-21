@@ -31,7 +31,7 @@
     "lent": {
       "title": "Livres prêtés",
       "empty": "Aucun livre prêté",
-      "item": "Livre {{ bookId }} prêté par l’utilisateur {{ ownerId }}"
+      "item": "Livre {{ bookId }} prêté par l’utilisateur {{ borrowedId }}"
     }
   }
 }

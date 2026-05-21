@@ -31,7 +31,7 @@
     "lent": {
       "title": "Lent books",
       "empty": "No lent books",
-      "item": "Book {{ bookId }} lent by user {{ ownerId }}"
+      "item": "Book {{ bookId }} lent by user {{ borrowerId }}"
     }
   }
 }

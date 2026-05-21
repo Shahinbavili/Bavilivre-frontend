@@ -31,7 +31,7 @@
     "lent": {
       "title": "Verliehene Bücher",
       "empty": "Keine verliehenen Bücher",
-      "item": "Buch {{ bookId }} verliehen von Benutzer {{ ownerId }}"
+      "item": "Buch {{ bookId }} verliehen von Benutzer {{ borrowerId }}"
     }
   }
 }

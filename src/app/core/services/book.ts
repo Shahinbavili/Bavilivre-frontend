@@ -17,7 +17,7 @@ export class BookService {
     return this.http.get<Book[]>(`${this.apiUrl}/books`);
   }
 
-  getBorrowedBooks(userId: number) {
+  getBorrowedBooks(userId: number): Observable<BorrowedBooksDto> {
     return this.http.get<BorrowedBooksDto>(
       `${this.apiUrl}/users/${userId}/borrowed-books`
     );

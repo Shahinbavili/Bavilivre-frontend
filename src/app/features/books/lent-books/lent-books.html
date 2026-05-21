@@ -4,7 +4,7 @@
   <ul>
     @for (book of lentBooks() | keyvalue; track book.key) {
       <li>
-        {{ 'books.lent.item' | translate:{bookId: book.key, ownerId: book.value} }}
+        {{ 'books.lent.item' | translate:{bookId: book.key, borrowerId: book.value} }}
       </li>
     }
   </ul>
