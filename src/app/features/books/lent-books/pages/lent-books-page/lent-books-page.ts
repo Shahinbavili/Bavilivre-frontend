@@ -1,23 +1,30 @@
-import {Component, inject, OnInit, signal} from '@angular/core';
-import {BookService} from '../../../core/services/book';
+import {Component, computed, inject, OnInit, signal} from '@angular/core';
+import {BookService} from '../../../../../core/services/book.service';
 import {ActivatedRoute} from '@angular/router';
 import {KeyValuePipe} from '@angular/common';
 import {TranslatePipe} from '@ngx-translate/core';
-import {LentBooksDto} from '../../../core/dto/lent-books.dto';
+import {LentBooksDto} from '../../../../../core/dto/lent-books.dto';
 
 @Component({
-  selector: 'app-lent-books',
+  selector: 'app-lent-books-page',
   standalone: true,
   imports: [KeyValuePipe, TranslatePipe],
-  templateUrl: './lent-books.html',
-  styleUrl: './lent-books.scss',
+  templateUrl: './lent-books-page.html',
+  styleUrl: './lent-books-page.scss',
 })
-export class LentBooks implements OnInit {
+export class LentBooksPage implements OnInit {
 
   private readonly bookService = inject(BookService);
   private readonly route = inject(ActivatedRoute);
-
   readonly lentBooks = signal<Record<number, number>>({});
+
+  readonly lentBooksEntries = computed(() =>
+    Object.entries(this.lentBooks())
+      .map(([bookId, borrowerId]) => ({
+        bookId: Number(bookId),
+        borrowerId
+      }))
+  );
 
   ngOnInit(): void {
 

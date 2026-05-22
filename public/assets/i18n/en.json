@@ -26,12 +26,12 @@
     "borrowed": {
       "title": "Borrowed books",
       "empty": "No borrowed books",
-      "item": "Book {{ bookId }} borrowed from user {{ ownerId }}"
+      "item": "Book #{{ bookId }} borrowed from user #{{ lenderId }}"
     },
     "lent": {
       "title": "Lent books",
       "empty": "No lent books",
-      "item": "Book {{ bookId }} lent by user {{ borrowerId }}"
+      "item": "Book #{{ bookId }} lent by user #{{ borrowerId }}"
     }
   }
 }

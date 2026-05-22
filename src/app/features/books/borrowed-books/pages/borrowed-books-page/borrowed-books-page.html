@@ -1,0 +1,18 @@
+<h2>{{ 'books.borrowed.title' | translate }}</h2>
+
+@if (borrowedBookEntries().length > 0) {
+  <ul>
+    @for (book of borrowedBookEntries(); track book.bookId) {
+      <li>
+        {{
+          'books.borrowed.item' | translate:{
+            bookId: book.bookId,
+            lenderId: book.lenderId
+          }
+        }}
+      </li>
+    }
+  </ul>
+} @else {
+  <p>{{ 'books.lent.empty' | translate }}</p>
+}

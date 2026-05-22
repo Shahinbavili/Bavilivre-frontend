@@ -1,0 +1,13 @@
+<h2>{{ 'books.lent.title' | translate }}</h2>
+
+@if ((lentBooksEntries() | keyvalue).length > 0) {
+  <ul>
+    @for (book of lentBooksEntries(); track book.bookId) {
+      <li>
+        {{ 'books.lent.item' | translate:{bookId: book.bookId, borrowerId: book.borrowerId} }}
+      </li>
+    }
+  </ul>
+} @else {
+  <p>{{ 'books.lent.empty' | translate }}</p>
+}

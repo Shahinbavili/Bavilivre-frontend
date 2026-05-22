@@ -26,12 +26,12 @@
     "borrowed": {
       "title": "Livres empruntés",
       "empty": "Aucun livre emprunté",
-      "item": "Livre {{ bookId }} emprunté à l’utilisateur {{ ownerId }}"
+      "item": "Livre #{{ bookId }} emprunté à l’utilisateur #{{ lenderId }}"
     },
     "lent": {
       "title": "Livres prêtés",
       "empty": "Aucun livre prêté",
-      "item": "Livre {{ bookId }} prêté par l’utilisateur {{ borrowedId }}"
+      "item": "Livre #{{ bookId }} prêté par l’utilisateur #{{ borrowedId }}"
     }
   }
 }
