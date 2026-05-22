@@ -28,4 +28,10 @@ export class BookService {
       `${this.apiUrl}/users/${userId}/lent-books`
     );
   }
+
+  getBookById(bookId: number): Observable<Book> {
+    return this.http.get<Book>(
+      `${this.apiUrl}/books/${bookId}`
+    );
+  }
 }

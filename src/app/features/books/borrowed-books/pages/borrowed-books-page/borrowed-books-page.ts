@@ -4,6 +4,7 @@ import {TranslatePipe} from '@ngx-translate/core';
 
 import {BookService} from '../../../../../core/services/book.service';
 import {BorrowedBooksDto} from '../../../../../core/dto/borrowed-books.dto';
+import {Book} from '../../../../../core/models/book.model';
 
 @Component({
   selector: 'app-borrowed-books-page',
@@ -19,6 +20,7 @@ export class BorrowedBooksPage implements OnInit {
   private readonly route = inject(ActivatedRoute);
 
   readonly borrowedBooks = signal<Record<number, number>>({});
+  readonly books = signal<Book[]>([]);
 
   readonly borrowedBookEntries = computed(() =>
     Object.entries(this.borrowedBooks())
