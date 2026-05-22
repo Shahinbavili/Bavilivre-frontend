@@ -4,8 +4,8 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('./features/home/home')
-        .then(m => m.Home),
+      import('./features/home/pages/home-page/home-page')
+        .then(m => m.HomePage),
   },
   {
     path: 'users/:id/borrowed-books',

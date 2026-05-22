@@ -3,21 +3,21 @@ import {TranslatePipe, TranslateService} from '@ngx-translate/core';
 import {RouterLink, RouterLinkActive} from '@angular/router';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-home-page',
   standalone: true,
   imports: [
     TranslatePipe,
     RouterLink,
     RouterLinkActive
   ],
-  templateUrl: './home.html',
-  styleUrl: './home.scss',
+  templateUrl: './home-page.html',
+  styleUrl: './home-page.scss',
 })
-export class Home {
+export class HomePage {
 
-  private translate = inject(TranslateService);
+  private readonly translate = inject(TranslateService);
 
-  languages = ['fr', 'en', 'de', 'fa'];
+  readonly languages = ['fr', 'en', 'de', 'fa'];
 
   get currentLang(): string {
     return this.translate.getCurrentLang();
