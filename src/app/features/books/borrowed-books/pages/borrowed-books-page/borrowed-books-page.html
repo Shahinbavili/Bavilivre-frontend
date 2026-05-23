@@ -2,17 +2,12 @@
 
 @if (borrowedBookEntries().length > 0) {
   <ul>
-    @for (book of borrowedBookEntries(); track book.bookId) {
+    @for (entry of borrowedBookEntries(); track entry.bookId) {
       <li>
-        {{
-          'books.borrowed.item' | translate:{
-            bookId: book.bookId,
-            lenderId: book.lenderId
-          }
-        }}
+        {{ borrowedBookLabel(entry) }}
       </li>
     }
   </ul>
 } @else {
-  <p>{{ 'books.lent.empty' | translate }}</p>
+  <p>{{ 'books.borrowed.empty' | translate }}</p>
 }

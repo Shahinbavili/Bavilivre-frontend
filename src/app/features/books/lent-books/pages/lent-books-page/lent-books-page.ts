@@ -2,7 +2,7 @@ import {Component, computed, inject, OnInit, signal} from '@angular/core';
 import {BookService} from '../../../../../core/services/book.service';
 import {ActivatedRoute} from '@angular/router';
 import {KeyValuePipe} from '@angular/common';
-import {TranslatePipe} from '@ngx-translate/core';
+import {TranslatePipe, TranslateService} from '@ngx-translate/core';
 import {LentBooksDto} from '../../../../../core/dto/lent-books.dto';
 
 @Component({
@@ -16,6 +16,7 @@ export class LentBooksPage implements OnInit {
 
   private readonly bookService = inject(BookService);
   private readonly route = inject(ActivatedRoute);
+  protected readonly translate = inject(TranslateService);
   readonly lentBooks = signal<Record<number, number>>({});
 
   readonly lentBooksEntries = computed(() =>
@@ -38,5 +39,12 @@ export class LentBooksPage implements OnInit {
         console.error(error);
       }
     });
+  }
+
+  lentBookLabel(entry: { bookId: number, borrowerId: number }): string {
+    return this.translate.instant('books.lent.item', {
+      bookId: entry.bookId,
+      borrowerId: entry.borrowerId,
+    })
   }
 }
