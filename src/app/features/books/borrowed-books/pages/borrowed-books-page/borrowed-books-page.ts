@@ -1,6 +1,6 @@
 import {Component, computed, inject, OnInit, signal} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {TranslatePipe} from '@ngx-translate/core';
+import {TranslatePipe, TranslateService} from '@ngx-translate/core';
 
 import {BookService} from '../../../../../core/services/book.service';
 import {BorrowedBooksDto} from '../../../../../core/dto/borrowed-books.dto';
@@ -18,6 +18,8 @@ export class BorrowedBooksPage implements OnInit {
 
   private readonly bookService = inject(BookService);
   private readonly route = inject(ActivatedRoute);
+
+  protected readonly translate = inject(TranslateService);
 
   readonly borrowedBooks = signal<Record<number, number>>({});
   readonly books = signal<Book[]>([]);
@@ -42,5 +44,17 @@ export class BorrowedBooksPage implements OnInit {
         console.error(error);
       }
     });
+  }
+
+  borrowedBookLabel(entry: { bookId: number; lenderId: number }): string {
+
+    return this.translate.instant('books.borrowed.item', {
+
+      bookId: entry.bookId,
+
+      lenderId: entry.lenderId,
+
+    });
+
   }
 }

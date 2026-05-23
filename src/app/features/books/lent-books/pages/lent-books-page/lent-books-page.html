@@ -2,9 +2,9 @@
 
 @if ((lentBooksEntries() | keyvalue).length > 0) {
   <ul>
-    @for (book of lentBooksEntries(); track book.bookId) {
+    @for (entry of lentBooksEntries(); track entry.bookId) {
       <li>
-        {{ 'books.lent.item' | translate:{bookId: book.bookId, borrowerId: book.borrowerId} }}
+        {{ lentBookLabel(entry) }}
       </li>
     }
   </ul>
