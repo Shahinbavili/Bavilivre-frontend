@@ -24,14 +24,16 @@
   },
   "books": {
     "borrowed": {
-      "title": "Borrowed books",
+      "title": "Borrowed Books",
       "empty": "No borrowed books",
-      "item": "Book #{{ bookId }} borrowed from user #{{ lenderId }}"
+      "loadingBook": "Loading book #{{bookId}}...",
+      "item": "{{title}} — {{author}}, borrowed from user #{{lenderId}}"
     },
     "lent": {
-      "title": "Lent books",
+      "title": "Lent Books",
       "empty": "No lent books",
-      "item": "Book #{{ bookId }} lent by user #{{ borrowerId }}"
+      "loadingBook": "Loading book #{{bookId}}...",
+      "item": "{{title}} — {{author}}, lent to user #{{borrowerId}}"
     }
   }
 }

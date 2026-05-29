@@ -22,7 +22,7 @@ export class BorrowedBooksPage implements OnInit {
   protected readonly translate = inject(TranslateService);
 
   readonly borrowedBooks = signal<Record<number, number>>({});
-  readonly books = signal<Book[]>([]);
+  readonly books = signal<Record<number, Book>>({});
 
   readonly borrowedBookEntries = computed(() =>
     Object.entries(this.borrowedBooks())
@@ -39,6 +39,22 @@ export class BorrowedBooksPage implements OnInit {
     this.bookService.getBorrowedBooks(userId).subscribe({
       next: (dto: BorrowedBooksDto) => {
         this.borrowedBooks.set(dto.borrowedBookList);
+
+        const bookIds = Object.keys(dto.borrowedBookList).map(Number);
+
+        bookIds.forEach((bookId) => {
+          this.bookService.getBookById(bookId).subscribe({
+            next: (book: Book) => {
+              this.books.update((currentBooks) => ({
+                ...currentBooks,
+                [book.id]: book,
+              }));
+            },
+            error: (error) => {
+              console.error(error);
+            }
+          });
+        });
       },
       error: (error) => {
         console.error(error);
@@ -47,14 +63,20 @@ export class BorrowedBooksPage implements OnInit {
   }
 
   borrowedBookLabel(entry: { bookId: number; lenderId: number }): string {
+    const book = this.books()[entry.bookId];
+
+    if (!book) {
+      return this.translate.instant('books.borrowed.loadingBook', {
+        bookId: entry.bookId,
+      });
+    }
 
     return this.translate.instant('books.borrowed.item', {
-
-      bookId: entry.bookId,
-
+      title: book.title,
+      author: book.author,
       lenderId: entry.lenderId,
-
     });
 
   }
 }
+

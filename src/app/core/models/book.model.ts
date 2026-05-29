@@ -1,6 +1,9 @@
 export interface Book {
   id: number;
+  ownerId: number;
   title: string;
   author: string;
-  ownerId: number;
+  description: string;
+  language: string;
+  category: string;
 }

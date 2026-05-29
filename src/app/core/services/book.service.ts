@@ -9,9 +9,9 @@ import {LentBooksDto} from '../dto/lent-books.dto';
   providedIn: 'root',
 })
 export class BookService {
-  private http = inject(HttpClient);
+  private readonly http = inject(HttpClient);
 
-  private apiUrl = 'http://localhost:8080';
+  private readonly apiUrl = 'http://localhost:8080';
 
   getBooks(): Observable<Book[]> {
     return this.http.get<Book[]>(`${this.apiUrl}/books`);

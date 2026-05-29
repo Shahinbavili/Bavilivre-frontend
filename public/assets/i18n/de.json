@@ -26,12 +26,14 @@
     "borrowed": {
       "title": "Ausgeliehene Bücher",
       "empty": "Keine ausgeliehenen Bücher",
-      "item": "Buch #{{ bookId }} ausgeliehen von Benutzer #{{ lenderId }}"
+      "loadingBook": "Buch #{{bookId}} wird geladen...",
+      "item": "{{title}} — {{author}}, ausgeliehen von Benutzer #{{lenderId}}"
     },
     "lent": {
       "title": "Verliehene Bücher",
       "empty": "Keine verliehenen Bücher",
-      "item": "Buch #{{ bookId }} verliehen von Benutzer #{{ borrowerId }}"
+      "loadingBook": "Buch #{{bookId}} wird geladen...",
+      "item": "{{title}} — {{author}}, verliehen an Benutzer #{{borrowerId}}"
     }
   }
 }
