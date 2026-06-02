@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Book} from '../models/book.model';
 import {BorrowedBooksDto} from '../dto/borrowed-books.dto';
 import {LentBooksDto} from '../dto/lent-books.dto';
+import {API_BASE_URL} from '../config/api.config';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ import {LentBooksDto} from '../dto/lent-books.dto';
 export class BookService {
   private readonly http = inject(HttpClient);
 
-  private readonly apiUrl = 'http://localhost:8080';
+  private readonly apiUrl = API_BASE_URL;
 
   getBooks(): Observable<Book[]> {
     return this.http.get<Book[]>(`${this.apiUrl}/books`);
