@@ -5,6 +5,8 @@ import {TranslatePipe, TranslateService} from '@ngx-translate/core';
 import {BookService} from '../../../../../core/services/book.service';
 import {BorrowedBooksDto} from '../../../../../core/dto/borrowed-books.dto';
 import {Book} from '../../../../../core/models/book.model';
+import {UserService} from '../../../../../core/services/user.service';
+import {User} from '../../../../../core/models/user.model';
 
 @Component({
   selector: 'app-borrowed-books-page',
@@ -18,11 +20,13 @@ export class BorrowedBooksPage implements OnInit {
 
   private readonly bookService = inject(BookService);
   private readonly route = inject(ActivatedRoute);
+  private readonly userService = inject(UserService);
 
   protected readonly translate = inject(TranslateService);
 
   readonly borrowedBooks = signal<Record<number, number>>({});
   readonly books = signal<Record<number, Book>>({});
+  readonly users = signal<Record<number, User>>({});
 
   readonly borrowedBookEntries = computed(() =>
     Object.entries(this.borrowedBooks())
@@ -55,6 +59,18 @@ export class BorrowedBooksPage implements OnInit {
             }
           });
         });
+        const lenderIds = Object.values(dto.borrowedBookList);
+
+        lenderIds.forEach((lenderId) => {
+          this.userService.getUserById(lenderId).subscribe({
+            next: (user: User) => {
+              this.users.update((currentUsers) => ({
+                ...currentUsers,
+                [user.id]: user,
+              }));
+            }
+          })
+        })
       },
       error: (error) => {
         console.error(error);
@@ -64,6 +80,7 @@ export class BorrowedBooksPage implements OnInit {
 
   borrowedBookLabel(entry: { bookId: number; lenderId: number }): string {
     const book = this.books()[entry.bookId];
+    const lender = this.users()[entry.lenderId];
 
     if (!book) {
       return this.translate.instant('books.borrowed.loadingBook', {
@@ -71,10 +88,16 @@ export class BorrowedBooksPage implements OnInit {
       });
     }
 
+    if (!lender) {
+      return this.translate.instant('users.loadingUser', {
+        userId: entry.lenderId,
+      });
+    }
+
     return this.translate.instant('books.borrowed.item', {
       title: book.title,
       author: book.author,
-      lenderId: entry.lenderId,
+      lenderName: lender.displayName,
     });
 
   }

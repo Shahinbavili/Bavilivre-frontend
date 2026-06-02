@@ -27,7 +27,7 @@
       "title": "Borrowed Books",
       "empty": "No borrowed books",
       "loadingBook": "Loading book #{{bookId}}...",
-      "item": "{{title}} — {{author}}, borrowed from user #{{lenderId}}"
+      "item": "{{title}} — {{author}}, borrowed from {{lenderName}}"
     },
     "lent": {
       "title": "Lent Books",
@@ -35,5 +35,8 @@
       "loadingBook": "Loading book #{{bookId}}...",
       "item": "{{title}} — {{author}}, lent to user #{{borrowerId}}"
     }
+  },
+  "users": {
+    "loadingUser": "Loading user #{{userId}}..."
   }
 }
