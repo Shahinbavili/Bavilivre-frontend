@@ -23,6 +23,14 @@
     "chooseAnotherLanguage": "زبان دیگری را انتخاب کنید:"
   },
   "books": {
+    "details": {
+      "title": "عنوان کتاب",
+      "author": "نویسنده",
+      "description": "توضیحات",
+      "language": "زبان",
+      "category": "دسته‌بندی",
+      "ownerId": "مالک"
+    },
     "borrowed": {
       "title": "کتاب‌های امانت گرفته شده",
       "empty": "هیچ کتابی امانت گرفته نشده است",

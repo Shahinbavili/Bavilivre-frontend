@@ -23,6 +23,14 @@
     "chooseAnotherLanguage": "Andere Sprache auswählen:"
   },
   "books": {
+    "details": {
+      "title": "Book Details",
+      "author": "Author",
+      "description": "Description",
+      "language": "Language",
+      "category": "Category",
+      "ownerId": "Owner"
+    },
     "borrowed": {
       "title": "Ausgeliehene Bücher",
       "empty": "Keine ausgeliehenen Bücher",

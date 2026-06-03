@@ -1,0 +1,34 @@
+<h1>{{ 'books.details.title' | translate }}</h1>
+
+@if (book(); as book) {
+
+  <h2>{{ book.title }}</h2>
+
+  <p>
+    <strong>{{ 'books.details.author' | translate }}: </strong>
+    {{ book.author }}
+  </p>
+
+  <p>
+    <strong>{{ 'books.details.description' | translate }}: </strong>
+    <span dir="auto">{{ book.description }}</span>
+  </p>
+
+  <p>
+    <strong>{{ 'books.details.language' | translate }}: </strong>
+    {{ book.language }}
+  </p>
+
+  <p>
+    <strong>{{ 'books.details.category' | translate }}: </strong>
+    {{ book.category }}
+  </p>
+
+  <p>
+    <strong>{{ 'books.details.ownerId' | translate }}: </strong>
+    {{ book.ownerId }}
+  </p>
+
+} @else {
+  <p>Loading book ...</p>
+}

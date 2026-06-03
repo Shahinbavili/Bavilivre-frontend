@@ -19,4 +19,10 @@ export const routes: Routes = [
       import('./features/books/lent-books/pages/lent-books-page/lent-books-page')
         .then(m => m.LentBooksPage),
   },
+  {
+    path: 'books/:id',
+    loadComponent: () =>
+      import('./features/books/book-details/pages/book-details-page/book-details-page')
+        .then(m => m.BookDetailsPage),
+  }
 ];
