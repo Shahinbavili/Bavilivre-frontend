@@ -1,6 +1,8 @@
 <h2>{{ 'books.borrowed.title' | translate }}</h2>
 
-@if (borrowedBookEntries().length > 0) {
+@if (isLoading()) {
+  <app-loading-spinner/>
+} @else if (borrowedBookEntries().length > 0) {
   <ul>
     @for (entry of borrowedBookEntries(); track entry.bookId) {
       <li>

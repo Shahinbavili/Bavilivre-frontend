@@ -4,11 +4,12 @@ import {ActivatedRoute} from '@angular/router';
 import {KeyValuePipe} from '@angular/common';
 import {TranslatePipe, TranslateService} from '@ngx-translate/core';
 import {LentBooksDto} from '../../../../../core/dto/lent-books.dto';
+import {LoadingSpinner} from '../../../../../shared/components/loading-spinner/loading-spinner';
 
 @Component({
   selector: 'app-lent-books-page',
   standalone: true,
-  imports: [KeyValuePipe, TranslatePipe],
+  imports: [KeyValuePipe, TranslatePipe, LoadingSpinner],
   templateUrl: './lent-books-page.html',
   styleUrl: './lent-books-page.scss',
 })
@@ -18,6 +19,7 @@ export class LentBooksPage implements OnInit {
   private readonly route = inject(ActivatedRoute);
   protected readonly translate = inject(TranslateService);
   readonly lentBooks = signal<Record<number, number>>({});
+  readonly isLoading = signal(true);
 
   readonly lentBooksEntries = computed(() =>
     Object.entries(this.lentBooks())
@@ -31,12 +33,16 @@ export class LentBooksPage implements OnInit {
 
     const userId = Number(this.route.snapshot.paramMap.get('id'));
 
+    this.isLoading.set(true);
+
     this.bookService.getLentBooks(userId).subscribe({
       next: (dto: LentBooksDto) => {
         this.lentBooks.set(dto.lentBookList);
+        this.isLoading.set(false);
       },
       error: (error) => {
         console.error(error);
+        this.isLoading.set(false);
       }
     });
   }

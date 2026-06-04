@@ -1,6 +1,8 @@
 <h2>{{ 'books.lent.title' | translate }}</h2>
 
-@if ((lentBooksEntries() | keyvalue).length > 0) {
+@if (isLoading()) {
+  <app-loading-spinner/>
+} @else if ((lentBooksEntries() | keyvalue).length > 0) {
   <ul>
     @for (entry of lentBooksEntries(); track entry.bookId) {
       <li>

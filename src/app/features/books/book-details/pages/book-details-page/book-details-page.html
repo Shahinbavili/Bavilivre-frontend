@@ -1,6 +1,8 @@
 <h1>{{ 'books.details.title' | translate }}</h1>
 
-@if (book(); as book) {
+@if (isLoading()) {
+  <app-loading-spinner/>
+} @else if (book(); as book) {
 
   <h2>{{ book.title }}</h2>
 
@@ -29,6 +31,4 @@
     {{ book.ownerId }}
   </p>
 
-} @else {
-  <p>Loading book ...</p>
 }
