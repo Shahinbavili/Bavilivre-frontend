@@ -29,7 +29,7 @@
       "description": "توضیحات",
       "language": "زبان",
       "category": "دسته‌بندی",
-      "ownerId": "مالک"
+      "owner": "مالک"
     },
     "borrowed": {
       "title": "کتاب‌های امانت گرفته شده",

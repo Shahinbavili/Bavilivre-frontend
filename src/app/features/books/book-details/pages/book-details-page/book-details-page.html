@@ -27,8 +27,12 @@
   </p>
 
   <p>
-    <strong>{{ 'books.details.ownerId' | translate }}: </strong>
-    {{ book.ownerId }}
+    <strong>{{ 'books.details.owner' | translate }}: </strong>
+    @if (owner(); as owner) {
+      {{ owner.displayName }}
+    } @else {
+      <app-loading-spinner/>
+    }
   </p>
 
 }

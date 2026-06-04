@@ -29,7 +29,7 @@
       "description": "Description",
       "language": "Language",
       "category": "Category",
-      "ownerId": "Owner"
+      "owner": "Besitzer"
     },
     "borrowed": {
       "title": "Ausgeliehene Bücher",

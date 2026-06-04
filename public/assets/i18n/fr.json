@@ -29,8 +29,7 @@
       "description": "Description",
       "language": "Langue",
       "category": "Catégorie",
-      "ownerId": "Propriétaire"
-    },
+      "owner": "Propriétaire"    },
     "borrowed": {
       "title": "Livres empruntés",
       "empty": "Aucun livre emprunté",
