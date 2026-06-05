@@ -30,6 +30,8 @@ export class BorrowedBooksPage implements OnInit {
   readonly books = signal<Record<number, Book>>({});
   readonly users = signal<Record<number, User>>({});
   readonly isLoading = signal(true);
+  readonly errorMessage = signal<string | null>(null)
+
 
   readonly borrowedBookEntries = computed(() =>
     Object.entries(this.borrowedBooks())
@@ -44,6 +46,7 @@ export class BorrowedBooksPage implements OnInit {
     const userId = Number(this.route.snapshot.paramMap.get('id'));
 
     this.isLoading.set(true);
+    this.errorMessage.set(null);
 
     this.bookService.getBorrowedBooks(userId).subscribe({
       next: (dto: BorrowedBooksDto) => {
@@ -62,6 +65,7 @@ export class BorrowedBooksPage implements OnInit {
             },
             error: (error) => {
               console.error(error);
+              this.errorMessage.set('common.error');
               this.isLoading.set(false);
             }
           });
@@ -81,6 +85,7 @@ export class BorrowedBooksPage implements OnInit {
       },
       error: (error) => {
         console.error(error);
+        this.errorMessage.set('common.error');
       }
     });
   }

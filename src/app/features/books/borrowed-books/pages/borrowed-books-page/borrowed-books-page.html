@@ -2,6 +2,8 @@
 
 @if (isLoading()) {
   <app-loading-spinner/>
+} @else if (errorMessage()) {
+  <p>{{ errorMessage()! | translate }}</p>
 } @else if (borrowedBookEntries().length > 0) {
   <ul>
     @for (entry of borrowedBookEntries(); track entry.bookId) {

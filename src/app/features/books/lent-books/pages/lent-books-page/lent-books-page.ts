@@ -20,6 +20,8 @@ export class LentBooksPage implements OnInit {
   protected readonly translate = inject(TranslateService);
   readonly lentBooks = signal<Record<number, number>>({});
   readonly isLoading = signal(true);
+  readonly errorMessage = signal<string | null>(null)
+
 
   readonly lentBooksEntries = computed(() =>
     Object.entries(this.lentBooks())
@@ -34,6 +36,7 @@ export class LentBooksPage implements OnInit {
     const userId = Number(this.route.snapshot.paramMap.get('id'));
 
     this.isLoading.set(true);
+    this.errorMessage.set(null);
 
     this.bookService.getLentBooks(userId).subscribe({
       next: (dto: LentBooksDto) => {
@@ -42,6 +45,7 @@ export class LentBooksPage implements OnInit {
       },
       error: (error) => {
         console.error(error);
+        this.errorMessage.set('common.error');
         this.isLoading.set(false);
       }
     });

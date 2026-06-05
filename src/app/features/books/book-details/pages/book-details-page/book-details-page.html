@@ -2,6 +2,8 @@
 
 @if (isLoading()) {
   <app-loading-spinner/>
+} @else if (errorMessage()) {
+  <p>{{ errorMessage()! | translate }}</p>
 } @else if (book(); as book) {
 
   <h2>{{ book.title }}</h2>
@@ -35,4 +37,6 @@
     }
   </p>
 
+} @else {
+  <p>{{ 'common.empty' | translate }}</p>
 }

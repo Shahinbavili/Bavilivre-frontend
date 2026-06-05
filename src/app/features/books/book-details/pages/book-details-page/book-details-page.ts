@@ -24,11 +24,13 @@ export class BookDetailsPage implements OnInit {
 
   readonly book = signal<Book | null>(null);
   readonly owner = signal<User | null>(null);
-  readonly isLoading = signal(true);
+  readonly isLoading = signal(true)
+  readonly errorMessage = signal<string | null>(null)
 
   ngOnInit(): void {
 
     this.isLoading.set(true);
+    this.errorMessage.set(null);
 
     const bookId = Number(
       this.route.snapshot.paramMap.get('id')
@@ -44,11 +46,13 @@ export class BookDetailsPage implements OnInit {
           },
           error: (error) => {
             console.error(error);
+            this.errorMessage.set('common.error');
           }
         });
       },
       error: (error) => {
         console.error(error);
+        this.errorMessage.set('common.error');
         this.isLoading.set(false);
       }
     });
