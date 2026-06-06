@@ -63,8 +63,7 @@ export class BorrowedBooksPage implements OnInit {
                 [book.id]: book,
               }));
             },
-            error: (error) => {
-              console.error(error);
+            error: () => {
               this.errorMessage.set('common.error');
               this.isLoading.set(false);
             }
@@ -83,8 +82,7 @@ export class BorrowedBooksPage implements OnInit {
           })
         })
       },
-      error: (error) => {
-        console.error(error);
+      error: () => {
         this.errorMessage.set('common.error');
       }
     });

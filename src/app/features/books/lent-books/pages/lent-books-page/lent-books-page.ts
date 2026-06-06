@@ -43,8 +43,7 @@ export class LentBooksPage implements OnInit {
         this.lentBooks.set(dto.lentBookList);
         this.isLoading.set(false);
       },
-      error: (error) => {
-        console.error(error);
+      error: () => {
         this.errorMessage.set('common.error');
         this.isLoading.set(false);
       }

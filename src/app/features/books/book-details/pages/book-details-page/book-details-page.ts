@@ -44,14 +44,12 @@ export class BookDetailsPage implements OnInit {
           next: (user: User) => {
             this.owner.set(user);
           },
-          error: (error) => {
-            console.error(error);
+          error: () => {
             this.errorMessage.set('common.error');
           }
         });
       },
-      error: (error) => {
-        console.error(error);
+      error: () => {
         this.errorMessage.set('common.error');
         this.isLoading.set(false);
       }
