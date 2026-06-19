@@ -46,5 +46,14 @@
   },
   "users": {
     "loadingUser": "Benutzer #{{userId}} wird geladen..."
+  },
+  "errors": {
+    "EMAIL_ALREADY_REGISTERED": "Diese E-Mail-Adresse ist bereits registriert.",
+    "INVALID_CREDENTIALS": "Ungültige E-Mail-Adresse oder Passwort.",
+    "USER_NOT_FOUND": "Benutzer nicht gefunden.",
+    "CURRENT_USER_NOT_FOUND": "Angemeldeter Benutzer nicht gefunden.",
+    "BOOK_NOT_FOUND": "Buch nicht gefunden.",
+    "BORROWING_NOT_FOUND": "Ausleihvorgang nicht gefunden.",
+    "BOOK_ALREADY_RETURNED": "Dieses Buch wurde bereits zurückgegeben."
   }
 }

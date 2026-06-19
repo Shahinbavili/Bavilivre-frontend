@@ -45,5 +45,14 @@
   },
   "users": {
     "loadingUser": "در حال بارگذاری کاربر شماره {{userId}}..."
+  },
+  "errors": {
+    "EMAIL_ALREADY_REGISTERED": "این آدرس ایمیل قبلاً ثبت شده است.",
+    "INVALID_CREDENTIALS": "ایمیل یا رمز عبور نامعتبر است.",
+    "USER_NOT_FOUND": "کاربر پیدا نشد.",
+    "CURRENT_USER_NOT_FOUND": "کاربر وارد شده پیدا نشد.",
+    "BOOK_NOT_FOUND": "کتاب پیدا نشد.",
+    "BORROWING_NOT_FOUND": "اقدام به امانت گرفتن پیدا نشد.",
+    "BOOK_ALREADY_RETURNED": "این کتاب قبلاً بازگردانده شده است."
   }
 }

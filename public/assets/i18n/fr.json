@@ -29,7 +29,8 @@
       "description": "Description",
       "language": "Langue",
       "category": "Catégorie",
-      "owner": "Propriétaire"    },
+      "owner": "Propriétaire"
+    },
     "borrowed": {
       "title": "Livres empruntés",
       "empty": "Aucun livre emprunté",
@@ -44,5 +45,14 @@
   },
   "users": {
     "loadingUser": "Chargement de l'utilisateur #{{userId}}..."
+  },
+  "errors": {
+    "EMAIL_ALREADY_REGISTERED": "Cette adresse email est déjà enregistrée.",
+    "INVALID_CREDENTIALS": "Email ou mot de passe incorrect.",
+    "USER_NOT_FOUND": "Utilisateur introuvable.",
+    "CURRENT_USER_NOT_FOUND": "Utilisateur connecté introuvable.",
+    "BOOK_NOT_FOUND": "Livre introuvable.",
+    "BORROWING_NOT_FOUND": "Emprunt introuvable.",
+    "BOOK_ALREADY_RETURNED": "Ce livre a déjà été retourné."
   }
 }
