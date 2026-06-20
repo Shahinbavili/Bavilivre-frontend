@@ -1,0 +1,18 @@
+<h1>{{ 'auth.register.title' | translate }}</h1>
+
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="displayName">{{ 'auth.register.displayName' | translate }}</label>
+    <input id="displayName" type="text" formControlName="displayName">
+  </div>
+  <div>
+    <label for="email">{{ 'auth.register.email' | translate }}</label>
+    <input id="email" type="email" formControlName="email">
+  </div>
+  <div>
+    <label for="password">{{ 'auth.register.password' | translate }}</label>
+    <input id="password" type="password" formControlName="password">
+  </div>
+
+  <button type="submit">{{ 'auth.register.submit' | translate }}</button>
+</form>

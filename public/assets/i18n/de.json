@@ -62,6 +62,13 @@
       "email": "E-Mail-Adresse",
       "password": "Passwort",
       "submit": "Anmelden"
+    },
+    "register": {
+      "title": "Registrierung",
+      "displayName": "Anzeigename",
+      "email": "E-Mail-Adresse",
+      "password": "Passwort",
+      "submit": "Konto erstellen"
     }
   }
 }

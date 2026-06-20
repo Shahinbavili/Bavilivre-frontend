@@ -61,6 +61,13 @@
       "email": "ایمیل",
       "password": "رمز عبور",
       "submit": "ورود"
+    },
+    "register": {
+      "title": "ثبت‌ نام",
+      "displayName": "نام کاربر",
+      "email": "ایمیل",
+      "password": "رمز عبور",
+      "submit": "ایجاد حساب"
     }
   }
 }

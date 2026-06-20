@@ -62,6 +62,13 @@
       "email": "Email address",
       "password": "Password",
       "submit": "Sign in"
+    },
+    "register": {
+      "title": "Register",
+      "displayName": "Display name",
+      "email": "Email address",
+      "password": "Password",
+      "submit": "Create account"
     }
   }
 }
