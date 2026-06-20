@@ -55,5 +55,13 @@
     "BOOK_NOT_FOUND": "Buch nicht gefunden.",
     "BORROWING_NOT_FOUND": "Ausleihvorgang nicht gefunden.",
     "BOOK_ALREADY_RETURNED": "Dieses Buch wurde bereits zurückgegeben."
+  },
+  "auth": {
+    "login": {
+      "title": "Anmeldung",
+      "email": "E-Mail-Adresse",
+      "password": "Passwort",
+      "submit": "Anmelden"
+    }
   }
 }

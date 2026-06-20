@@ -24,5 +24,11 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/books/book-details/pages/book-details-page/book-details-page')
         .then(m => m.BookDetailsPage),
+  },
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./features/auth/login/pages/login-page/login-page')
+        .then(m => m.LoginPage),
   }
 ];

@@ -55,5 +55,13 @@
     "BOOK_NOT_FOUND": "Book not found.",
     "BORROWING_NOT_FOUND": "Borrowing record not found.",
     "BOOK_ALREADY_RETURNED": "This book has already been returned."
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "email": "Email address",
+      "password": "Password",
+      "submit": "Sign in"
+    }
   }
 }

@@ -54,5 +54,13 @@
     "BOOK_NOT_FOUND": "کتاب پیدا نشد.",
     "BORROWING_NOT_FOUND": "اقدام به امانت گرفتن پیدا نشد.",
     "BOOK_ALREADY_RETURNED": "این کتاب قبلاً بازگردانده شده است."
+  },
+  "auth": {
+    "login": {
+      "title": "ورود",
+      "email": "ایمیل",
+      "password": "رمز عبور",
+      "submit": "ورود"
+    }
   }
 }
