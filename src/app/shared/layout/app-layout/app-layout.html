@@ -1,0 +1,15 @@
+<div class="app-layout">
+  <app-header/>
+
+  <main class="app-layout__main">
+    <div class="container">
+      <router-outlet/>
+    </div>
+  </main>
+
+  <footer class="app-layout__footer">
+    <div class="container app-layout__footer-content">
+      {{ 'layout.footer.copyright' | translate }}
+    </div>
+  </footer>
+</div>

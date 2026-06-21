@@ -19,6 +19,9 @@
     "header": {
       "appName": "Bavilivre",
       "language": "Language"
+    },
+    "footer": {
+      "copyright": "© 2026 Bavilivre"
     }
   },
   "home": {

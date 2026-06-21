@@ -1,16 +1,18 @@
 <header class="app-header">
-  <a routerLink="/" class="app-header__brand">
-    {{ 'layout.header.appName' | translate }}
-  </a>
+  <div class="container">
+    <a routerLink="/" class="app-header__brand">
+      {{ 'layout.header.appName' | translate }}
+    </a>
 
-  <nav class="app-header__languages">
-    @for (lang of languages; track lang) {
-      <button
-        type="button"
-        (click)="setLang(lang)"
-        [class.active]="lang === currentLang">
-        {{ ('common.languages.' + lang) | translate }}
-      </button>
-    }
-  </nav>
+    <nav class="app-header__languages">
+      @for (lang of languages; track lang) {
+        <button
+          type="button"
+          (click)="setLang(lang)"
+          [class.active]="lang === currentLang">
+          {{ ('common.languages.' + lang) | translate }}
+        </button>
+      }
+    </nav>
+  </div>
 </header>
