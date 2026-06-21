@@ -15,12 +15,36 @@
       "fa": "فارسی"
     }
   },
+  "layout": {
+    "header": {
+      "appName": "Bavilivre",
+      "language": "Language"
+    }
+  },
   "home": {
-    "title": "Welcome to Bavilivre",
-    "subtitle": "Share, borrow and discover books around you.",
-    "borrowedBooks": "View my borrowed books",
-    "lentBooks": "View my lent books",
-    "chooseAnotherLanguage": "Choose another language:"
+    "hero": {
+      "title": "Welcome to Bavilivre",
+      "subtitle": "Share, borrow, and discover books around you."
+    },
+    "actions": {
+      "borrowedBooks": "View my borrowed books",
+      "lentBooks": "View my lent books"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "email": "Email address",
+      "password": "Password",
+      "submit": "Sign in"
+    },
+    "register": {
+      "title": "Register",
+      "displayName": "Display name",
+      "email": "Email address",
+      "password": "Password",
+      "submit": "Create account"
+    }
   },
   "books": {
     "details": {
@@ -55,20 +79,5 @@
     "BOOK_NOT_FOUND": "Book not found.",
     "BORROWING_NOT_FOUND": "Borrowing record not found.",
     "BOOK_ALREADY_RETURNED": "This book has already been returned."
-  },
-  "auth": {
-    "login": {
-      "title": "Login",
-      "email": "Email address",
-      "password": "Password",
-      "submit": "Sign in"
-    },
-    "register": {
-      "title": "Register",
-      "displayName": "Display name",
-      "email": "Email address",
-      "password": "Password",
-      "submit": "Create account"
-    }
   }
 }

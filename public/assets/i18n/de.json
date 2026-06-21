@@ -15,12 +15,36 @@
       "fa": "فارسی"
     }
   },
+  "layout": {
+    "header": {
+      "appName": "Bavilivre",
+      "language": "Sprache"
+    }
+  },
   "home": {
-    "title": "Willkommen bei Bavilivre",
-    "subtitle": "Teile, leihe und entdecke Bücher in deiner Umgebung.",
-    "borrowedBooks": "Meine ausgeliehenen Bücher anzeigen",
-    "lentBooks": "Meine verliehenen Bücher anzeigen",
-    "chooseAnotherLanguage": "Andere Sprache auswählen:"
+    "hero": {
+      "title": "Willkommen bei Bavilivre",
+      "subtitle": "Teilen, leihen und entdecken Sie Bücher in Ihrer Nähe."
+    },
+    "actions": {
+      "borrowedBooks": "Meine ausgeliehenen Bücher anzeigen",
+      "lentBooks": "Meine verliehenen Bücher anzeigen"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Anmeldung",
+      "email": "E-Mail-Adresse",
+      "password": "Passwort",
+      "submit": "Anmelden"
+    },
+    "register": {
+      "title": "Registrierung",
+      "displayName": "Anzeigename",
+      "email": "E-Mail-Adresse",
+      "password": "Passwort",
+      "submit": "Konto erstellen"
+    }
   },
   "books": {
     "details": {
@@ -55,20 +79,5 @@
     "BOOK_NOT_FOUND": "Buch nicht gefunden.",
     "BORROWING_NOT_FOUND": "Ausleihvorgang nicht gefunden.",
     "BOOK_ALREADY_RETURNED": "Dieses Buch wurde bereits zurückgegeben."
-  },
-  "auth": {
-    "login": {
-      "title": "Anmeldung",
-      "email": "E-Mail-Adresse",
-      "password": "Passwort",
-      "submit": "Anmelden"
-    },
-    "register": {
-      "title": "Registrierung",
-      "displayName": "Anzeigename",
-      "email": "E-Mail-Adresse",
-      "password": "Passwort",
-      "submit": "Konto erstellen"
-    }
   }
 }

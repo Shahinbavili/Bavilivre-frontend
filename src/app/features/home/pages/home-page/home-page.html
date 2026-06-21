@@ -1,42 +1,17 @@
-<section class="home">
+<h1>{{ 'home.hero.title' | translate }}</h1>
 
-  <div class="language-switcher">
+<p>
+  {{ 'home.hero.subtitle' | translate }}
+</p>
 
-    <span>{{ 'home.chooseAnotherLanguage' | translate }}</span>
+<a
+  routerLink="/users/1/borrowed-books"
+  routerLinkActive="active-link">
+  {{ 'home.actions.borrowedBooks' | translate }}
+</a>
 
-    @for (lang of languages; track lang) {
-      @if (lang !== currentLang) {
-        <button type="button" (click)="setLang(lang)">
-          {{ ('common.languages.' + lang) | translate }}
-        </button>
-      }
-    }
-
-  </div>
-
-  <hr/>
-
-  <h1>{{ 'home.title' | translate }}</h1>
-
-  <p class="subtitle">
-    {{ 'home.subtitle' | translate }}
-  </p>
-
-  <nav class="actions">
-
-    <a
-      routerLink="/users/1/borrowed-books"
-      routerLinkActive="active-link">
-      {{ 'home.borrowedBooks' | translate }}
-    </a>
-
-    <a
-      routerLink="/users/1/lent-books"
-      routerLinkActive="active-link">
-      {{ 'home.lentBooks' | translate }}
-    </a>
-
-  </nav>
-
-
-</section>
+<a
+  routerLink="/users/1/lent-books"
+  routerLinkActive="active-link">
+  {{ 'home.actions.lentBooks' | translate }}
+</a>
