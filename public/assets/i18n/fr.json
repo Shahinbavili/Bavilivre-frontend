@@ -47,6 +47,9 @@
       "email": "Adresse e-mail",
       "password": "Mot de passe",
       "submit": "S'inscrire"
+    },
+    "logout": {
+      "submit": "Se déconnecter"
     }
   },
   "books": {

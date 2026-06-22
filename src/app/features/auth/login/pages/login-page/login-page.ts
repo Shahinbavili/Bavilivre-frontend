@@ -34,10 +34,6 @@ export class LoginPage {
     }
 
     this.authService.login(this.loginForm.getRawValue()).subscribe({
-      next: response => {
-        console.log('Login successful', response);
-        console.log(response.token);
-      },
       error: error => {
         console.log('Login failed', error);
       }

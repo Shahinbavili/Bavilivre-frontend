@@ -1,6 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {TranslatePipe, TranslateService} from '@ngx-translate/core';
 import {RouterLink} from '@angular/router';
+import {AuthService} from '../../../../core/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +14,7 @@ import {RouterLink} from '@angular/router';
 })
 export class Header {
   private readonly translate = inject(TranslateService);
+  protected readonly authService = inject(AuthService);
 
   readonly languages = ['fr', 'en', 'de', 'fa'];
 
@@ -23,5 +25,9 @@ export class Header {
   setLang(lang: string): void {
     this.translate.use(lang);
     localStorage.setItem('lang', lang);
+  }
+
+  logout(): void {
+    this.authService.logout();
   }
 }

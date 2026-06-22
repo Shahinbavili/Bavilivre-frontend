@@ -14,5 +14,18 @@
         </button>
       }
     </nav>
+
+    @if (authService.isAuthenticated()) {
+
+      <button type="button" (click)="logout()">{{ 'auth.logout.submit' | translate }}</button>
+    } @else {
+      <button>
+        <a routerLink="/login">{{ 'auth.login.title' | translate }}</a>
+      </button>
+
+      <button>
+        <a routerLink="/register">{{ 'auth.register.title' | translate }}</a>
+      </button>
+    }
   </div>
 </header>

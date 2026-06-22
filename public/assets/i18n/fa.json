@@ -47,6 +47,9 @@
       "email": "ایمیل",
       "password": "رمز عبور",
       "submit": "ایجاد حساب"
+    },
+    "logout": {
+      "submit": "خروج"
     }
   },
   "books": {
