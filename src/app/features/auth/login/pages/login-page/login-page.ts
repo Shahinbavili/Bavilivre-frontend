@@ -38,6 +38,11 @@ export class LoginPage {
     }
 
     this.authService.login(this.loginForm.getRawValue()).subscribe({
+
+      next: () => {
+        this.authService.loadCurrentUser().subscribe();
+      },
+
       error: error => {
         if (error.status === 401) {
           this.errorMessageKey.set('auth.errors.invalidCredentials');

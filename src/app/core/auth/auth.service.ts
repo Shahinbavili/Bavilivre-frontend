@@ -2,7 +2,7 @@ import {inject, Injectable, signal} from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {Observable, tap} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import {AuthenticationResponse, LoginRequest, RegisterRequest,} from './auth.models';
+import {AuthenticationResponse, LoginRequest, RegisterRequest, UserDto,} from './auth.models';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +13,7 @@ export class AuthService {
   private readonly tokenStorageKey = 'bavilivre_jwt';
 
   readonly isAuthenticated = signal(false);
+  readonly currentUser = signal<UserDto | null>(null);
 
   constructor() {
     this.loadStoredToken();
@@ -36,6 +37,7 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem(this.tokenStorageKey);
     this.isAuthenticated.set(false);
+    this.currentUser.set(null);
   }
 
   getToken(): string | null {
@@ -49,8 +51,24 @@ export class AuthService {
   private loadStoredToken() {
     const token = localStorage.getItem(this.tokenStorageKey);
 
-    if (token) {
-      this.isAuthenticated.set(true);
+    if (!token) {
+      return;
     }
+
+    this.isAuthenticated.set(true);
+
+    this.loadCurrentUser().subscribe({
+      error: () => {
+        this.logout();
+      }
+    });
+  }
+
+  loadCurrentUser(): Observable<UserDto> {
+    return this.http.get<UserDto>(`${this.apiUrl}/me`).pipe(
+      tap(user => {
+        this.currentUser.set(user);
+      })
+    );
   }
 }

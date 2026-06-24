@@ -6,9 +6,16 @@ export const authInterceptor: HttpInterceptorFn = (request, next) => {
   const authService = inject(AuthService);
   const token = authService.getToken();
 
-  const isAuthEndpoint = request.url.includes('/api/auth/');
+  const publicEndpoints = [
+    '/api/auth/login',
+    '/api/auth/register',
+  ];
 
-  if (!token || isAuthEndpoint) {
+  const isPublicEndpoint = publicEndpoints.some(endpoint =>
+    request.url.includes(endpoint)
+  );
+
+  if (!token || isPublicEndpoint) {
     return next(request);
   }
 

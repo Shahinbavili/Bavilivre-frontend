@@ -2,6 +2,7 @@ import {Component, inject, signal} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
 import {AppLayout} from './shared/layout/app-layout/app-layout';
+import {AuthService} from './core/auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,8 @@ export class App {
 
   private translate = inject(TranslateService);
   private supportedLangs = ['fr', 'en', 'de', 'fa'];
+
+  private readonly authService = inject(AuthService);
 
   constructor() {
     this.translate.addLangs(this.supportedLangs);

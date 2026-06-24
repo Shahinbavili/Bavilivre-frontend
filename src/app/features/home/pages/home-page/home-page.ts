@@ -17,8 +17,4 @@ import {AuthService} from '../../../../core/auth/auth.service';
 export class HomePage {
 
   private readonly authService = inject(AuthService);
-
-  constructor() {
-    console.log('Authenticated: ', this.authService.isAuthenticated());
-  }
 }
