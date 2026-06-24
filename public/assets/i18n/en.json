@@ -50,6 +50,18 @@
     },
     "logout": {
       "submit": "Sign out"
+    },
+    "validation": {
+      "emailRequired": "Email address is required.",
+      "emailInvalid": "Email address is invalid.",
+      "passwordRequired": "Password is required.",
+      "displayNameRequired": "Display name is required."
+    },
+    "errors": {
+      "invalidCredentials": "Email or password is incorrect.",
+      "emailAlreadyRegistered": "This email address is already registered.",
+      "network": "Unable to reach the server.",
+      "unknown": "An error occurred. Please try again."
     }
   },
   "books": {

@@ -50,6 +50,18 @@
     },
     "logout": {
       "submit": "خروج"
+    },
+    "validation": {
+      "emailRequired": "وارد کردن ایمیل الزامی است.",
+      "emailInvalid": "ایمیل واردشده معتبر نیست.",
+      "passwordRequired": "وارد کردن رمز عبور الزامی است.",
+      "displayNameRequired": "وارد کردن نام نمایشی الزامی است."
+    },
+    "errors": {
+      "invalidCredentials": "ایمیل یا رمز عبور نادرست است.",
+      "emailAlreadyRegistered": "این ایمیل قبلاً ثبت شده است.",
+      "network": "امکان ارتباط با سرور وجود ندارد.",
+      "unknown": "خطایی رخ داد. لطفاً دوباره تلاش کنید."
     }
   },
   "books": {

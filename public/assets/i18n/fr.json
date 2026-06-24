@@ -50,6 +50,18 @@
     },
     "logout": {
       "submit": "Se déconnecter"
+    },
+    "validation": {
+      "emailRequired": "L'adresse e-mail est obligatoire.",
+      "emailInvalid": "L'adresse e-mail est invalide.",
+      "passwordRequired": "Le mot de passe est obligatoire.",
+      "displayNameRequired": "Le nom affiché est obligatoire."
+    },
+    "errors": {
+      "invalidCredentials": "Email ou mot de passe incorrect.",
+      "emailAlreadyRegistered": "Cette adresse e-mail est déjà utilisée.",
+      "network": "Impossible de contacter le serveur.",
+      "unknown": "Une erreur est survenue. Veuillez réessayer."
     }
   },
   "books": {

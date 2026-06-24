@@ -1,13 +1,38 @@
 <h1>{{ 'auth.login.title' | translate }}</h1>
 
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+  @if (errorMessageKey()) {
+    <p class="form-error">
+      {{ errorMessageKey() | translate }}
+    </p>
+  }
+
   <div>
     <label for="email">{{ 'auth.login.email' | translate }}</label>
     <input id="email" type="email" formControlName="email"/>
+    @if (loginForm.controls.email.touched && loginForm.controls.email.hasError('required')) {
+      <p class="form-error">
+        {{ 'auth.validation.emailRequired' | translate }}
+      </p>
+    }
+
+    @if (loginForm.controls.email.touched && loginForm.controls.email.hasError(('email'))) {
+      <p class="form-error">
+        {{ 'auth.validation.emailInvalid' | translate }}
+      </p>
+    }
   </div>
+
   <div>
     <label for="password">{{ 'auth.login.password' | translate }}</label>
     <input id="password" type="password" formControlName="password">
+
+    @if (loginForm.controls.password.touched && loginForm.controls.password.hasError('required')) {
+      <p class="form-error">
+        {{ 'auth.validation.passwordRequired' | translate }}
+      </p>
+    }
   </div>
 
   <button type="submit">{{ 'auth.login.submit' | translate }}</button>

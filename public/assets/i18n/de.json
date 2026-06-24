@@ -50,6 +50,18 @@
     },
     "logout": {
       "submit": "Abmelden"
+    },
+    "validation": {
+      "emailRequired": "Die E-Mail-Adresse ist erforderlich.",
+      "emailInvalid": "Die E-Mail-Adresse ist ungültig.",
+      "passwordRequired": "Das Passwort ist erforderlich.",
+      "displayNameRequired": "Der Anzeigename ist erforderlich."
+    },
+    "errors": {
+      "invalidCredentials": "E-Mail oder Passwort ist falsch.",
+      "emailAlreadyRegistered": "Diese E-Mail-Adresse ist bereits registriert.",
+      "network": "Der Server ist nicht erreichbar.",
+      "unknown": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
     }
   },
   "books": {
