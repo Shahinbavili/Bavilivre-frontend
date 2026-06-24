@@ -12,3 +12,9 @@ export interface RegisterRequest {
 export interface AuthenticationResponse {
   token: string;
 }
+
+export interface UserDto {
+  id: number;
+  displayName: string;
+  email: string;
+}
