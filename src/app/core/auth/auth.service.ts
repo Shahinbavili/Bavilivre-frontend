@@ -12,7 +12,7 @@ export class AuthService {
   private readonly apiUrl = `${environment.apiBaseUrl}/api/auth`;
   private readonly tokenStorageKey = 'bavilivre_jwt';
 
-  readonly isAuthenticated = signal(false);
+  readonly isAuthenticated = signal(!!localStorage.getItem(this.tokenStorageKey));
   readonly currentUser = signal<UserDto | null>(null);
 
   constructor() {
@@ -49,19 +49,8 @@ export class AuthService {
   }
 
   private loadStoredToken() {
-    const token = localStorage.getItem(this.tokenStorageKey);
 
-    if (!token) {
-      return;
-    }
-
-    this.isAuthenticated.set(true);
-
-    this.loadCurrentUser().subscribe({
-      error: () => {
-        this.logout();
-      }
-    });
+    this.isAuthenticated.set(!!localStorage.getItem(this.tokenStorageKey));
   }
 
   loadCurrentUser(): Observable<UserDto> {

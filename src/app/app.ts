@@ -38,6 +38,12 @@ export class App {
     this.translate.onLangChange.subscribe(event => {
       this.updateDirection(event.lang);
     });
+
+    if (this.authService.isAuthenticated()) {
+      this.authService.loadCurrentUser().subscribe({
+        error: () => this.authService.logout(),
+      });
+    }
   }
 
   private updateDirection(lang: string): void {
