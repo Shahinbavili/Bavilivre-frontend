@@ -1,5 +1,5 @@
 <header class="app-header">
-  <div class="container">
+  <div class="container app-header__content">
     <a routerLink="/" class="app-header__brand">
       {{ 'layout.header.appName' | translate }}
     </a>
@@ -15,17 +15,19 @@
       }
     </nav>
 
-    @if (authService.isAuthenticated()) {
-
-      <button type="button" (click)="logout()">{{ 'auth.logout.submit' | translate }}</button>
-    } @else {
-      <button>
-        <a routerLink="/login">{{ 'auth.login.title' | translate }}</a>
-      </button>
-
-      <button>
-        <a routerLink="/register">{{ 'auth.register.title' | translate }}</a>
-      </button>
-    }
+    <nav class="app-header__auth">
+      @if (authService.isAuthenticated()) {
+        <button type="button" (click)="logout()">
+          {{ 'auth.logout.submit' | translate }}
+        </button>
+      } @else {
+        <a routerLink="/login" class="app-header__link">
+          {{ 'auth.login.title' | translate }}
+        </a>
+        <a routerLink="/register" class="app-header__link">
+          {{ 'auth.register.title' | translate }}
+        </a>
+      }
+    </nav>
   </div>
 </header>

@@ -35,5 +35,10 @@
     }
   </div>
 
-  <button type="submit">{{ 'auth.login.submit' | translate }}</button>
+  <button
+    type="submit"
+    [disabled]="loginForm.invalid"
+    class="auth-form__submit">
+    {{ 'auth.login.submit' | translate }}
+  </button>
 </form>

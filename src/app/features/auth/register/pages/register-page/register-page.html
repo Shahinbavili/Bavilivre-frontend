@@ -14,5 +14,10 @@
     <input id="password" type="password" formControlName="password">
   </div>
 
-  <button type="submit">{{ 'auth.register.submit' | translate }}</button>
+  <button
+    type="submit"
+    [disabled]="registerForm.invalid"
+    class="auth-form__submit">
+    {{ 'auth.register.submit' | translate }}
+  </button>
 </form>
