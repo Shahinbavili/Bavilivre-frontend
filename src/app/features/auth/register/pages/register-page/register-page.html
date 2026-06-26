@@ -1,5 +1,11 @@
 <h1>{{ 'auth.register.title' | translate }}</h1>
 
+@if (successMessageKey()) {
+  <p class="form-success">
+    {{ successMessageKey() | translate }}
+  </p>
+}
+
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
   <div>
     <label for="displayName">{{ 'auth.register.displayName' | translate }}</label>

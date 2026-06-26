@@ -46,7 +46,8 @@
       "displayName": "Display name",
       "email": "Email address",
       "password": "Password",
-      "submit": "Create account"
+      "submit": "Create account",
+      "success": "Your account has been created successfully. Redirecting to the login page..."
     },
     "logout": {
       "submit": "Sign out"

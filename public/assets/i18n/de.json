@@ -46,7 +46,8 @@
       "displayName": "Anzeigename",
       "email": "E-Mail-Adresse",
       "password": "Passwort",
-      "submit": "Konto erstellen"
+      "submit": "Konto erstellen",
+      "success": "Ihr Konto wurde erfolgreich erstellt. Weiterleitung zur Anmeldeseite..."
     },
     "logout": {
       "submit": "Abmelden"

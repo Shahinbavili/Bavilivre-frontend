@@ -46,7 +46,8 @@
       "displayName": "Nom affiché",
       "email": "Adresse e-mail",
       "password": "Mot de passe",
-      "submit": "S'inscrire"
+      "submit": "S'inscrire",
+      "success": "Votre compte a été créé avec succès. Redirection vers la page de connexion..."
     },
     "logout": {
       "submit": "Se déconnecter"

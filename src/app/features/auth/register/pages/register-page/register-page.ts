@@ -1,7 +1,8 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {AuthService} from '../../../../../core/auth/auth.service';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {TranslatePipe} from '@ngx-translate/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register-page',
@@ -15,6 +16,8 @@ import {TranslatePipe} from '@ngx-translate/core';
 export class RegisterPage {
 
   private readonly authService = inject(AuthService);
+  private readonly router = inject(Router);
+  readonly successMessageKey = signal<string | null>(null);
 
   readonly registerForm = new FormGroup({
     displayName: new FormControl('', {
@@ -38,8 +41,13 @@ export class RegisterPage {
     }
 
     this.authService.register(this.registerForm.getRawValue()).subscribe({
-      next: response => {
-        console.log('Register successful', response);
+      next: () => {
+        this.successMessageKey.set('auth.register.success');
+
+        setTimeout(() => {
+          this.router.navigate(['/login']);
+        }, 1500);
+
       }, error: error => {
         console.log('Register failed', error);
       }
