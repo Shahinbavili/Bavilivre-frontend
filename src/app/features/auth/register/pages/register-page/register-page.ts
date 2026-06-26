@@ -18,6 +18,7 @@ export class RegisterPage {
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
   readonly successMessageKey = signal<string | null>(null);
+  readonly errorMessageKey = signal<string | null>(null);
 
   readonly registerForm = new FormGroup({
     displayName: new FormControl('', {
@@ -40,6 +41,9 @@ export class RegisterPage {
       return;
     }
 
+    this.errorMessageKey.set(null);
+    this.successMessageKey.set(null);
+
     this.authService.register(this.registerForm.getRawValue()).subscribe({
       next: () => {
         this.successMessageKey.set('auth.register.success');
@@ -49,7 +53,17 @@ export class RegisterPage {
         }, 1500);
 
       }, error: error => {
-        console.log('Register failed', error);
+        const errorCode = error.error?.code;
+
+        if (errorCode) {
+          this.errorMessageKey.set(`errors.${errorCode}`);
+          return;
+        }
+        if (error.status === 0) {
+          this.errorMessageKey.set('auth.errors.network');
+          return;
+        }
+        this.errorMessageKey.set('auth.errors.unknown');
       }
     })
   }

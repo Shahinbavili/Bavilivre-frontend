@@ -6,6 +6,12 @@
   </p>
 }
 
+@if (errorMessageKey()) {
+  <p class="form-error">
+    {{ errorMessageKey() | translate }}
+  </p>
+}
+
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
   <div>
     <label for="displayName">{{ 'auth.register.displayName' | translate }}</label>
