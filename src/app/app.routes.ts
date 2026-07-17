@@ -36,5 +36,11 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/auth/register/pages/register-page/register-page')
         .then(m => m.RegisterPage),
+  },
+  {
+    path: 'books',
+    loadComponent: () =>
+      import('./features/books/book-catalog/pages/book-catalog-page/book-catalog-page')
+        .then(m => m.BookCatalogPage),
   }
 ];

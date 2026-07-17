@@ -1,0 +1,17 @@
+<h1>Books</h1>
+
+@if (loading()) {
+  <p>Loading...</p>
+} @else if (loadError()) {
+  <p>Unable to load books.</p>
+} @else if (books().length === 0) {
+  <p>No books found</p>
+} @else {
+  <ul>
+    @for (book of books(); track book.id) {
+      <li>
+        {{ book.title }} - {{ book.author }}
+      </li>
+    }
+  </ul>
+}

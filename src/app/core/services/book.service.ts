@@ -5,6 +5,7 @@ import {Book} from '../models/book.model';
 import {BorrowedBooksDto} from '../dto/borrowed-books.dto';
 import {LentBooksDto} from '../dto/lent-books.dto';
 import {API_BASE_URL} from '../config/api.config';
+import {PageResponseModel} from '../../features/books/models/page-response.model';
 
 @Injectable({
   providedIn: 'root',
@@ -14,8 +15,8 @@ export class BookService {
 
   private readonly apiUrl = API_BASE_URL;
 
-  getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>(`${this.apiUrl}/books`);
+  getBooks(): Observable<PageResponseModel<Book>> {
+    return this.http.get<PageResponseModel<Book>>(`${this.apiUrl}/api/books`);
   }
 
   getBorrowedBooks(userId: number): Observable<BorrowedBooksDto> {

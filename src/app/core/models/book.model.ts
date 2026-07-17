@@ -6,4 +6,7 @@ export interface Book {
   description: string;
   language: string;
   category: string;
+  available: boolean;
+  archived: boolean;
+  createdAt: String;
 }
