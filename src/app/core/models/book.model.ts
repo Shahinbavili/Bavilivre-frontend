@@ -8,5 +8,5 @@ export interface Book {
   category: string;
   available: boolean;
   archived: boolean;
-  createdAt: String;
+  createdAt: string;
 }

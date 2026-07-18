@@ -1,17 +1,35 @@
-<h1>Books</h1>
+<section class="book-catalog">
 
-@if (loading()) {
-  <p>Loading...</p>
-} @else if (loadError()) {
-  <p>Unable to load books.</p>
-} @else if (books().length === 0) {
-  <p>No books found</p>
-} @else {
-  <ul>
-    @for (book of books(); track book.id) {
-      <li>
-        {{ book.title }} - {{ book.author }}
-      </li>
-    }
-  </ul>
-}
+  <h1 class="catalog-title">
+    Book catalog
+  </h1>
+
+  @if (loading()) {
+
+    <p class="catalog-state">
+      Loading books...
+    </p>
+
+  } @else if (loadError()) {
+
+    <p class="catalog-state error">
+      Unable to load books.
+    </p>
+
+  } @else if (books().length === 0) {
+
+    <p class="catalog-state">
+      No books found.
+    </p>
+
+  } @else {
+
+    <div class="catalog-grid">
+      @for (book of books(); track book.id) {
+        <app-book-card [book]="book" />
+      }
+    </div>
+
+  }
+
+</section>

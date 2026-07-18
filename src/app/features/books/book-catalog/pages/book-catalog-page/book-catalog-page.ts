@@ -2,10 +2,11 @@ import {Component, inject, OnInit, signal} from '@angular/core';
 import {BookService} from '../../../../../core/services/book.service';
 import {Book} from '../../../../../core/models/book.model';
 import {finalize} from 'rxjs';
+import {BookCard} from '../../../components/book-card/book-card';
 
 @Component({
   selector: 'app-book-catalog-page',
-  imports: [],
+  imports: [BookCard],
   templateUrl: './book-catalog-page.html',
   styleUrl: './book-catalog-page.scss',
 })

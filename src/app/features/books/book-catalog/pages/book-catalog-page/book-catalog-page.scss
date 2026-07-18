@@ -1,0 +1,29 @@
+.book-catalog {
+  max-width: 75rem;
+  margin-inline: auto;
+  padding: 1.5rem;
+}
+
+.catalog-title {
+  margin-block: 0 1.5rem;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1.25rem;
+}
+
+.catalog-state {
+  padding: 1rem;
+
+  border: 1px solid #ddd;
+  border-radius: 8px;
+
+  text-align: center;
+}
+
+.catalog-state.error {
+  color: #b3261e;
+  border-color: currentColor;
+}
