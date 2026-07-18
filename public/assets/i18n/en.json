@@ -66,13 +66,28 @@
     }
   },
   "books": {
+    "catalog": {
+      "title": "Book Catalog"
+    },
     "details": {
-      "title": "Book Details",
+      "title": "Book Details"
+    },
+    "fields": {
       "author": "Author",
       "description": "Description",
       "language": "Language",
       "category": "Category",
-      "owner": "Owner"
+      "owner": "Owner",
+      "createdAt": "Added on"
+    },
+    "status": {
+      "available": "Available",
+      "unavailable": "Unavailable"
+    },
+    "messages": {
+      "loading": "Loading books...",
+      "empty": "No books found.",
+      "error": "Unable to load books."
     },
     "borrowed": {
       "title": "Borrowed Books",

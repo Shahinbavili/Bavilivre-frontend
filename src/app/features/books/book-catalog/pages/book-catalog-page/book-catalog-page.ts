@@ -3,10 +3,11 @@ import {BookService} from '../../../../../core/services/book.service';
 import {Book} from '../../../../../core/models/book.model';
 import {finalize} from 'rxjs';
 import {BookCard} from '../../../components/book-card/book-card';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-book-catalog-page',
-  imports: [BookCard],
+  imports: [BookCard, TranslatePipe],
   templateUrl: './book-catalog-page.html',
   styleUrl: './book-catalog-page.scss',
 })

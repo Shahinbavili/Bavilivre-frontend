@@ -66,13 +66,28 @@
     }
   },
   "books": {
+    "catalog": {
+      "title": "Bücherkatalog"
+    },
     "details": {
-      "title": "Book Details",
-      "author": "Author",
-      "description": "Description",
-      "language": "Language",
-      "category": "Category",
-      "owner": "Besitzer"
+      "title": "Buchdetails"
+    },
+    "fields": {
+      "author": "Autor",
+      "description": "Beschreibung",
+      "language": "Sprache",
+      "category": "Kategorie",
+      "owner": "Besitzer",
+      "createdAt": "Hinzugefügt am"
+    },
+    "status": {
+      "available": "Verfügbar",
+      "unavailable": "Nicht verfügbar"
+    },
+    "messages": {
+      "loading": "Bücher werden geladen...",
+      "empty": "Keine Bücher gefunden.",
+      "error": "Die Bücher konnten nicht geladen werden."
     },
     "borrowed": {
       "title": "Ausgeliehene Bücher",

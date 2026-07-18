@@ -66,13 +66,28 @@
     }
   },
   "books": {
+    "catalog": {
+      "title": "Catalogue des livres"
+    },
     "details": {
-      "title": "Détails du livre",
+      "title": "Détails du livre"
+    },
+    "fields": {
       "author": "Auteur",
       "description": "Description",
       "language": "Langue",
       "category": "Catégorie",
-      "owner": "Propriétaire"
+      "owner": "Propriétaire",
+      "createdAt": "Ajouté le"
+    },
+    "status": {
+      "available": "Disponible",
+      "unavailable": "Indisponible"
+    },
+    "messages": {
+      "loading": "Chargement des livres...",
+      "empty": "Aucun livre trouvé.",
+      "error": "Impossible de charger les livres."
     },
     "borrowed": {
       "title": "Livres empruntés",

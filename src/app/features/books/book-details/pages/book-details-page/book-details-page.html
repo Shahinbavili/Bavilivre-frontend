@@ -9,27 +9,27 @@
   <h2>{{ book.title }}</h2>
 
   <p>
-    <strong>{{ 'books.details.author' | translate }}: </strong>
+    <strong>{{ 'books.fields.author' | translate }}: </strong>
     {{ book.author }}
   </p>
 
   <p>
-    <strong>{{ 'books.details.description' | translate }}: </strong>
+    <strong>{{ 'books.fields.description' | translate }}: </strong>
     <span dir="auto">{{ book.description }}</span>
   </p>
 
   <p>
-    <strong>{{ 'books.details.language' | translate }}: </strong>
+    <strong>{{ 'books.fields.language' | translate }}: </strong>
     {{ book.language }}
   </p>
 
   <p>
-    <strong>{{ 'books.details.category' | translate }}: </strong>
+    <strong>{{ 'books.fields.category' | translate }}: </strong>
     {{ book.category }}
   </p>
 
   <p>
-    <strong>{{ 'books.details.owner' | translate }}: </strong>
+    <strong>{{ 'books.fields.owner' | translate }}: </strong>
     @if (owner(); as owner) {
       {{ owner.displayName }}
     } @else {

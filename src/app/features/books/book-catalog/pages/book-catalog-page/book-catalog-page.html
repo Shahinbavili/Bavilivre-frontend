@@ -1,32 +1,32 @@
 <section class="book-catalog">
 
   <h1 class="catalog-title">
-    Book catalog
+    {{ 'books.catalog.title' | translate }}
   </h1>
 
   @if (loading()) {
 
     <p class="catalog-state">
-      Loading books...
+      {{ 'books.message.loading' | translate }}
     </p>
 
   } @else if (loadError()) {
 
     <p class="catalog-state error">
-      Unable to load books.
+      {{ 'books.message.error' | translate }}
     </p>
 
   } @else if (books().length === 0) {
 
     <p class="catalog-state">
-      No books found.
+      {{ 'books.message.empty' | translate }}
     </p>
 
   } @else {
 
     <div class="catalog-grid">
       @for (book of books(); track book.id) {
-        <app-book-card [book]="book" />
+        <app-book-card [book]="book"/>
       }
     </div>
 

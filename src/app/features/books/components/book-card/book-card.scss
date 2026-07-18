@@ -38,13 +38,13 @@
 
 /* ---------- Book information ---------- */
 
-.book-info {
+.book-metadata {
   display: flex;
   flex-direction: column;
   gap: .75rem;
 }
 
-.book-info-item {
+.book-metadata-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
