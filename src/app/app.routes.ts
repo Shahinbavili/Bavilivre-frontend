@@ -20,12 +20,6 @@ export const routes: Routes = [
         .then(m => m.LentBooksPage),
   },
   {
-    path: 'books/:id',
-    loadComponent: () =>
-      import('./features/books/book-details/pages/book-details-page/book-details-page')
-        .then(m => m.BookDetailsPage),
-  },
-  {
     path: 'login',
     loadComponent: () =>
       import('./features/auth/login/pages/login-page/login-page')
@@ -42,5 +36,17 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/books/book-catalog/pages/book-catalog-page/book-catalog-page')
         .then(m => m.BookCatalogPage),
-  }
+  },
+  {
+    path: 'books/add',
+    loadComponent: () =>
+      import('./features/books/add-book/pages/add-book-page/add-book-page')
+        .then(m => m.AddBookPage),
+  },
+  {
+    path: 'books/:id',
+    loadComponent: () =>
+      import('./features/books/book-details/pages/book-details-page/book-details-page')
+        .then(m => m.BookDetailsPage),
+  },
 ];

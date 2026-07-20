@@ -1,1 +1,23 @@
-<p>add-book-page works!</p>
+<section class="add-book-page">
+  <h1>
+    {{ 'books.add.title' | translate }}
+  </h1>
+
+  @if (submitError()) {
+    <p class="submit-error">
+      {{ 'books.messages.createError' | translate }}
+    </p>
+  }
+
+  <app-book-form
+    [submitLabel]="'books.actions.create'"
+    [submitting]="submitting()"
+    (submitted)="createBook($event)"
+  />
+
+  @if (submitting()) {
+    <p>
+      {{ 'books.messages.creating' | translate }}
+    </p>
+  }
+</section>

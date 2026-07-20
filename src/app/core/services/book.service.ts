@@ -6,6 +6,7 @@ import {BorrowedBooksDto} from '../dto/borrowed-books.dto';
 import {LentBooksDto} from '../dto/lent-books.dto';
 import {API_BASE_URL} from '../config/api.config';
 import {PageResponseModel} from '../../features/books/models/page-response.model';
+import {BookFormModel} from '../models/book-form.model';
 
 @Injectable({
   providedIn: 'root',
@@ -34,6 +35,12 @@ export class BookService {
   getBookById(bookId: number): Observable<Book> {
     return this.http.get<Book>(
       `${this.apiUrl}/books/${bookId}`
+    );
+  }
+
+  createBook(book: BookFormModel): Observable<Book> {
+    return this.http.post<Book>(
+      `${this.apiUrl}/api/books`, book
     );
   }
 }

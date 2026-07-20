@@ -103,10 +103,15 @@
       "create": "Ajouter le livre",
       "update": "Enregistrer les modifications"
     },
+    "add": {
+      "title": "Ajouter un livre"
+    },
     "messages": {
       "loading": "Chargement des livres...",
       "empty": "Aucun livre trouvé.",
-      "error": "Impossible de charger les livres."
+      "error": "Impossible de charger les livres.",
+      "creating": "Ajout du livre en cours...",
+      "createError": "Impossible d'ajouter le livre."
     },
     "borrowed": {
       "title": "Livres empruntés",

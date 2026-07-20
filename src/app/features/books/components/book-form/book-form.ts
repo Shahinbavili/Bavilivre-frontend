@@ -1,4 +1,4 @@
-import {Component, output} from '@angular/core';
+import {Component, input, output} from '@angular/core';
 import {BookFormModel} from '../../../../core/models/book-form.model';
 import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
 import {TranslatePipe} from '@ngx-translate/core';
@@ -13,7 +13,9 @@ import {TranslatePipe} from '@ngx-translate/core';
   styleUrl: './book-form.scss',
 })
 export class BookForm {
-  readonly submitted = output<BookFormModel>()
+  readonly submitLabel = input.required<string>();
+  readonly submitting = input(false);
+  readonly submitted = output<BookFormModel>();
 
   private readonly formBuilder = new FormBuilder();
 

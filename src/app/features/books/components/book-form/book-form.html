@@ -1,7 +1,7 @@
 <form class="book-form" [formGroup]="form" (ngSubmit)="submit()">
   <div class="form-field">
     <label for="title">
-      {{ 'book.fields.title' | translate }}
+      {{ 'books.fields.title' | translate }}
     </label>
     <input id="title" type="text" formControlName="title"/>
 
@@ -20,19 +20,19 @@
 
   <div class="form-field">
     <label for="author">
-      {{ 'book.fields.author' | translate }}
+      {{ 'books.fields.author' | translate }}
     </label>
     <input type="text" id="author" formControlName="author"/>
 
     @if (form.controls.author.touched && form.controls.author.hasError('required')) {
       <p class="field-error">
-        {{ 'book.validation.authorRequired' | translate }}
+        {{ 'books.validation.authorRequired' | translate }}
       </p>
     }
 
     @if (form.controls.author.touched && form.controls.author.hasError('maxlength')) {
       <p class="field-error">
-        {{ 'book.validation.authorMaxLength' | translate }}
+        {{ 'books.validation.authorMaxLength' | translate }}
       </p>
     }
   </div>
@@ -52,13 +52,13 @@
 
     @if (form.controls.description.touched && form.controls.description.hasError('required')) {
       <p class="field-error">
-        {{ 'book.validation.descriptionRequired' | translate }}
+        {{ 'books.validation.descriptionRequired' | translate }}
       </p>
     }
 
     @if (form.controls.description.touched && form.controls.description.hasError('maxlength')) {
       <p class="field-error">
-        {{ 'book.validation.descriptionMaxLength' | translate }}
+        {{ 'books.validation.descriptionMaxLength' | translate }}
       </p>
     }
   </div>
@@ -102,7 +102,7 @@
     }
   </div>
 
-  <button type="submit" [disabled]="form.invalid">
-    {{ 'common.actions.save' | translate }}
+  <button type="submit" [disabled]="form.invalid || submitting()">
+    {{ submitLabel() | translate }}
   </button>
 </form>

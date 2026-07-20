@@ -103,10 +103,15 @@
       "create": "Buch hinzufügen",
       "update": "Änderungen speichern"
     },
+    "add": {
+      "title": "Buch hinzufügen"
+    },
     "messages": {
       "loading": "Bücher werden geladen...",
       "empty": "Keine Bücher gefunden.",
-      "error": "Die Bücher konnten nicht geladen werden."
+      "error": "Die Bücher konnten nicht geladen werden.",
+      "creating": "Das Buch wird hinzugefügt...",
+      "createError": "Das Buch konnte nicht hinzugefügt werden."
     },
     "borrowed": {
       "title": "Ausgeliehene Bücher",
