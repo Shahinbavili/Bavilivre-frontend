@@ -73,6 +73,7 @@
       "title": "Buchdetails"
     },
     "fields": {
+      "title": "Titel",
       "author": "Autor",
       "description": "Beschreibung",
       "language": "Sprache",
@@ -80,9 +81,27 @@
       "owner": "Besitzer",
       "createdAt": "Hinzugefügt am"
     },
+    "form": {
+      "selectLanguage": "Sprache auswählen"
+    },
+    "validation": {
+      "titleRequired": "Der Titel ist erforderlich.",
+      "titleMaxLength": "Der Titel darf höchstens 255 Zeichen enthalten.",
+      "authorRequired": "Der Autor ist erforderlich.",
+      "authorMaxLength": "Der Autor darf höchstens 255 Zeichen enthalten.",
+      "descriptionRequired": "Die Beschreibung ist erforderlich.",
+      "descriptionMaxLength": "Die Beschreibung darf höchstens 2000 Zeichen enthalten.",
+      "languageRequired": "Die Sprache ist erforderlich.",
+      "categoryRequired": "Die Kategorie ist erforderlich.",
+      "categoryMaxLength": "Die Kategorie darf höchstens 100 Zeichen enthalten."
+    },
     "status": {
       "available": "Verfügbar",
       "unavailable": "Nicht verfügbar"
+    },
+    "actions": {
+      "create": "Buch hinzufügen",
+      "update": "Änderungen speichern"
     },
     "messages": {
       "loading": "Bücher werden geladen...",

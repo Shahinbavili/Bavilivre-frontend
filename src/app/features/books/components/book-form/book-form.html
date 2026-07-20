@@ -1,1 +1,108 @@
-<p>book-form works!</p>
+<form class="book-form" [formGroup]="form" (ngSubmit)="submit()">
+  <div class="form-field">
+    <label for="title">
+      {{ 'book.fields.title' | translate }}
+    </label>
+    <input id="title" type="text" formControlName="title"/>
+
+    @if (form.controls.title.touched && form.controls.title.hasError('required')) {
+      <p class="field-error">
+        {{ 'books.validation.titleRequired' | translate }}
+      </p>
+    }
+
+    @if (form.controls.title.touched && form.controls.title.hasError('maxlength')) {
+      <p class="field-error">
+        {{ 'books.validation.titleMaxLength' | translate }}
+      </p>
+    }
+  </div>
+
+  <div class="form-field">
+    <label for="author">
+      {{ 'book.fields.author' | translate }}
+    </label>
+    <input type="text" id="author" formControlName="author"/>
+
+    @if (form.controls.author.touched && form.controls.author.hasError('required')) {
+      <p class="field-error">
+        {{ 'book.validation.authorRequired' | translate }}
+      </p>
+    }
+
+    @if (form.controls.author.touched && form.controls.author.hasError('maxlength')) {
+      <p class="field-error">
+        {{ 'book.validation.authorMaxLength' | translate }}
+      </p>
+    }
+  </div>
+
+  <div class="form-field">
+    <label for="description">
+      {{ 'books.fields.description' | translate }}
+    </label>
+    <textarea id="description" rows="6" formControlName="description"></textarea>
+
+    <p
+      class="character-counter"
+      [class.warning]="form.controls.description.value.length > 1800"
+    >
+      {{ form.controls.description.value.length }}/2000
+    </p>
+
+    @if (form.controls.description.touched && form.controls.description.hasError('required')) {
+      <p class="field-error">
+        {{ 'book.validation.descriptionRequired' | translate }}
+      </p>
+    }
+
+    @if (form.controls.description.touched && form.controls.description.hasError('maxlength')) {
+      <p class="field-error">
+        {{ 'book.validation.descriptionMaxLength' | translate }}
+      </p>
+    }
+  </div>
+
+  <div class="form-field">
+    <label for="language">
+      {{ 'books.fields.language' | translate }}
+    </label>
+    <select id="language" formControlName="language">
+      <option value="">{{ 'books.form.selectLanguage' |translate }}</option>
+      <option value="fr">{{ 'common.languages.fr' | translate }}</option>
+      <option value="en">{{ 'common.languages.en' | translate }}</option>
+      <option value="de">{{ 'common.languages.de' | translate }}</option>
+      <option value="fa">{{ 'common.languages.fa' | translate }}</option>
+    </select>
+
+    @if (form.controls.language.touched && form.controls.language.hasError('required')) {
+      <p class="field-error">
+        {{ 'books.validation.languageRequired' | translate }}
+      </p>
+    }
+  </div>
+
+  <div class="form-field">
+    <label for="category">
+      {{ 'books.fields.category' | translate }}
+    </label>
+
+    <input type="text" id="category" formControlName="category"/>
+
+    @if (form.controls.category.touched && form.controls.category.hasError('required')) {
+      <p class="field-error">
+        {{ 'books.validation.categoryRequired' | translate }}
+      </p>
+    }
+
+    @if (form.controls.category.touched && form.controls.category.hasError('maxlength')) {
+      <p class="field-error">
+        {{ 'books.validation.categoryMaxLength' | translate }}
+      </p>
+    }
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">
+    {{ 'common.actions.save' | translate }}
+  </button>
+</form>

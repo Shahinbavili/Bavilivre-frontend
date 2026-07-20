@@ -73,6 +73,7 @@
       "title": "Book Details"
     },
     "fields": {
+      "title": "Title",
       "author": "Author",
       "description": "Description",
       "language": "Language",
@@ -80,9 +81,27 @@
       "owner": "Owner",
       "createdAt": "Added on"
     },
+    "form": {
+      "selectLanguage": "Select a language"
+    },
+    "validation": {
+      "titleRequired": "Title is required.",
+      "titleMaxLength": "Title must not exceed 255 characters.",
+      "authorRequired": "Author is required.",
+      "authorMaxLength": "Author must not exceed 255 characters.",
+      "descriptionRequired": "Description is required.",
+      "descriptionMaxLength": "Description must not exceed 2000 characters.",
+      "languageRequired": "Language is required.",
+      "categoryRequired": "Category is required.",
+      "categoryMaxLength": "Category must not exceed 100 characters."
+    },
     "status": {
       "available": "Available",
       "unavailable": "Unavailable"
+    },
+    "actions": {
+      "create": "Add Book",
+      "update": "Save Changes"
     },
     "messages": {
       "loading": "Loading books...",

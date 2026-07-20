@@ -73,6 +73,7 @@
       "title": "Détails du livre"
     },
     "fields": {
+      "title": "Titre",
       "author": "Auteur",
       "description": "Description",
       "language": "Langue",
@@ -80,9 +81,27 @@
       "owner": "Propriétaire",
       "createdAt": "Ajouté le"
     },
+    "form": {
+      "selectLanguage": "Sélectionnez une langue"
+    },
+    "validation": {
+      "titleRequired": "Le titre est obligatoire.",
+      "titleMaxLength": "Le titre ne doit pas dépasser 255 caractères.",
+      "authorRequired": "L’auteur est obligatoire.",
+      "authorMaxLength": "L’auteur ne doit pas dépasser 255 caractères.",
+      "descriptionRequired": "La description est obligatoire.",
+      "descriptionMaxLength": "La description ne doit pas dépasser 2000 caractères.",
+      "languageRequired": "La langue est obligatoire.",
+      "categoryRequired": "La catégorie est obligatoire.",
+      "categoryMaxLength": "La catégorie ne doit pas dépasser 100 caractères."
+    },
     "status": {
       "available": "Disponible",
       "unavailable": "Indisponible"
+    },
+    "actions": {
+      "create": "Ajouter le livre",
+      "update": "Enregistrer les modifications"
     },
     "messages": {
       "loading": "Chargement des livres...",

@@ -73,6 +73,7 @@
       "title": "جزئیات کتاب"
     },
     "fields": {
+      "title": "عنوان",
       "author": "نویسنده",
       "description": "توضیحات",
       "language": "زبان",
@@ -80,9 +81,27 @@
       "owner": "مالک",
       "createdAt": "تاریخ افزودن"
     },
+    "form": {
+      "selectLanguage": "یک زبان را انتخاب کنید"
+    },
+    "validation": {
+      "titleRequired": "عنوان الزامی است.",
+      "titleMaxLength": "عنوان نباید بیش از ۲۵۵ کاراکتر باشد.",
+      "authorRequired": "نام نویسنده الزامی است.",
+      "authorMaxLength": "نام نویسنده نباید بیش از ۲۵۵ کاراکتر باشد.",
+      "descriptionRequired": "توضیحات الزامی است.",
+      "descriptionMaxLength": "توضیحات نباید بیش از ۲۰۰۰ کاراکتر باشد.",
+      "languageRequired": "انتخاب زبان الزامی است.",
+      "categoryRequired": "دسته‌بندی الزامی است.",
+      "categoryMaxLength": "دسته‌بندی نباید بیش از ۱۰۰ کاراکتر باشد."
+    },
     "status": {
       "available": "موجود است",
       "unavailable": "ناموجود"
+    },
+    "actions": {
+      "create": "افزودن کتاب",
+      "update": "ذخیره تغییرات"
     },
     "messages": {
       "loading": "در حال بارگذاری کتاب‌ها...",

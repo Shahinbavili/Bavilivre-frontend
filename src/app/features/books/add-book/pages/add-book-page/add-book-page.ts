@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-add-book-page',
@@ -6,4 +6,5 @@ import { Component } from '@angular/core';
   templateUrl: './add-book-page.html',
   styleUrl: './add-book-page.scss',
 })
-export class AddBookPage {}
+export class AddBookPage {
+}
