@@ -11,6 +11,10 @@
   gap: .5rem;
 }
 
+.language-field select {
+  max-width: 15rem;
+}
+
 label {
   font-weight: 600;
 }
@@ -36,7 +40,7 @@ select:focus {
 
 textarea {
   resize: vertical;
-  min-height: 8rem;
+  min-height: 10rem;
 }
 
 .character-counter {
@@ -57,7 +61,7 @@ textarea {
 
 button {
   align-self: flex-end;
-  padding: .75rem 1.5rem;
+  padding: .85rem 2rem;
   border: none;
   border-radius: .5rem;
   background: #2563eb;
@@ -66,7 +70,7 @@ button {
   font-weight: 600;
   cursor: pointer;
   transition: background .2s;
-  min-width: 180px;
+  min-width: 220px;
 }
 
 button:hover:not(:disabled) {
@@ -83,3 +87,4 @@ textarea.ng-invalid.ng-touched,
 select.ng-invalid.ng-touched {
   border-color: #dc2626;
 }
+
