@@ -32,7 +32,7 @@
   "home": {
     "hero": {
       "title": "Bienvenue sur Bavilivre",
-      "subtitle": "Partagez, empruntez et découvrez des livres autour de vous."
+      "subtitle": "Partagez votre bibliothèque, découvrez de nouveaux livres et empruntez facilement auprès de votre communauté."
     },
     "actions": {
       "borrowedBooks": "Voir mes livres empruntés",
@@ -127,7 +127,7 @@
     "lent": {
       "title": "Livres prêtés",
       "empty": "Aucun livre prêté",
-      "item": "Livre #{{bookId}} prêté à l'utilisateur #{{borrowerId}}"
+      "item": "{{title}} — {{author}}, prêté à {{borrowerName}}"
     }
   },
   "users": {

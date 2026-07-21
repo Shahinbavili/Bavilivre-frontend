@@ -1,17 +1,45 @@
-<h1>{{ 'home.hero.title' | translate }}</h1>
+<section class="hero">
 
-<p>
-  {{ 'home.hero.subtitle' | translate }}
-</p>
+  <h1>{{ 'home.hero.title' | translate }}</h1>
 
-<a
-  routerLink="/users/1/borrowed-books"
-  routerLinkActive="active-link">
-  {{ 'home.actions.borrowedBooks' | translate }}
-</a>
+  <p>
+    {{ 'home.hero.subtitle' | translate }}
+  </p>
 
-<a
-  routerLink="/users/1/lent-books"
-  routerLinkActive="active-link">
-  {{ 'home.actions.lentBooks' | translate }}
-</a>
+  <div class="hero-actions">
+
+    <a
+      routerLink="/books"
+      class="primary-button">
+      {{ 'navigation.catalog' | translate }}
+    </a>
+
+    @if (isAuthenticated()) {
+
+      <a
+        routerLink="/books/add"
+        class="secondary-button">
+        {{ 'navigation.addBook' | translate }}
+      </a>
+
+      @if (isAuthenticated() && currentUser(); as user) {
+
+        <a
+          [routerLink]="['/users', user.id, 'borrowed-books']"
+          class="secondary-button">
+          {{ 'home.actions.borrowedBooks' | translate }}
+        </a>
+
+        <a
+          [routerLink]="['/users', user.id, 'lent-books']"
+          class="secondary-button">
+          {{ 'home.actions.lentBooks' | translate }}
+        </a>
+
+      }
+
+    }
+
+  </div>
+
+</section>
