@@ -1,4 +1,9 @@
 {
+  "navigation": {
+    "home": "Startseite",
+    "catalog": "Bücherkatalog",
+    "addBook": "Buch hinzufügen"
+  },
   "common": {
     "loading": "Wird geladen...",
     "error": "Ein Fehler ist aufgetreten",

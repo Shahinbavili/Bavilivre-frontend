@@ -4,6 +4,22 @@
       {{ 'layout.header.appName' | translate }}
     </a>
 
+    <nav class="app-header__navigation">
+      <a routerLink="/routerLink" class="app-header__link">
+        {{ 'navigation.home' | translate }}
+      </a>
+
+      <a routerLink="/books" class="app-header__link">
+        {{ 'navigation.catalog' | translate }}
+      </a>
+
+      @if (authService.isAuthenticated()) {
+        <a routerLink="/books/add" class="app-header__link">
+          {{ 'navigation.addBook' | translate }}
+        </a>
+      }
+    </nav>
+
     <nav class="app-header__languages">
       @for (lang of languages; track lang) {
         <button

@@ -1,4 +1,9 @@
 {
+  "navigation": {
+    "home": "Accueil",
+    "catalog": "Catalogue",
+    "addBook": "Ajouter un livre"
+  },
   "common": {
     "loading": "Loading...",
     "error": "An error occurred",
