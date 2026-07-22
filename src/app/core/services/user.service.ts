@@ -12,6 +12,6 @@ export class UserService {
   private readonly apiUrl = API_BASE_URL;
 
   getUserById(userId: number): Observable<User> {
-    return this.http.get<User>(`${this.apiUrl}/users/${userId}`);
+    return this.http.get<User>(`${this.apiUrl}/api/users/${userId}`);
   }
 }

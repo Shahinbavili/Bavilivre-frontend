@@ -22,19 +22,19 @@ export class BookService {
 
   getBorrowedBooks(userId: number): Observable<BorrowedBooksDto> {
     return this.http.get<BorrowedBooksDto>(
-      `${this.apiUrl}/users/${userId}/borrowed-books`
+      `${this.apiUrl}/api/users/${userId}/borrowed-books`
     );
   }
 
   getLentBooks(userId: number): Observable<LentBooksDto> {
     return this.http.get<LentBooksDto>(
-      `${this.apiUrl}/users/${userId}/lent-books`
+      `${this.apiUrl}/api/users/${userId}/lent-books`
     );
   }
 
   getBookById(bookId: number): Observable<Book> {
     return this.http.get<Book>(
-      `${this.apiUrl}/books/${bookId}`
+      `${this.apiUrl}/api/books/${bookId}`
     );
   }
 

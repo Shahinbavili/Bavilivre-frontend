@@ -128,7 +128,7 @@
       "title": "Lent Books",
       "empty": "No lent books",
       "loadingBook": "Loading book #{{bookId}}...",
-      "item": "{{title}} — {{author}}, lent to user #{{borrowerId}}"
+      "item": "{{title}} — {{author}}, lent to {{borrowerName}}"
     }
   },
   "users": {

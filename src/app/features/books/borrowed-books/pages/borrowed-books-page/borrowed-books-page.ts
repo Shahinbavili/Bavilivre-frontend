@@ -8,6 +8,7 @@ import {Book} from '../../../../../core/models/book.model';
 import {UserService} from '../../../../../core/services/user.service';
 import {User} from '../../../../../core/models/user.model';
 import {LoadingSpinner} from '../../../../../shared/components/loading-spinner/loading-spinner';
+import {finalize} from 'rxjs';
 
 @Component({
   selector: 'app-borrowed-books-page',
@@ -45,47 +46,59 @@ export class BorrowedBooksPage implements OnInit {
 
     const userId = Number(this.route.snapshot.paramMap.get('id'));
 
+    if (!Number.isInteger(userId) || userId <= 0) {
+      this.errorMessage.set('common.error');
+      this.isLoading.set(false);
+      return;
+    }
+
     this.isLoading.set(true);
     this.errorMessage.set(null);
 
-    this.bookService.getBorrowedBooks(userId).subscribe({
-      next: (dto: BorrowedBooksDto) => {
-        this.borrowedBooks.set(dto.borrowedBookList);
-        this.isLoading.set(false);
+    this.bookService.getBorrowedBooks(userId)
+      .pipe(
+        finalize(() => this.isLoading.set(false)),
+      )
+      .subscribe({
+        next: (dto: BorrowedBooksDto) => {
+          this.borrowedBooks.set(dto.borrowedBookList);
 
-        const bookIds = Object.keys(dto.borrowedBookList).map(Number);
+          const bookIds = Object.keys(dto.borrowedBookList).map(Number);
 
-        bookIds.forEach((bookId) => {
-          this.bookService.getBookById(bookId).subscribe({
-            next: (book: Book) => {
-              this.books.update((currentBooks) => ({
-                ...currentBooks,
-                [book.id]: book,
-              }));
-            },
-            error: () => {
-              this.errorMessage.set('common.error');
-              this.isLoading.set(false);
-            }
+          bookIds.forEach((bookId) => {
+            this.bookService.getBookById(bookId).subscribe({
+              next: (book: Book) => {
+                this.books.update((currentBooks) => ({
+                  ...currentBooks,
+                  [book.id]: book,
+                }));
+              },
+              error: () => {
+                this.errorMessage.set('common.error');
+              },
+            });
           });
-        });
-        const lenderIds = Object.values(dto.borrowedBookList);
 
-        lenderIds.forEach((lenderId) => {
-          this.userService.getUserById(lenderId).subscribe({
-            next: (user: User) => {
-              this.users.update((currentUsers) => ({
-                ...currentUsers,
-                [user.id]: user,
-              }));
-            }
-          })
-        })
-      },
-      error: () => {
-        this.errorMessage.set('common.error');
-      }
-    });
+          const lenderIds = Object.values(dto.borrowedBookList);
+
+          lenderIds.forEach((lenderId) => {
+            this.userService.getUserById(lenderId).subscribe({
+              next: (user: User) => {
+                this.users.update((currentUsers) => ({
+                  ...currentUsers,
+                  [user.id]: user,
+                }));
+              },
+              error: () => {
+                this.errorMessage.set('common.error');
+              },
+            });
+          });
+        },
+        error: () => {
+          this.errorMessage.set('common.error');
+        },
+      });
   }
 
   borrowedBookLabel(entry: { bookId: number; lenderId: number }): string {

@@ -4,12 +4,12 @@
   <app-loading-spinner/>
 } @else if (errorMessage()) {
   <p>{{ errorMessage()! | translate }}</p>
-} @else if ((lentBooksEntries() | keyvalue).length > 0) {
+} @else if ((lentBooksEntries()).length > 0) {
   <ul>
     @for (entry of lentBooksEntries(); track entry.bookId) {
-      <li>
+      <p>
         {{ lentBookLabel(entry) }}
-      </li>
+      </p>
     }
   </ul>
 } @else {

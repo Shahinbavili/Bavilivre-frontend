@@ -128,7 +128,7 @@
       "title": "Verliehene Bücher",
       "empty": "Keine verliehenen Bücher",
       "loadingBook": "Buch #{{bookId}} wird geladen...",
-      "item": "{{title}} — {{author}}, verliehen an Benutzer #{{borrowerId}}"
+      "item": "{{title}} — {{author}}, verliehen an {{borrowerName}}"
     }
   },
   "users": {
