@@ -1,0 +1,20 @@
+<section class="edit-book-page">
+
+  <h1>
+    {{ 'books.edit.title' | translate }}
+  </h1>
+
+  @if (submitError()) {
+    <p class="submit-error">
+      {{ 'books.messages.updateError' | translate }}
+    </p>
+  }
+
+  <app-book-form
+    [initialValue]="initialValue()"
+    [submitLabel]="'books.actions.update'"
+    [submitting]="submitting()"
+    (submitted)="updateBook($event)"
+  />
+
+</section>

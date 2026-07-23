@@ -111,12 +111,16 @@
     "add": {
       "title": "Buch hinzufügen"
     },
+    "edit": {
+      "title": "Buch bearbeiten"
+    },
     "messages": {
       "loading": "Bücher werden geladen...",
       "empty": "Keine Bücher gefunden.",
       "error": "Die Bücher konnten nicht geladen werden.",
       "creating": "Das Buch wird hinzugefügt...",
-      "createError": "Das Buch konnte nicht hinzugefügt werden."
+      "createError": "Das Buch konnte nicht hinzugefügt werden.",
+      "updateError": "Beim Aktualisieren des Buches ist ein Fehler aufgetreten."
     },
     "borrowed": {
       "title": "Ausgeliehene Bücher",

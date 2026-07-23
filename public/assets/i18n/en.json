@@ -111,12 +111,16 @@
     "add": {
       "title": "Add a Book"
     },
+    "edit": {
+      "title": "Edit book"
+    },
     "messages": {
       "loading": "Loading books...",
       "empty": "No books found.",
       "error": "Unable to load books.",
       "creating": "Adding the book...",
-      "createError": "Unable to add the book."
+      "createError": "Unable to add the book.",
+      "updateError": "An error occurred while updating the book."
     },
     "borrowed": {
       "title": "Borrowed Books",
