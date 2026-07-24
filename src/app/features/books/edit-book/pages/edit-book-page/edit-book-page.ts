@@ -2,9 +2,10 @@ import {Component, inject, OnInit, signal} from '@angular/core';
 import {TranslatePipe} from '@ngx-translate/core';
 import {BookForm} from '../../../components/book-form/book-form';
 import {BookFormModel} from '../../../../../core/models/book-form.model';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {BookService} from '../../../../../core/services/book.service';
 import {Book} from '../../../../../core/models/book.model';
+import {finalize} from 'rxjs';
 
 @Component({
   selector: 'app-edit-book-page',
@@ -18,8 +19,10 @@ import {Book} from '../../../../../core/models/book.model';
 export class EditBookPage implements OnInit {
 
   private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
   private readonly bookService = inject(BookService);
 
+  readonly bookId = signal<number | null>(null);
   readonly initialValue = signal<BookFormModel | null>(null);
 
   readonly isLoading = signal(true);
@@ -36,6 +39,8 @@ export class EditBookPage implements OnInit {
       return;
     }
 
+    this.bookId.set(bookId);
+
     this.bookService.getBookById(bookId).subscribe({
       next: (book: Book) => {
 
@@ -50,7 +55,6 @@ export class EditBookPage implements OnInit {
         this.isLoading.set(false);
       },
       error: () => {
-
         this.submitError.set(true);
         this.isLoading.set(false);
       },
@@ -58,6 +62,26 @@ export class EditBookPage implements OnInit {
   }
 
   updateBook(book: BookFormModel): void {
-    console.log(book);
+    const bookId = this.bookId();
+
+    if (bookId === null) {
+      this.submitError.set(true);
+      return;
+    }
+
+    this.submitting.set(true);
+    this.submitError.set(false);
+
+    this.bookService.updateBook(bookId, book).pipe(
+      finalize(() => this.submitting.set(false)),
+    )
+      .subscribe({
+        next: () => {
+          void this.router.navigate(['/books']);
+        },
+        error: () => {
+          this.submitError.set(true);
+        },
+      });
   }
 }

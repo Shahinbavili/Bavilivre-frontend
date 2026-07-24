@@ -43,4 +43,10 @@ export class BookService {
       `${this.apiUrl}/api/books`, book
     );
   }
+
+  updateBook(bookId: number, book: BookFormModel): Observable<Book> {
+    return this.http.put<Book>(
+      `${this.apiUrl}/api/books/${bookId}`, book
+    );
+  }
 }
