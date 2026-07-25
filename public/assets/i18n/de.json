@@ -106,7 +106,9 @@
     },
     "actions": {
       "create": "Buch hinzufügen",
-      "update": "Änderungen speichern"
+      "update": "Änderungen speichern",
+      "details": "Details anzeigen",
+      "edit": "Bearbeiten"
     },
     "add": {
       "title": "Buch hinzufügen"

@@ -106,7 +106,9 @@
     },
     "actions": {
       "create": "Add Book",
-      "update": "Save Changes"
+      "update": "Save Changes",
+      "details": "View details",
+      "edit": "Edit"
     },
     "add": {
       "title": "Add a Book"

@@ -51,7 +51,21 @@
          Borrow
          Return
     -->
+    <a
+      [routerLink]="['/books', book.id]"
+      class="details-link"
+    >
+      {{ 'books.actions.details' | translate }}
+    </a>
 
+    @if (currentUser()?.id === book.ownerId) {
+      <a
+        [routerLink]="['/books', book.id, 'edit']"
+        class="edit-link"
+      >
+        {{ 'books.actions.edit' | translate }}
+      </a>
+    }
   </footer>
 
 </article>

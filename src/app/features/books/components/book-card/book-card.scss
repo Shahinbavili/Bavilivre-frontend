@@ -96,10 +96,47 @@
 .book-actions {
   display: flex;
   justify-content: flex-end;
+  flex-wrap: wrap;
   gap: .75rem;
+  margin-top: 1.5rem;
+}
 
-  margin-top: 1rem;
-  padding-top: 1rem;
+.details-link,
+.edit-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-  border-top: 1px solid #eee;
+  padding: .5rem 1rem;
+
+  border-radius: .5rem;
+
+  font-size: .9rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition: background-color .2s ease,
+  color .2s ease,
+  border-color .2s ease;
+}
+
+.details-link {
+  border: 1px solid #2563eb;
+  background: transparent;
+  color: #2563eb;
+}
+
+.details-link:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
+.edit-link {
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #374151;
+}
+
+.edit-link:hover {
+  background: #f3f4f6;
 }

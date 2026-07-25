@@ -106,7 +106,9 @@
     },
     "actions": {
       "create": "Ajouter le livre",
-      "update": "Enregistrer les modifications"
+      "update": "Enregistrer les modifications",
+      "details": "Voir les détails",
+      "edit": "Modifier"
     },
     "add": {
       "title": "Ajouter un livre"
