@@ -97,12 +97,20 @@
 
     @if (form.controls.category.touched && form.controls.category.hasError('maxlength')) {
       <p class="field-error">
-        {{ 'books.validation.categoryMaxLength' | translate }}
+        {{ 'books.validation.catego[ryMaxLength' | translate }}
       </p>
     }
   </div>
 
-  <button type="submit" [disabled]="form.invalid || submitting()">
-    {{ submitLabel() | translate }}
-  </button>
+  <div class="form-actions">
+    @if (showCancel()) {
+      <button type="button" class="app-button app-button--secondary" (click)="cancelled.emit()">
+        {{ 'common.actions.cancel' | translate }}
+      </button>
+    }
+
+    <button type="submit" class="app-button app-button--primary" [disabled]="form.invalid || submitting()">
+      {{ submitLabel() | translate }}
+    </button>
+  </div>
 </form>

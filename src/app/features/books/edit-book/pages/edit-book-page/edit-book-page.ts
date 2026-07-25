@@ -84,4 +84,12 @@ export class EditBookPage implements OnInit {
         },
       });
   }
+
+  cancel(): void {
+    const bookId = this.bookId();
+
+    if (bookId !== null) {
+      void this.router.navigate(['/books', bookId]);
+    }
+  }
 }

@@ -108,7 +108,9 @@
       "create": "Add Book",
       "update": "Save Changes",
       "details": "View details",
-      "edit": "Edit"
+      "edit": "Edit",
+      "cancel": "Cancel",
+      "backToCatalog": "Back to catalog"
     },
     "add": {
       "title": "Add a Book"

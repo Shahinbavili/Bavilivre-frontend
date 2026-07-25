@@ -25,35 +25,3 @@
   flex-wrap: wrap;
   gap: 1rem;
 }
-
-.primary-button,
-.secondary-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 220px;
-  padding: .9rem 1.6rem;
-  border-radius: .6rem;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all .2s ease;
-}
-
-.primary-button {
-  background: #2563eb;
-  color: white;
-}
-
-.primary-button:hover {
-  background: #1d4ed8;
-}
-
-.secondary-button {
-  border: 1px solid #d1d5db;
-  background: white;
-  color: #374151;
-}
-
-.secondary-button:hover {
-  background: #f3f4f6;
-}

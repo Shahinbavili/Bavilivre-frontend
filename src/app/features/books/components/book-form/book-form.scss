@@ -8,7 +8,7 @@
 .form-field {
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
 .language-field select {
@@ -23,12 +23,16 @@ input,
 textarea,
 select {
   width: 100%;
-  padding: .75rem;
+  padding: 0.75rem;
+
   border: 1px solid #d1d5db;
-  border-radius: .5rem;
-  font: inherit;
+  border-radius: 0.5rem;
+
   background: white;
-  transition: border-color .2s;
+  font: inherit;
+
+  transition: border-color 0.2s,
+  box-shadow 0.2s;
 }
 
 input:focus,
@@ -36,16 +40,17 @@ textarea:focus,
 select:focus {
   outline: none;
   border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgb(37 99 235 / 15%);
 }
 
 textarea {
-  resize: vertical;
   min-height: 10rem;
+  resize: vertical;
 }
 
 .character-counter {
   text-align: end;
-  font-size: .85rem;
+  font-size: 0.85rem;
   color: #6b7280;
 }
 
@@ -56,30 +61,7 @@ textarea {
 
 .field-error {
   color: #dc2626;
-  font-size: .875rem;
-}
-
-button {
-  align-self: flex-end;
-  padding: .85rem 2rem;
-  border: none;
-  border-radius: .5rem;
-  background: #2563eb;
-  color: white;
-  font: inherit;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background .2s;
-  min-width: 220px;
-}
-
-button:hover:not(:disabled) {
-  background: #1d4ed8;
-}
-
-button:disabled {
-  opacity: .6;
-  cursor: not-allowed;
+  font-size: 0.875rem;
 }
 
 input.ng-invalid.ng-touched,
@@ -88,3 +70,48 @@ select.ng-invalid.ng-touched {
   border-color: #dc2626;
 }
 
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.form-actions button {
+  min-width: 180px;
+  padding: 0.85rem 1.5rem;
+
+  border-radius: 0.5rem;
+
+  font: inherit;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s,
+  border-color 0.2s,
+  color 0.2s;
+}
+
+.form-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-actions button:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .form-actions button {
+    width: 100%;
+    min-width: 0;
+  }
+}

@@ -17,6 +17,8 @@ export class BookForm {
   readonly submitLabel = input.required<string>();
   readonly submitting = input(false);
   readonly submitted = output<BookFormModel>();
+  readonly showCancel = input(false);
+  readonly cancelled = output<void>();
 
   private readonly formBuilder = new FormBuilder();
 

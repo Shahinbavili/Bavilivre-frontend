@@ -108,7 +108,9 @@
       "create": "Buch hinzufügen",
       "update": "Änderungen speichern",
       "details": "Details anzeigen",
-      "edit": "Bearbeiten"
+      "edit": "Bearbeiten",
+      "cancel": "Abbrechen",
+      "backToCatalog": "Zurück zum Katalog"
     },
     "add": {
       "title": "Buch hinzufügen"

@@ -1,42 +1,60 @@
-<h1>{{ 'books.details.title' | translate }}</h1>
+<div class="book-details-page">
+  <h1>{{ 'books.details.title' | translate }}</h1>
 
-@if (isLoading()) {
-  <app-loading-spinner/>
-} @else if (errorMessage()) {
-  <p>{{ errorMessage()! | translate }}</p>
-} @else if (book(); as book) {
+  @if (isLoading()) {
+    <app-loading-spinner/>
+  } @else if (errorMessage()) {
+    <p>{{ errorMessage()! | translate }}</p>
+  } @else if (book(); as book) {
 
-  <h2>{{ book.title }}</h2>
+    <article class="book-card">
 
-  <p>
-    <strong>{{ 'books.fields.author' | translate }}: </strong>
-    {{ book.author }}
-  </p>
+      <h2>{{ book.title }}</h2>
 
-  <p>
-    <strong>{{ 'books.fields.description' | translate }}: </strong>
-    <span dir="auto">{{ book.description }}</span>
-  </p>
+      <p>
+        <strong>{{ 'books.fields.author' | translate }}: </strong>
+        {{ book.author }}
+      </p>
 
-  <p>
-    <strong>{{ 'books.fields.language' | translate }}: </strong>
-    {{ book.language }}
-  </p>
+      <p>
+        <strong>{{ 'books.fields.description' | translate }}: </strong>
+        <span dir="auto">{{ book.description }}</span>
+      </p>
 
-  <p>
-    <strong>{{ 'books.fields.category' | translate }}: </strong>
-    {{ book.category }}
-  </p>
+      <p>
+        <strong>{{ 'books.fields.language' | translate }}: </strong>
+        {{ book.language }}
+      </p>
 
-  <p>
-    <strong>{{ 'books.fields.owner' | translate }}: </strong>
-    @if (owner(); as owner) {
-      {{ owner.displayName }}
-    } @else {
-      <app-loading-spinner/>
-    }
-  </p>
+      <p>
+        <strong>{{ 'books.fields.category' | translate }}: </strong>
+        {{ book.category }}
+      </p>
 
-} @else {
-  <p>{{ 'common.empty' | translate }}</p>
-}
+      <p>
+        <strong>{{ 'books.fields.owner' | translate }}: </strong>
+
+        @if (owner(); as owner) {
+          {{ owner.displayName }}
+        } @else {
+          <app-loading-spinner/>
+        }
+      </p>
+
+      <footer class="book-actions">
+        <a routerLink="/books" class="app-button app-button--secondary">
+          {{ 'books.actions.backToCatalog' | translate }}
+        </a>
+
+        @if (currentUser()?.id === book.ownerId) {
+          <a [routerLink]="['/books', book.id, 'edit']" class="app-button app-button--primary">
+            {{ 'books.actions.edit' | translate }}
+          </a>
+        }
+      </footer>
+    </article>
+
+  } @else {
+    <p>{{ 'common.empty' | translate }}</p>
+  }
+</div>

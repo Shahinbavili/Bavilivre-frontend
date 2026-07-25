@@ -7,39 +7,25 @@
   </p>
 
   <div class="hero-actions">
-
-    <a
-      routerLink="/books"
-      class="primary-button">
+    <a routerLink="/books" class="app-button app-button--primary">
       {{ 'navigation.catalog' | translate }}
     </a>
 
     @if (isAuthenticated()) {
-
-      <a
-        routerLink="/books/add"
-        class="secondary-button">
+      <a routerLink="/books/add" class="app-button app-button--secondary">
         {{ 'navigation.addBook' | translate }}
       </a>
 
       @if (isAuthenticated() && currentUser(); as user) {
-
-        <a
-          [routerLink]="['/users', user.id, 'borrowed-books']"
-          class="secondary-button">
+        <a [routerLink]="['/users', user.id, 'borrowed-books']" class="app-button app-button--secondary">
           {{ 'home.actions.borrowedBooks' | translate }}
         </a>
 
-        <a
-          [routerLink]="['/users', user.id, 'lent-books']"
-          class="secondary-button">
+        <a [routerLink]="['/users', user.id, 'lent-books']" class="app-button app-button--secondary">
           {{ 'home.actions.lentBooks' | translate }}
         </a>
-
       }
-
     }
-
   </div>
 
 </section>
