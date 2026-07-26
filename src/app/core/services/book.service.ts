@@ -49,4 +49,10 @@ export class BookService {
       `${this.apiUrl}/api/books/${bookId}`, book
     );
   }
+
+  archiveBook(bookId: number): Observable<Book> {
+    return this.http.patch<Book>(
+      `${this.apiUrl}/api/books/${bookId}/archive`, {},
+    );
+  }
 }

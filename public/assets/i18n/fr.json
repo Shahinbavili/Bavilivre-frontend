@@ -110,7 +110,16 @@
       "details": "Voir les détails",
       "edit": "Modifier",
       "cancel": "Annuler",
-      "backToCatalog": "Retour au catalogue"
+      "backToCatalog": "Retour au catalogue",
+      "archiving": "Archivage en cours...",
+      "archive": "Archiver"
+    },
+    "archive": {
+      "confirmation": "Voulez-vous vraiment archiver « {{title}} » ?",
+      "success": "Le livre a été archivé.",
+      "forbidden": "Vous n’êtes pas autorisé à archiver ce livre.",
+      "notFound": "Livre introuvable.",
+      "error": "Impossible d’archiver le livre."
     },
     "add": {
       "title": "Ajouter un livre"

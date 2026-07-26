@@ -110,7 +110,16 @@
       "details": "Details anzeigen",
       "edit": "Bearbeiten",
       "cancel": "Abbrechen",
-      "backToCatalog": "Zurück zum Katalog"
+      "backToCatalog": "Zurück zum Katalog",
+      "archiving": "Wird archiviert...",
+      "archive": "Archivieren"
+    },
+    "archive": {
+      "confirmation": "Möchten Sie „{{title}}“ wirklich archivieren?",
+      "success": "Das Buch wurde archiviert.",
+      "forbidden": "Sie sind nicht berechtigt, dieses Buch zu archivieren.",
+      "notFound": "Buch nicht gefunden.",
+      "error": "Das Buch konnte nicht archiviert werden."
     },
     "add": {
       "title": "Buch hinzufügen"

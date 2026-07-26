@@ -42,6 +42,13 @@
       </p>
 
       <footer class="book-actions">
+
+        @if (archiveError()) {
+          <p class="archive-error">
+            {{ archiveError()! | translate }}
+          </p>
+        }
+
         <a routerLink="/books" class="app-button app-button--secondary">
           {{ 'books.actions.backToCatalog' | translate }}
         </a>
@@ -50,6 +57,19 @@
           <a [routerLink]="['/books', book.id, 'edit']" class="app-button app-button--primary">
             {{ 'books.actions.edit' | translate }}
           </a>
+
+          <button
+            type="button"
+            class="app-button app-button--danger"
+            [disabled]="archiving()"
+            (click)="archiveBook(book)"
+          >
+            {{
+              archiving()
+                ? ('books.active.archiving' | translate)
+                : ('books.actions.archive' | translate)
+            }}
+          </button>
         }
       </footer>
     </article>

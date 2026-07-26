@@ -110,7 +110,16 @@
       "details": "View details",
       "edit": "Edit",
       "cancel": "Cancel",
-      "backToCatalog": "Back to catalog"
+      "backToCatalog": "Back to catalog",
+      "archiving": "Archiving...",
+      "archive": "Archive"
+    },
+    "archive": {
+      "confirmation": "Are you sure you want to archive \"{{title}}\"?",
+      "success": "The book has been archived.",
+      "forbidden": "You are not allowed to archive this book.",
+      "notFound": "Book not found.",
+      "error": "Unable to archive the book."
     },
     "add": {
       "title": "Add a Book"
