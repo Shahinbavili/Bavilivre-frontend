@@ -88,12 +88,7 @@ export class BookDetailsPage implements OnInit {
   }
 
   archiveBook(book: Book): void {
-    const confirmed = window.confirm(
-      this.translate.instant('books.archive.confirmation', {
-        title: book.title,
-      }),
-    );
-    if (!confirmed || !book) {
+    if (!this.confirmArchive(book)) {
       return;
     }
 
@@ -111,6 +106,14 @@ export class BookDetailsPage implements OnInit {
           this.handleArchiveError(error);
         },
       });
+  }
+
+  private confirmArchive(book: Book): boolean {
+    return window.confirm(
+      this.translate.instant('books.archive.confirmation', {
+        title: book.title,
+      }),
+    );
   }
 
   private handleArchiveError(error: HttpErrorResponse): void {
