@@ -112,7 +112,8 @@
       "cancel": "Annuler",
       "backToCatalog": "Retour au catalogue",
       "archiving": "Archivage en cours...",
-      "archive": "Archiver"
+      "archive": "Archiver",
+      "unarchive": "Désarchiver"
     },
     "archive": {
       "confirmation": "Voulez-vous vraiment archiver « {{title}} » ?",
@@ -120,6 +121,17 @@
       "forbidden": "Vous n’êtes pas autorisé à archiver ce livre.",
       "notFound": "Livre introuvable.",
       "error": "Impossible d’archiver le livre."
+    },
+    "archived": {
+      "title": "Mes livres archivés",
+      "empty": "Vous n'avez aucun livre archivé.",
+      "status": "Archivé",
+      "confirmation": "Voulez-vous vraiment restaurer « {{title}} » dans votre catalogue ?",
+      "unarchiving": "Restauration...",
+      "success": "Le livre a été restauré.",
+      "forbidden": "Vous n'êtes pas autorisé à restaurer ce livre.",
+      "notFound": "Livre introuvable.",
+      "error": "Impossible de restaurer le livre."
     },
     "add": {
       "title": "Ajouter un livre"

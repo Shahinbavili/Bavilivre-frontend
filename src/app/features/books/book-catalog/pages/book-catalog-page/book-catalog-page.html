@@ -7,19 +7,19 @@
   @if (loading()) {
 
     <p class="catalog-state">
-      {{ 'books.message.loading' | translate }}
+      {{ 'books.messages.loading' | translate }}
     </p>
 
   } @else if (loadError()) {
 
     <p class="catalog-state error">
-      {{ 'books.message.error' | translate }}
+      {{ 'books.messages.error' | translate }}
     </p>
 
   } @else if (books().length === 0) {
 
     <p class="catalog-state">
-      {{ 'books.message.empty' | translate }}
+      {{ 'books.messages.empty' | translate }}
     </p>
 
   } @else {

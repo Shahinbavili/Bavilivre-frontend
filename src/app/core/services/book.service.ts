@@ -40,19 +40,35 @@ export class BookService {
 
   createBook(book: BookFormModel): Observable<Book> {
     return this.http.post<Book>(
-      `${this.apiUrl}/api/books`, book
+      `${this.apiUrl}/api/books`,
+      book
     );
   }
 
   updateBook(bookId: number, book: BookFormModel): Observable<Book> {
     return this.http.put<Book>(
-      `${this.apiUrl}/api/books/${bookId}`, book
+      `${this.apiUrl}/api/books/${bookId}`,
+      book
     );
   }
 
   archiveBook(bookId: number): Observable<Book> {
     return this.http.patch<Book>(
-      `${this.apiUrl}/api/books/${bookId}/archive`, {},
+      `${this.apiUrl}/api/books/${bookId}/archive`,
+      {},
     );
+  }
+
+  getArchivedBooks(): Observable<Book[]> {
+    return this.http.get<Book[]>(
+      `${this.apiUrl}/api/books/archived`,
+    );
+  }
+
+  unArchiveBook(bookId: number): Observable<void> {
+    return this.http.patch<void>(
+      `${this.apiUrl}/api/books/${bookId}/unarchive`,
+      {}
+    )
   }
 }

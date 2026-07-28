@@ -1,0 +1,54 @@
+<section class="archived-books-page">
+  <h1>
+    {{ 'books.archived.title' | translate }}
+  </h1>
+
+  @if (isLoading()) {
+    <app-loading-spinner/>
+  } @else if (errorMessage()) {
+    <p class="error-message">
+      {{ errorMessage()! | translate }}
+    </p>
+  } @else if (archivedBooks().length === 0) {
+    <p class="empty-message">
+      {{ 'books.archived.empty' | translate }}
+    </p>
+  } @else {
+    <div class="archived-books-list">
+      @for (book of archivedBooks(); track book.id) {
+        <article class="archived-book-card">
+          <h2>{{ book.title }}</h2>
+
+          <p>
+            <strong>{{ 'books.fields.author' | translate }}:</strong>
+            {{ book.author }}
+          </p>
+
+          <p>
+            <strong>{{ 'books.fields.category' | translate }}:</strong>
+            {{ book.category }}
+          </p>
+
+          <p class="archived-status">
+            {{ 'books.archived.status' | translate }}
+          </p>
+
+          <div class="book-actions">
+            <button
+              type="button"
+              class="app-button app-button--primary"
+              [disabled]="restoringBookId() === book.id"
+              (click)="unarchiveBook(book)"
+            >
+              {{
+                restoringBookId() === book.id
+                  ? ('books.archived.unarchiving' | translate)
+                  : ('books.actions.unarchive' | translate)
+              }}
+            </button>
+          </div>
+        </article>
+      }
+    </div>
+  }
+</section>

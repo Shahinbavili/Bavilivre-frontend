@@ -42,16 +42,9 @@
   </div>
 
   <footer class="book-actions">
-    <a [routerLink]="['/books', book.id]" class="app-button app-button--secondary"
+    <a [routerLink]="['/books', book.id]" class="app-button app-button--primary"
     >
       {{ 'books.actions.details' | translate }}
     </a>
-
-    @if (currentUser()?.id === book.ownerId) {
-      <a [routerLink]="['/books', book.id, 'edit']" class="app-button app-button--primary"
-      >
-        {{ 'books.actions.edit' | translate }}
-      </a>
-    }
   </footer>
 </article>

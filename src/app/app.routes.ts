@@ -44,6 +44,13 @@ export const routes: Routes = [
         .then(m => m.AddBookPage),
   },
   {
+    path: 'books/archived',
+    loadComponent: () =>
+      import(
+        './features/books/archived-books/pages/archived-books-page/archived-books-page'
+        ).then(m => m.ArchivedBooksPage),
+  },
+  {
     path: 'books/:id/edit',
     loadComponent: () =>
       import('./features/books/edit-book/pages/edit-book-page/edit-book-page')

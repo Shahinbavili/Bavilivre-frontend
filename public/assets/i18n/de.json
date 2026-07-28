@@ -112,7 +112,8 @@
       "cancel": "Abbrechen",
       "backToCatalog": "Zurück zum Katalog",
       "archiving": "Wird archiviert...",
-      "archive": "Archivieren"
+      "archive": "Archivieren",
+      "unarchive": "Wiederherstellen"
     },
     "archive": {
       "confirmation": "Möchten Sie „{{title}}“ wirklich archivieren?",
@@ -120,6 +121,17 @@
       "forbidden": "Sie sind nicht berechtigt, dieses Buch zu archivieren.",
       "notFound": "Buch nicht gefunden.",
       "error": "Das Buch konnte nicht archiviert werden."
+    },
+    "archived": {
+      "title": "Meine archivierten Bücher",
+      "empty": "Sie haben keine archivierten Bücher.",
+      "status": "Archiviert",
+      "confirmation": "Möchten Sie „{{title}}“ wirklich wieder in Ihren Katalog aufnehmen?",
+      "unarchiving": "Wird wiederhergestellt...",
+      "success": "Das Buch wurde wiederhergestellt.",
+      "forbidden": "Sie sind nicht berechtigt, dieses Buch wiederherzustellen.",
+      "notFound": "Buch nicht gefunden.",
+      "error": "Das Buch konnte nicht wiederhergestellt werden."
     },
     "add": {
       "title": "Buch hinzufügen"
