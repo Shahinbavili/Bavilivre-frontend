@@ -72,7 +72,14 @@
   },
   "books": {
     "catalog": {
-      "title": "Book Catalog"
+      "title": "Book Catalog",
+      "sort": {
+        "label": "Sort by",
+        "newest": "Newest first",
+        "oldest": "Oldest first",
+        "titleAsc": "Title (A → Z)",
+        "titleDesc": "Title (Z → A)"
+      }
     },
     "details": {
       "title": "Book Details"

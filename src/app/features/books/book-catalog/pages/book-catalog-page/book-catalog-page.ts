@@ -1,9 +1,10 @@
 import {Component, inject, OnInit, signal} from '@angular/core';
-import {BookService} from '../../../../../core/services/book.service';
-import {Book} from '../../../../../core/models/book.model';
 import {finalize} from 'rxjs';
-import {BookCard} from '../../../components/book-card/book-card';
 import {TranslatePipe} from '@ngx-translate/core';
+
+import {Book} from '../../../../../core/models/book.model';
+import {BookService} from '../../../../../core/services/book.service';
+import {BookCard} from '../../../components/book-card/book-card';
 
 @Component({
   selector: 'app-book-catalog-page',
@@ -12,32 +13,40 @@ import {TranslatePipe} from '@ngx-translate/core';
   styleUrl: './book-catalog-page.scss',
 })
 export class BookCatalogPage implements OnInit {
-
   private readonly bookService = inject(BookService);
 
   readonly books = signal<Book[]>([]);
   readonly loading = signal(true);
   readonly loadError = signal(false);
+  readonly selectedSort = signal('-createdAt');
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loadBooks();
   }
 
-  private loadBooks() {
+  private loadBooks(): void {
     this.loading.set(true);
     this.loadError.set(false);
 
-    this.bookService.getBooks().pipe(
-      finalize(() => this.loading.set(false)))
-      .subscribe({
-          next: response => {
-            this.books.set(response.content);
-          },
-          error: error => {
-            console.error('Failed to load books', error);
-            this.loadError.set(true);
-          }
-        }
+    this.bookService.getBooks({
+      sort: this.selectedSort(),
+    })
+      .pipe(
+        finalize(() => this.loading.set(false))
       )
+      .subscribe({
+        next: response => {
+          this.books.set(response.content);
+        },
+        error: error => {
+          console.error('Failed to load books', error);
+          this.loadError.set(true);
+        },
+      });
+  }
+
+  protected onSortChange(sort: string): void {
+    this.selectedSort.set(sort);
+    this.loadBooks();
   }
 }

@@ -1,5 +1,5 @@
 import {inject, Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Book} from '../models/book.model';
 import {BorrowedBooksDto} from '../dto/borrowed-books.dto';
@@ -7,6 +7,7 @@ import {LentBooksDto} from '../dto/lent-books.dto';
 import {API_BASE_URL} from '../config/api.config';
 import {PageResponseModel} from '../../features/books/models/page-response.model';
 import {BookFormModel} from '../models/book-form.model';
+import {BookQueryParams} from '../models/book-query-params';
 
 @Injectable({
   providedIn: 'root',
@@ -16,8 +17,38 @@ export class BookService {
 
   private readonly apiUrl = API_BASE_URL;
 
-  getBooks(): Observable<PageResponseModel<Book>> {
-    return this.http.get<PageResponseModel<Book>>(`${this.apiUrl}/api/books`);
+  getBooks(params: BookQueryParams = {}): Observable<PageResponseModel<Book>> {
+
+    let httpParams = new HttpParams();
+
+    if (params.sort) {
+      httpParams = httpParams.set('sort', params.sort);
+    }
+
+    if (params.page !== undefined) {
+      httpParams = httpParams.set('page', params.page);
+    }
+
+    if (params.size !== undefined) {
+      httpParams = httpParams.set('size', params.size);
+    }
+
+    if (params.language) {
+      httpParams = httpParams.set('language', params.language);
+    }
+
+    if (params.category) {
+      httpParams = httpParams.set('category', params.category);
+    }
+
+    if (params.available !== undefined) {
+      httpParams = httpParams.set('available', params.available);
+    }
+
+    return this.http.get<PageResponseModel<Book>>(
+      `${this.apiUrl}/api/books`,
+      {params: httpParams}
+    );
   }
 
   getBorrowedBooks(userId: number): Observable<BorrowedBooksDto> {

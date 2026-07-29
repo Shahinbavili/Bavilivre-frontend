@@ -1,8 +1,40 @@
 <section class="book-catalog">
 
-  <h1 class="catalog-title">
-    {{ 'books.catalog.title' | translate }}
-  </h1>
+  <div class="catalog-header">
+    <h1 class="catalog-title">
+      {{ 'books.catalog.title' | translate }}
+    </h1>
+
+    <div class="catalog-sort">
+      <label for="catalog-sort">
+        {{ 'books.catalog.sort.label' | translate }}
+      </label>
+
+      <select
+        #sortSelect
+        id="catalog-sort"
+        [value]="selectedSort()"
+        [disabled]="loading()"
+        (change)="onSortChange(sortSelect.value)"
+      >
+        <option value="-createdAt">
+          {{ 'books.catalog.sort.newest' | translate }}
+        </option>
+
+        <option value="createdAt">
+          {{ 'books.catalog.sort.oldest' | translate }}
+        </option>
+
+        <option value="title">
+          {{ 'books.catalog.sort.titleAsc' | translate }}
+        </option>
+
+        <option value="-title">
+          {{ 'books.catalog.sort.titleDesc' | translate }}
+        </option>
+      </select>
+    </div>
+  </div>
 
   @if (loading()) {
 
@@ -12,7 +44,7 @@
 
   } @else if (loadError()) {
 
-    <p class="catalog-state error">
+    <p class="catalog-state catalog-state--error">
       {{ 'books.messages.error' | translate }}
     </p>
 
