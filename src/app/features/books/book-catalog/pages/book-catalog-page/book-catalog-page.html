@@ -15,9 +15,7 @@
             #searchInput
             id="catalog-search"
             type="search"
-            [value]="searchTitle()"
             [placeholder]="'books.catalog.search.placeholder' | translate"
-            [disabled]="loading()"
             (input)="onSearchChange(searchInput.value)"
           />
         </div>
@@ -153,6 +151,16 @@
           </label>
         </div>
       </div>
+      @if (hasActiveCriteria()) {
+        <button
+          type="button"
+          class="catalog-reset"
+          [disabled]="loading()"
+          (click)="resetFilters()"
+        >
+          {{ 'books.catalog.filters.reset' | translate }}
+        </button>
+      }
     </div>
   </header>
 
@@ -163,20 +171,33 @@
     >
       {{ 'books.messages.loading' | translate }}
     </p>
-  } @else if (loadError()) {
-    <p
-      class="catalog-state catalog-state--error"
-      role="alert"
-    >
-      {{ 'books.messages.error' | translate }}
-    </p>
   } @else if (books().length === 0) {
-    <p
-      class="catalog-state"
+    <div
+      class="catalog-state catalog-state--empty"
       aria-live="polite"
     >
-      {{ 'books.messages.empty' | translate }}
-    </p>
+      @if (hasActiveCriteria()) {
+        <h2 class="catalog-state__title">
+          {{ 'books.messages.noResults.title' | translate }}
+        </h2>
+
+        <p class="catalog-state__description">
+          {{ 'books.messages.noResults.description' | translate }}
+        </p>
+
+        <button
+          type="button"
+          class="catalog-reset"
+          (click)="resetFilters()"
+        >
+          {{ 'books.catalog.filters.reset' | translate }}
+        </button>
+      } @else {
+        <p class="catalog-state__description">
+          {{ 'books.messages.empty' | translate }}
+        </p>
+      }
+    </div>
   } @else {
     <div class="catalog-grid">
       @for (book of books(); track book.id) {

@@ -96,7 +96,8 @@
         "availability": {
           "label": "Verfügbarkeit",
           "onlyAvailable": "Nur verfügbare Bücher"
-        }
+        },
+        "reset": "Filter zurücksetzen"
       }
     },
     "categories": {
@@ -177,7 +178,11 @@
       "error": "Die Bücher konnten nicht geladen werden.",
       "creating": "Das Buch wird hinzugefügt...",
       "createError": "Das Buch konnte nicht hinzugefügt werden.",
-      "updateError": "Beim Aktualisieren des Buches ist ein Fehler aufgetreten."
+      "updateError": "Beim Aktualisieren des Buches ist ein Fehler aufgetreten.",
+      "noResults": {
+        "title": "Keine Bücher gefunden",
+        "description": "Keine Bücher entsprechen Ihrer Suche oder den ausgewählten Filtern. Ändern Sie Ihre Kriterien oder setzen Sie die Filter zurück."
+      }
     },
     "borrowed": {
       "title": "Ausgeliehene Bücher",

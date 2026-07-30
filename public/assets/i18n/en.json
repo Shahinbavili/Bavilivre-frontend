@@ -96,7 +96,8 @@
         "availability": {
           "label": "Availability",
           "onlyAvailable": "Available only"
-        }
+        },
+        "reset": "Reset filters"
       }
     },
     "categories": {
@@ -177,7 +178,11 @@
       "error": "Unable to load books.",
       "creating": "Adding the book...",
       "createError": "Unable to add the book.",
-      "updateError": "An error occurred while updating the book."
+      "updateError": "An error occurred while updating the book.",
+      "noResults": {
+        "title": "No books found",
+        "description": "No books match your current search or filters. Try changing your criteria or resetting the filters."
+      }
     },
     "borrowed": {
       "title": "Borrowed Books",

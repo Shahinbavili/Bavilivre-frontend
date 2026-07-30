@@ -34,9 +34,10 @@
 .catalog-toolbar__filters {
   display: grid;
   grid-template-columns:
-    minmax(11rem, 0.8fr)
-    minmax(15rem, 1.2fr)
-    minmax(12rem, auto);
+    1fr
+    1.3fr
+    auto
+    auto;
   gap: 1rem;
   align-items: end;
 }
@@ -93,10 +94,6 @@
 
 .catalog-field--search {
   min-width: 0;
-}
-
-.catalog-field--availability {
-  min-width: 12rem;
 }
 
 .availability-control {
@@ -156,6 +153,75 @@
   border-radius: 0.5rem;
 }
 
+.catalog-reset {
+  justify-self: start;
+  width: fit-content;
+
+  min-height: 2.75rem;
+  padding-inline: 1rem;
+
+  font: inherit;
+  font-weight: 600;
+  white-space: nowrap;
+
+  color: #1e40af;
+  background-color: #fff;
+  border: 1px solid #93c5fd;
+  border-radius: 0.5rem;
+
+  cursor: pointer;
+
+  transition: background-color 150ms ease,
+  border-color 150ms ease;
+}
+
+.catalog-reset:hover:not(:disabled) {
+  background-color: #eff6ff;
+  border-color: #2563eb;
+}
+
+.catalog-reset:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(37 99 235 / 15%);
+}
+
+.catalog-reset:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.catalog-reset:hover:not(:disabled) {
+  background-color: #eff6ff;
+  border-color: #2563eb;
+}
+
+.catalog-reset:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(37 99 235 / 15%);
+}
+
+.catalog-reset:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.catalog-state--empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.catalog-state__title {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.catalog-state__description {
+  max-width: 32rem;
+  margin: 0;
+  color: #475569;
+}
+
 .catalog-state--error {
   color: #b3261e;
   border-color: currentColor;
@@ -164,10 +230,6 @@
 @media (max-width: 56rem) {
   .catalog-toolbar__filters {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .catalog-field--availability {
-    grid-column: 1 / -1;
   }
 }
 
@@ -194,9 +256,8 @@
   .catalog-toolbar__filters {
     grid-template-columns: 1fr;
   }
-
-  .catalog-field--availability {
-    grid-column: auto;
+  .catalog-reset {
+    width: 100%;
   }
 
   .availability-control {

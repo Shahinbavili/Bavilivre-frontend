@@ -96,7 +96,8 @@
         "availability": {
           "label": "Disponibilité",
           "onlyAvailable": "Disponibles uniquement"
-        }
+        },
+        "reset": "Réinitialiser les filtres"
       }
     },
     "categories": {
@@ -177,7 +178,11 @@
       "error": "Impossible de charger les livres.",
       "creating": "Ajout du livre en cours...",
       "createError": "Impossible d'ajouter le livre.",
-      "updateError": "Une erreur est survenue lors de la mise à jour du livre."
+      "updateError": "Une erreur est survenue lors de la mise à jour du livre.",
+      "noResults": {
+        "title": "Aucun livre trouvé",
+        "description": "Aucun livre ne correspond à votre recherche ou à vos filtres. Modifiez vos critères ou réinitialisez les filtres."
+      }
     },
     "borrowed": {
       "title": "Livres empruntés",
