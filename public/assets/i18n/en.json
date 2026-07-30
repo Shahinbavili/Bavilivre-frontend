@@ -94,6 +94,7 @@
           "all": "All categories"
         },
         "availability": {
+          "label": "Availability",
           "onlyAvailable": "Available only"
         }
       }

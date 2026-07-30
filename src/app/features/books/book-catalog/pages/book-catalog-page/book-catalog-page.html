@@ -1,113 +1,28 @@
 <section class="book-catalog">
-
-  <div class="catalog-header">
+  <header class="catalog-header">
     <h1 class="catalog-title">
       {{ 'books.catalog.title' | translate }}
     </h1>
 
     <div class="catalog-toolbar">
-      <div class="catalog-search">
-        <label for="catalog-search">
-          {{ 'books.catalog.search.label' | translate }}
-        </label>
-
-        <input
-          #searchInput
-          id="catalog-search"
-          type="search"
-          [value]="searchTitle()"
-          [placeholder]="'books.catalog.search.placeholder' | translate"
-          (input)="onSearchChange(searchInput.value)"
-        />
-      </div>
-
-      <div class="catalog-controls">
-        <div class="catalog-filter">
-          <label for="catalog-language">
-            {{ 'books.catalog.filters.language.label' | translate }}
+      <div class="catalog-toolbar__primary">
+        <div class="catalog-field catalog-field--search">
+          <label for="catalog-search">
+            {{ 'books.catalog.search.label' | translate }}
           </label>
 
-          <select
-            #languageSelect
-            id="catalog-language"
-            [value]="selectedLanguage()"
-            (change)="onLanguageChange(languageSelect.value)"
-          >
-            <option value="">
-              {{ 'books.catalog.filters.language.all' | translate }}
-            </option>
-
-            <option value="fr">
-              {{ 'common.languages.fr' | translate }}
-            </option>
-
-            <option value="en">
-              {{ 'common.languages.en' | translate }}
-            </option>
-
-            <option value="de">
-              {{ 'common.languages.de' | translate }}
-            </option>
-
-            <option value="fa">
-              {{ 'common.languages.fa' | translate }}
-            </option>
-          </select>
+          <input
+            #searchInput
+            id="catalog-search"
+            type="search"
+            [value]="searchTitle()"
+            [placeholder]="'books.catalog.search.placeholder' | translate"
+            [disabled]="loading()"
+            (input)="onSearchChange(searchInput.value)"
+          />
         </div>
 
-        <div class="catalog-filter">
-          <label for="catalog-category">
-            {{ 'books.catalog.filters.category.label' | translate }}
-          </label>
-
-          <select
-            #categorySelect
-            id="catalog-category"
-            [value]="selectedCategory()"
-            (change)="onCategoryChange(categorySelect.value)"
-          >
-            <option value="">
-              {{ 'books.catalog.filters.category.all' | translate }}
-            </option>
-
-            <option value="Software Engineering">
-              {{ 'books.categories.softwareEngineering' | translate }}
-            </option>
-
-            <option value="Software Architecture">
-              {{ 'books.categories.softwareArchitecture' | translate }}
-            </option>
-
-            <option value="Web Development">
-              {{ 'books.categories.webDevelopment' | translate }}
-            </option>
-
-            <option value="Databases">
-              {{ 'books.categories.databases' | translate }}
-            </option>
-
-            <option value="DevOps">
-              {{ 'books.categories.devOps' | translate }}
-            </option>
-          </select>
-        </div>
-
-        <div class="catalog-availability">
-          <label>
-            <input
-              #availabilityInput
-              type="checkbox"
-              [checked]="availableOnly()"
-              (change)="onAvailabilityChange(availabilityInput.checked)"
-            />
-
-            <span>
-      {{ 'books.catalog.filters.availability.onlyAvailable' | translate }}
-    </span>
-          </label>
-        </div>
-
-        <div class="catalog-sort">
+        <div class="catalog-field catalog-field--sort">
           <label for="catalog-sort">
             {{ 'books.catalog.sort.label' | translate }}
           </label>
@@ -137,35 +52,136 @@
           </select>
         </div>
       </div>
+
+      <div class="catalog-toolbar__filters">
+        <div class="catalog-field catalog-field--language">
+          <label for="catalog-language">
+            {{ 'books.catalog.filters.language.label' | translate }}
+          </label>
+
+          <select
+            #languageSelect
+            id="catalog-language"
+            [value]="selectedLanguage()"
+            [disabled]="loading()"
+            (change)="onLanguageChange(languageSelect.value)"
+          >
+            <option value="">
+              {{ 'books.catalog.filters.language.all' | translate }}
+            </option>
+
+            <option value="fr">
+              {{ 'common.languages.fr' | translate }}
+            </option>
+
+            <option value="en">
+              {{ 'common.languages.en' | translate }}
+            </option>
+
+            <option value="de">
+              {{ 'common.languages.de' | translate }}
+            </option>
+
+            <option value="fa">
+              {{ 'common.languages.fa' | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="catalog-field catalog-field--category">
+          <label for="catalog-category">
+            {{ 'books.catalog.filters.category.label' | translate }}
+          </label>
+
+          <select
+            #categorySelect
+            id="catalog-category"
+            [value]="selectedCategory()"
+            [disabled]="loading()"
+            (change)="onCategoryChange(categorySelect.value)"
+          >
+            <option value="">
+              {{ 'books.catalog.filters.category.all' | translate }}
+            </option>
+
+            <option value="Software Engineering">
+              {{ 'books.categories.softwareEngineering' | translate }}
+            </option>
+
+            <option value="Software Architecture">
+              {{ 'books.categories.softwareArchitecture' | translate }}
+            </option>
+
+            <option value="Web Development">
+              {{ 'books.categories.webDevelopment' | translate }}
+            </option>
+
+            <option value="Databases">
+              {{ 'books.categories.databases' | translate }}
+            </option>
+
+            <option value="DevOps">
+              {{ 'books.categories.devOps' | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="catalog-field catalog-field--availability">
+          <span class="catalog-field__label">
+            {{ 'books.catalog.filters.availability.label' | translate }}
+          </span>
+
+          <label
+            class="availability-control"
+            for="catalog-availability"
+          >
+            <input
+              #availabilityInput
+              id="catalog-availability"
+              type="checkbox"
+              [checked]="availableOnly()"
+              [disabled]="loading()"
+              (change)="onAvailabilityChange(availabilityInput.checked)"
+            />
+
+            <span>
+              {{
+                'books.catalog.filters.availability.onlyAvailable'
+                  | translate
+              }}
+            </span>
+          </label>
+        </div>
+      </div>
     </div>
-  </div>
+  </header>
 
   @if (loading()) {
-
-    <p class="catalog-state">
+    <p
+      class="catalog-state"
+      aria-live="polite"
+    >
       {{ 'books.messages.loading' | translate }}
     </p>
-
   } @else if (loadError()) {
-
-    <p class="catalog-state catalog-state--error">
+    <p
+      class="catalog-state catalog-state--error"
+      role="alert"
+    >
       {{ 'books.messages.error' | translate }}
     </p>
-
   } @else if (books().length === 0) {
-
-    <p class="catalog-state">
+    <p
+      class="catalog-state"
+      aria-live="polite"
+    >
       {{ 'books.messages.empty' | translate }}
     </p>
-
   } @else {
-
     <div class="catalog-grid">
       @for (book of books(); track book.id) {
         <app-book-card [book]="book"/>
       }
     </div>
-
   }
-
 </section>

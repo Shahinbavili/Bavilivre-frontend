@@ -94,6 +94,7 @@
           "all": "Alle Kategorien"
         },
         "availability": {
+          "label": "Verfügbarkeit",
           "onlyAvailable": "Nur verfügbare Bücher"
         }
       }

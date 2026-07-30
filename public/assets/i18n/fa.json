@@ -94,7 +94,8 @@
           "all": "همه دسته‌بندی‌ها"
         },
         "availability": {
-          "onlyAvailable": "فقط کتاب‌های موجود"
+          "label": "موجودی",
+          "onlyAvailable": "فقط کتاب‌ های موجود"
         }
       }
     },
