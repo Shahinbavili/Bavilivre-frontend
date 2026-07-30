@@ -21,6 +21,10 @@ export class BookService {
 
     let httpParams = new HttpParams();
 
+    if (params.title?.trim()) {
+      httpParams = httpParams.set('title', params.title.trim());
+    }
+
     if (params.sort) {
       httpParams = httpParams.set('sort', params.sort);
     }

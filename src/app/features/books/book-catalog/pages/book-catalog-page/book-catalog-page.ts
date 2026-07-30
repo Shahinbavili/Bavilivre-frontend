@@ -18,7 +18,10 @@ export class BookCatalogPage implements OnInit {
   readonly books = signal<Book[]>([]);
   readonly loading = signal(true);
   readonly loadError = signal(false);
+
+  readonly searchTitle = signal('');
   readonly selectedSort = signal('-createdAt');
+
 
   ngOnInit(): void {
     this.loadBooks();
@@ -29,6 +32,7 @@ export class BookCatalogPage implements OnInit {
     this.loadError.set(false);
 
     this.bookService.getBooks({
+      title: this.searchTitle(),
       sort: this.selectedSort(),
     })
       .pipe(
@@ -47,6 +51,11 @@ export class BookCatalogPage implements OnInit {
 
   protected onSortChange(sort: string): void {
     this.selectedSort.set(sort);
+    this.loadBooks();
+  }
+
+  protected onSearchChange(title: string) {
+    this.searchTitle.set(title.trim());
     this.loadBooks();
   }
 }

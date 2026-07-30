@@ -1,4 +1,5 @@
 export interface BookQueryParams {
+  title?: string;
   sort?: string;
   page?: number;
   size?: number;

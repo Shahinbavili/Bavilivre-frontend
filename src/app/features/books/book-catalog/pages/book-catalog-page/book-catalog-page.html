@@ -5,34 +5,52 @@
       {{ 'books.catalog.title' | translate }}
     </h1>
 
-    <div class="catalog-sort">
-      <label for="catalog-sort">
-        {{ 'books.catalog.sort.label' | translate }}
-      </label>
+    <div class="catalog-toolbar">
+      <div class="catalog-search">
+        <label for="catalog-search">
+          {{ 'books.catalog.search.label' | translate }}
+        </label>
 
-      <select
-        #sortSelect
-        id="catalog-sort"
-        [value]="selectedSort()"
-        [disabled]="loading()"
-        (change)="onSortChange(sortSelect.value)"
-      >
-        <option value="-createdAt">
-          {{ 'books.catalog.sort.newest' | translate }}
-        </option>
+        <input
+          #searchInput
+          id="catalog-search"
+          type="search"
+          [value]="searchTitle()"
+          [placeholder]="'books.catalog.search.placeholder' | translate"
+          (search)="onSearchChange(searchInput.value)"
+          (keyup.enter)="onSearchChange(searchInput.value)"
+        />
+      </div>
 
-        <option value="createdAt">
-          {{ 'books.catalog.sort.oldest' | translate }}
-        </option>
+      <div class="catalog-sort">
+        <label for="catalog-sort">
+          {{ 'books.catalog.sort.label' | translate }}
+        </label>
 
-        <option value="title">
-          {{ 'books.catalog.sort.titleAsc' | translate }}
-        </option>
+        <select
+          #sortSelect
+          id="catalog-sort"
+          [value]="selectedSort()"
+          [disabled]="loading()"
+          (change)="onSortChange(sortSelect.value)"
+        >
+          <option value="-createdAt">
+            {{ 'books.catalog.sort.newest' | translate }}
+          </option>
 
-        <option value="-title">
-          {{ 'books.catalog.sort.titleDesc' | translate }}
-        </option>
-      </select>
+          <option value="createdAt">
+            {{ 'books.catalog.sort.oldest' | translate }}
+          </option>
+
+          <option value="title">
+            {{ 'books.catalog.sort.titleAsc' | translate }}
+          </option>
+
+          <option value="-title">
+            {{ 'books.catalog.sort.titleDesc' | translate }}
+          </option>
+        </select>
+      </div>
     </div>
   </div>
 

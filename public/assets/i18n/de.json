@@ -79,6 +79,10 @@
         "oldest": "Älteste zuerst",
         "titleAsc": "Titel (A → Z)",
         "titleDesc": "Titel (Z → A)"
+      },
+      "search": {
+        "label": "Suchen",
+        "placeholder": "Bücher nach Titel suchen..."
       }
     },
     "details": {
