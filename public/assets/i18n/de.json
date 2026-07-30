@@ -83,7 +83,27 @@
       "search": {
         "label": "Suchen",
         "placeholder": "Bücher nach Titel suchen..."
+      },
+      "filters": {
+        "language": {
+          "label": "Sprache",
+          "all": "Alle Sprachen"
+        },
+        "category": {
+          "label": "Kategorie",
+          "all": "Alle Kategorien"
+        },
+        "availability": {
+          "onlyAvailable": "Nur verfügbare Bücher"
+        }
       }
+    },
+    "categories": {
+      "softwareEngineering": "Softwareentwicklung",
+      "softwareArchitecture": "Softwarearchitektur",
+      "webDevelopment": "Webentwicklung",
+      "databases": "Datenbanken",
+      "devOps": "DevOps"
     },
     "details": {
       "title": "Buchdetails"

@@ -83,7 +83,27 @@
       "search": {
         "label": "جستجو",
         "placeholder": "جستجوی کتاب بر اساس عنوان..."
+      },
+      "filters": {
+        "language": {
+          "label": "زبان",
+          "all": "همه زبان‌ها"
+        },
+        "category": {
+          "label": "دسته‌بندی",
+          "all": "همه دسته‌بندی‌ها"
+        },
+        "availability": {
+          "onlyAvailable": "فقط کتاب‌های موجود"
+        }
       }
+    },
+    "categories": {
+      "softwareEngineering": "مهندسی نرم‌افزار",
+      "softwareArchitecture": "معماری نرم‌افزار",
+      "webDevelopment": "توسعه وب",
+      "databases": "پایگاه‌های داده",
+      "devOps": "دوآپس"
     },
     "details": {
       "title": "جزئیات کتاب"

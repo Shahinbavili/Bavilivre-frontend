@@ -83,7 +83,27 @@
       "search": {
         "label": "Rechercher",
         "placeholder": "Rechercher un livre par titre..."
+      },
+      "filters": {
+        "language": {
+          "label": "Langue",
+          "all": "Toutes les langues"
+        },
+        "category": {
+          "label": "Catégorie",
+          "all": "Toutes les catégories"
+        },
+        "availability": {
+          "onlyAvailable": "Disponibles uniquement"
+        }
       }
+    },
+    "categories": {
+      "softwareEngineering": "Génie logiciel",
+      "softwareArchitecture": "Architecture logicielle",
+      "webDevelopment": "Développement web",
+      "databases": "Bases de données",
+      "devOps": "DevOps"
     },
     "details": {
       "title": "Détails du livre"

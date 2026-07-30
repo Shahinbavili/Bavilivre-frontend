@@ -21,34 +21,121 @@
         />
       </div>
 
-      <div class="catalog-sort">
-        <label for="catalog-sort">
-          {{ 'books.catalog.sort.label' | translate }}
-        </label>
+      <div class="catalog-controls">
+        <div class="catalog-filter">
+          <label for="catalog-language">
+            {{ 'books.catalog.filters.language.label' | translate }}
+          </label>
 
-        <select
-          #sortSelect
-          id="catalog-sort"
-          [value]="selectedSort()"
-          [disabled]="loading()"
-          (change)="onSortChange(sortSelect.value)"
-        >
-          <option value="-createdAt">
-            {{ 'books.catalog.sort.newest' | translate }}
-          </option>
+          <select
+            #languageSelect
+            id="catalog-language"
+            [value]="selectedLanguage()"
+            (change)="onLanguageChange(languageSelect.value)"
+          >
+            <option value="">
+              {{ 'books.catalog.filters.language.all' | translate }}
+            </option>
 
-          <option value="createdAt">
-            {{ 'books.catalog.sort.oldest' | translate }}
-          </option>
+            <option value="fr">
+              {{ 'common.languages.fr' | translate }}
+            </option>
 
-          <option value="title">
-            {{ 'books.catalog.sort.titleAsc' | translate }}
-          </option>
+            <option value="en">
+              {{ 'common.languages.en' | translate }}
+            </option>
 
-          <option value="-title">
-            {{ 'books.catalog.sort.titleDesc' | translate }}
-          </option>
-        </select>
+            <option value="de">
+              {{ 'common.languages.de' | translate }}
+            </option>
+
+            <option value="fa">
+              {{ 'common.languages.fa' | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="catalog-filter">
+          <label for="catalog-category">
+            {{ 'books.catalog.filters.category.label' | translate }}
+          </label>
+
+          <select
+            #categorySelect
+            id="catalog-category"
+            [value]="selectedCategory()"
+            (change)="onCategoryChange(categorySelect.value)"
+          >
+            <option value="">
+              {{ 'books.catalog.filters.category.all' | translate }}
+            </option>
+
+            <option value="Software Engineering">
+              {{ 'books.categories.softwareEngineering' | translate }}
+            </option>
+
+            <option value="Software Architecture">
+              {{ 'books.categories.softwareArchitecture' | translate }}
+            </option>
+
+            <option value="Web Development">
+              {{ 'books.categories.webDevelopment' | translate }}
+            </option>
+
+            <option value="Databases">
+              {{ 'books.categories.databases' | translate }}
+            </option>
+
+            <option value="DevOps">
+              {{ 'books.categories.devOps' | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="catalog-availability">
+          <label>
+            <input
+              #availabilityInput
+              type="checkbox"
+              [checked]="availableOnly()"
+              (change)="onAvailabilityChange(availabilityInput.checked)"
+            />
+
+            <span>
+      {{ 'books.catalog.filters.availability.onlyAvailable' | translate }}
+    </span>
+          </label>
+        </div>
+
+        <div class="catalog-sort">
+          <label for="catalog-sort">
+            {{ 'books.catalog.sort.label' | translate }}
+          </label>
+
+          <select
+            #sortSelect
+            id="catalog-sort"
+            [value]="selectedSort()"
+            [disabled]="loading()"
+            (change)="onSortChange(sortSelect.value)"
+          >
+            <option value="-createdAt">
+              {{ 'books.catalog.sort.newest' | translate }}
+            </option>
+
+            <option value="createdAt">
+              {{ 'books.catalog.sort.oldest' | translate }}
+            </option>
+
+            <option value="title">
+              {{ 'books.catalog.sort.titleAsc' | translate }}
+            </option>
+
+            <option value="-title">
+              {{ 'books.catalog.sort.titleDesc' | translate }}
+            </option>
+          </select>
+        </div>
       </div>
     </div>
   </div>

@@ -1,8 +1,8 @@
 {
   "navigation": {
-    "home": "Accueil",
-    "catalog": "Catalogue",
-    "addBook": "Ajouter un livre"
+    "home": "Home",
+    "catalog": "Catalog",
+    "addBook": "Add a book"
   },
   "common": {
     "loading": "Loading...",
@@ -83,7 +83,27 @@
       "search": {
         "label": "Search",
         "placeholder": "Search books by title..."
+      },
+      "filters": {
+        "language": {
+          "label": "Language",
+          "all": "All languages"
+        },
+        "category": {
+          "label": "Category",
+          "all": "All categories"
+        },
+        "availability": {
+          "onlyAvailable": "Available only"
+        }
       }
+    },
+    "categories": {
+      "softwareEngineering": "Software Engineering",
+      "softwareArchitecture": "Software Architecture",
+      "webDevelopment": "Web Development",
+      "databases": "Databases",
+      "devOps": "DevOps"
     },
     "details": {
       "title": "Book Details"

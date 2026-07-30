@@ -16,14 +16,29 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  gap: 1.5rem;
+}
+
+.catalog-search {
+  flex: 1;
+  max-width: 28rem;
+}
+
+.catalog-controls {
+  display: flex;
+  align-items: flex-end;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .catalog-search,
+.catalog-filter,
 .catalog-sort {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  min-width: 10rem;
+  cursor: pointer;
 
   label {
     font-weight: 600;
@@ -39,18 +54,33 @@
   }
 }
 
-.catalog-search {
-  flex: 1;
-  max-width: 28rem;
-
-  input {
-    width: 100%;
-  }
+.catalog-search input {
+  width: 100%;
 }
 
-.catalog-sort {
-  select {
-    min-width: 12rem;
+.catalog-filter select,
+.catalog-sort select {
+  min-width: 12rem;
+  cursor: pointer;
+}
+
+.catalog-availability {
+  min-height: 2.5rem;
+  display: flex;
+  align-items: center;
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  input {
+    width: 1rem;
+    height: 1rem;
+    margin: 0;
     cursor: pointer;
   }
 }
@@ -74,7 +104,7 @@
   border-color: currentColor;
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 48rem) {
   .catalog-toolbar {
     flex-direction: column;
     align-items: stretch;
@@ -84,9 +114,25 @@
     max-width: none;
   }
 
+  .catalog-controls {
+    width: 100%;
+  }
+
+  .catalog-filter,
   .catalog-sort {
-    select {
-      width: 100%;
-    }
+    flex: 1;
+  }
+
+  .catalog-filter select,
+  .catalog-sort select {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 40rem) {
+  .catalog-controls {
+    flex-direction: column;
+    align-items: stretch;
   }
 }
