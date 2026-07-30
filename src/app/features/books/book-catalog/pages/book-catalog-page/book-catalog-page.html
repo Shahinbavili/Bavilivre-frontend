@@ -17,8 +17,7 @@
           type="search"
           [value]="searchTitle()"
           [placeholder]="'books.catalog.search.placeholder' | translate"
-          (search)="onSearchChange(searchInput.value)"
-          (keyup.enter)="onSearchChange(searchInput.value)"
+          (input)="onSearchChange(searchInput.value)"
         />
       </div>
 

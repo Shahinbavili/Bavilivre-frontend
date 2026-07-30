@@ -1,10 +1,11 @@
-import {Component, inject, OnInit, signal} from '@angular/core';
-import {finalize} from 'rxjs';
+import {Component, DestroyRef, inject, OnInit, signal} from '@angular/core';
+import {debounceTime, distinctUntilChanged, finalize, Subject} from 'rxjs';
 import {TranslatePipe} from '@ngx-translate/core';
 
 import {Book} from '../../../../../core/models/book.model';
 import {BookService} from '../../../../../core/services/book.service';
 import {BookCard} from '../../../components/book-card/book-card';
+import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-book-catalog-page',
@@ -15,15 +16,30 @@ import {BookCard} from '../../../components/book-card/book-card';
 export class BookCatalogPage implements OnInit {
   private readonly bookService = inject(BookService);
 
+  // Provides the component destruction lifecycle to RxJS operators.
+  private readonly destroyRef = inject(DestroyRef);
+
   readonly books = signal<Book[]>([]);
   readonly loading = signal(true);
   readonly loadError = signal(false);
 
   readonly searchTitle = signal('');
   readonly selectedSort = signal('-createdAt');
+  readonly searchChanges = new Subject<string>();
 
 
   ngOnInit(): void {
+    this.searchChanges.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      // Automatically unsubscribes when the component is destroyed.
+      takeUntilDestroyed(this.destroyRef),
+    )
+      .subscribe(title => {
+        this.searchTitle.set(title);
+        this.loadBooks();
+      });
+
     this.loadBooks();
   }
 
@@ -54,8 +70,7 @@ export class BookCatalogPage implements OnInit {
     this.loadBooks();
   }
 
-  protected onSearchChange(title: string) {
-    this.searchTitle.set(title.trim());
-    this.loadBooks();
+  protected onSearchChange(title: string): void {
+    this.searchChanges.next(title.trim());
   }
 }
