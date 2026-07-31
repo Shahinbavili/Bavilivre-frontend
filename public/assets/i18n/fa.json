@@ -13,10 +13,16 @@
       "cancel": "انصراف",
       "back": "بازگشت"
     },
-    "languages": {
+    "languageSwitcher": {
       "fr": "Français",
       "en": "English",
       "de": "Deutsch",
+      "fa": "فارسی"
+    },
+    "languages": {
+      "fr": "فرانسوی",
+      "en": "انگلیسی",
+      "de": "آلمانی",
       "fa": "فارسی"
     }
   },

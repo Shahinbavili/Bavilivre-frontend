@@ -13,11 +13,17 @@
       "cancel": "Annuler",
       "back": "Retour"
     },
-    "languages": {
+    "languageSwitcher": {
       "fr": "Français",
       "en": "English",
       "de": "Deutsch",
       "fa": "فارسی"
+    },
+    "languages": {
+      "fr": "Français",
+      "en": "Anglais",
+      "de": "Allemand",
+      "fa": "Persan"
     }
   },
   "layout": {
