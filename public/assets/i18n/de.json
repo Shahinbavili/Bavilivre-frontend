@@ -103,7 +103,15 @@
           "label": "Verfügbarkeit",
           "onlyAvailable": "Nur verfügbare Bücher"
         },
-        "reset": "Filter zurücksetzen"
+        "reset": "Filter zurücksetzen",
+        "pagination": {
+          "results": "{{ total }} Ergebnis(se)",
+          "pageStatus": "Seite {{ current }} von {{ total }}",
+          "pageSize": "Ergebnisse pro Seite",
+          "navigationLabel": "Seitennavigation des Katalogs",
+          "previous": "Zurück",
+          "next": "Weiter"
+        }
       }
     },
     "categories": {
@@ -188,7 +196,8 @@
       "noResults": {
         "title": "Keine Bücher gefunden",
         "description": "Keine Bücher entsprechen Ihrer Suche oder den ausgewählten Filtern. Ändern Sie Ihre Kriterien oder setzen Sie die Filter zurück."
-      }
+      },
+      "loadError": "Die Bücher konnten nicht geladen werden. Bitte versuchen Sie es erneut."
     },
     "borrowed": {
       "title": "Ausgeliehene Bücher",

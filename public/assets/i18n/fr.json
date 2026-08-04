@@ -104,6 +104,14 @@
           "onlyAvailable": "Disponibles uniquement"
         },
         "reset": "Réinitialiser les filtres"
+      },
+      "pagination": {
+        "results": "{{ total }} résultat(s)",
+        "pageStatus": "Page {{ current }} sur {{ total }}",
+        "pageSize": "Résultats par page",
+        "navigationLabel": "Navigation entre les pages du catalogue",
+        "previous": "Précédent",
+        "next": "Suivant"
       }
     },
     "categories": {
@@ -188,7 +196,8 @@
       "noResults": {
         "title": "Aucun livre trouvé",
         "description": "Aucun livre ne correspond à votre recherche ou à vos filtres. Modifiez vos critères ou réinitialisez les filtres."
-      }
+      },
+      "loadError": "Impossible de charger les livres. Veuillez réessayer."
     },
     "borrowed": {
       "title": "Livres empruntés",

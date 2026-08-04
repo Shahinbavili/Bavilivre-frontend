@@ -30,6 +30,13 @@ export class BookCatalogPage implements OnInit {
   readonly availableOnly = signal(false);
   readonly selectedSort = signal('-createdAt');
 
+  readonly currentPage = signal(0);
+  readonly pageSize = signal(12);
+  readonly totalPages = signal(10);
+  readonly totalElements = signal(0);
+
+  readonly pageSizeOptions = [12, 24, 48];
+
   // Gives direct access to the search input to reset its value programmatically.
   @ViewChild('searchInput')
   private searchInput?: ElementRef<HTMLInputElement>;
@@ -42,6 +49,12 @@ export class BookCatalogPage implements OnInit {
     this.selectedSort() !== '-createdAt'
   );
 
+  readonly hasPreviousPage = computed(() => this.currentPage() > 0);
+
+  readonly hasNextPage = computed(() =>
+    this.totalPages() > 0 &&
+    this.currentPage() < this.totalPages() - 1
+  );
 
   ngOnInit(): void {
     this.searchChanges
@@ -69,6 +82,8 @@ export class BookCatalogPage implements OnInit {
       category: this.selectedCategory(),
       available: this.availableOnly() ? true : undefined,
       sort: this.selectedSort(),
+      page: this.currentPage(),
+      size: this.pageSize(),
     })
       .pipe(
         finalize(() => this.loading.set(false))
@@ -76,6 +91,10 @@ export class BookCatalogPage implements OnInit {
       .subscribe({
         next: response => {
           this.books.set(response.content);
+          this.currentPage.set(response.page);
+          this.pageSize.set(response.size);
+          this.totalPages.set(response.totalPages);
+          this.totalElements.set(response.totalElements);
         },
         error: error => {
           console.error('Failed to load books', error);
@@ -84,9 +103,14 @@ export class BookCatalogPage implements OnInit {
       });
   }
 
+  private resetPageAndLoadBooks(): void {
+    this.currentPage.set(0);
+    this.loadBooks();
+  }
+
   protected onSortChange(sort: string): void {
     this.selectedSort.set(sort);
-    this.loadBooks();
+    this.resetPageAndLoadBooks();
   }
 
   protected onSearchChange(title: string): void {
@@ -95,20 +119,49 @@ export class BookCatalogPage implements OnInit {
 
   protected onLanguageChange(language: string): void {
     this.selectedLanguage.set(language);
-    this.loadBooks();
+    this.resetPageAndLoadBooks();
   }
 
   protected onCategoryChange(category: string): void {
     this.selectedCategory.set(category);
-    this.loadBooks();
+    this.resetPageAndLoadBooks();
   }
 
   protected onAvailabilityChange(available: boolean): void {
     this.availableOnly.set(available);
+    this.resetPageAndLoadBooks();
+  }
+
+  protected onPreviousPage(): void {
+    if (!this.hasPreviousPage) {
+      return;
+    }
+
+    this.currentPage.update(page => page - 1);
     this.loadBooks();
   }
 
-  resetFilters(): void {
+  protected onNextPage(): void {
+    if (!this.hasNextPage) {
+      return;
+    }
+
+    this.currentPage.update(page => page + 1);
+    this.loadBooks();
+  }
+
+  protected onPageSizeChange(size: string): void {
+    const parsedSize = Number(size);
+
+    if (!this.pageSizeOptions.includes(parsedSize)) {
+      return;
+    }
+
+    this.pageSize.set(parsedSize);
+    this.resetPageAndLoadBooks();
+  }
+
+  protected resetFilters(): void {
     this.searchTitle.set('');
     this.selectedLanguage.set('');
     this.selectedCategory.set('');
@@ -121,6 +174,6 @@ export class BookCatalogPage implements OnInit {
       this.searchInput.nativeElement.value = '';
     }
 
-    this.loadBooks();
+    this.resetPageAndLoadBooks();
   }
 }

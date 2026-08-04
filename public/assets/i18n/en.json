@@ -104,6 +104,14 @@
           "onlyAvailable": "Available only"
         },
         "reset": "Reset filters"
+      },
+      "pagination": {
+        "results": "{{ total }} result(s)",
+        "pageStatus": "Page {{ current }} of {{ total }}",
+        "pageSize": "Results per page",
+        "navigationLabel": "Catalog page navigation",
+        "previous": "Previous",
+        "next": "Next"
       }
     },
     "categories": {
@@ -188,7 +196,8 @@
       "noResults": {
         "title": "No books found",
         "description": "No books match your current search or filters. Try changing your criteria or resetting the filters."
-      }
+      },
+      "loadError": "Unable to load books. Please try again."
     },
     "borrowed": {
       "title": "Borrowed Books",

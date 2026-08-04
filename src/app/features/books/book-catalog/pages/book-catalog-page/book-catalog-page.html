@@ -151,6 +151,7 @@
           </label>
         </div>
       </div>
+
       @if (hasActiveCriteria()) {
         <button
           type="button"
@@ -170,6 +171,13 @@
       aria-live="polite"
     >
       {{ 'books.messages.loading' | translate }}
+    </p>
+  } @else if (loadError()) {
+    <p
+      class="catalog-state catalog-state--error"
+      role="alert"
+    >
+      {{ 'books.messages.loadError' | translate }}
     </p>
   } @else if (books().length === 0) {
     <div
@@ -204,5 +212,87 @@
         <app-book-card [book]="book"/>
       }
     </div>
+
+    <footer class="catalog-pagination">
+      <div
+        class="catalog-pagination__summary"
+        aria-live="polite"
+      >
+        <p>
+          {{
+            'books.catalog.pagination.results'
+              | translate: {total: totalElements()}
+          }}
+        </p>
+
+        <p>
+          {{
+            'books.catalog.pagination.pageStatus'
+              | translate: {
+              current: currentPage() + 1,
+              total: totalPages()
+            }
+          }}
+        </p>
+      </div>
+
+      <div class="catalog-pagination__actions">
+        <div class="catalog-pagination__size">
+          <label for="catalog-page-size">
+            {{ 'books.catalog.pagination.pageSize' | translate }}
+          </label>
+
+          <select
+            #pageSizeSelect
+            id="catalog-page-size"
+            [value]="pageSize()"
+            (change)="onPageSizeChange(pageSizeSelect.value)"
+          >
+            @for (size of pageSizeOptions; track size) {
+              <option [value]="size">
+                {{ size }}
+              </option>
+            }
+          </select>
+        </div>
+
+        @if (totalPages() > 1) {
+          <nav
+            class="catalog-pagination__navigation"
+            [attr.aria-label]="
+              'books.catalog.pagination.navigationLabel' | translate
+            "
+          >
+            <button
+              type="button"
+              class="catalog-pagination__button"
+              [disabled]="!hasPreviousPage()"
+              (click)="onPreviousPage()"
+            >
+              {{ 'books.catalog.pagination.previous' | translate }}
+            </button>
+
+            <span class="catalog-pagination__current">
+              {{
+                'books.catalog.pagination.pageStatus'
+                  | translate: {
+                  current: currentPage() + 1,
+                  total: totalPages()
+                }
+              }}
+            </span>
+
+            <button
+              type="button"
+              class="catalog-pagination__button"
+              [disabled]="!hasNextPage()"
+              (click)="onNextPage()"
+            >
+              {{ 'books.catalog.pagination.next' | translate }}
+            </button>
+          </nav>
+        }
+      </div>
+    </footer>
   }
 </section>
