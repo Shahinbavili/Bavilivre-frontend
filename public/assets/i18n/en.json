@@ -106,7 +106,8 @@
         "reset": "Reset filters"
       },
       "pagination": {
-        "results": "{{ total }} result(s)",
+        "catalogTotal": "{{ total }} books in the catalog",
+        "filteredResults": "{{ total }} result(s)",
         "pageStatus": "Page {{ current }} of {{ total }}",
         "pageSize": "Results per page",
         "navigationLabel": "Catalog page navigation",

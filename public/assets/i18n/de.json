@@ -103,15 +103,16 @@
           "label": "Verfügbarkeit",
           "onlyAvailable": "Nur verfügbare Bücher"
         },
-        "reset": "Filter zurücksetzen",
-        "pagination": {
-          "results": "{{ total }} Ergebnis(se)",
-          "pageStatus": "Seite {{ current }} von {{ total }}",
-          "pageSize": "Ergebnisse pro Seite",
-          "navigationLabel": "Seitennavigation des Katalogs",
-          "previous": "Zurück",
-          "next": "Weiter"
-        }
+        "reset": "Filter zurücksetzen"
+      },
+      "pagination": {
+        "catalogTotal": "{{ total }} Bücher im Katalog",
+        "filteredResults": "{{ total }} Ergebnis(se)",
+        "pageStatus": "Seite {{ current }} von {{ total }}",
+        "pageSize": "Ergebnisse pro Seite",
+        "navigationLabel": "Seitennavigation des Katalogs",
+        "previous": "Zurück",
+        "next": "Weiter"
       }
     },
     "categories": {

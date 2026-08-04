@@ -92,7 +92,6 @@ export class BookCatalogPage implements OnInit {
         next: response => {
           this.books.set(response.content);
           this.currentPage.set(response.page);
-          this.pageSize.set(response.size);
           this.totalPages.set(response.totalPages);
           this.totalElements.set(response.totalElements);
         },

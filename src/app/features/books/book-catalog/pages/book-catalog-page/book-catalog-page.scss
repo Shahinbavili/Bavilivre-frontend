@@ -136,6 +136,13 @@
   }
 }
 
+.catalog-results-summary {
+  margin-block-end: 1.25rem;
+
+  font-weight: 600;
+  color: #475569;
+}
+
 .catalog-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
@@ -222,18 +229,6 @@
   padding-block-start: 1.5rem;
 
   border-block-start: 1px solid #e2e8f0;
-}
-
-.catalog-pagination__summary {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-
-  color: #475569;
-
-  p {
-    margin: 0;
-  }
 }
 
 .catalog-pagination__actions {
@@ -381,11 +376,6 @@
     grid-template-columns: 1fr;
     row-gap: 1.5rem;
     column-gap: 1.5rem;
-  }
-
-  .catalog-pagination__summary {
-    flex-direction: column;
-    gap: 0.5rem;
   }
 
   .catalog-pagination__navigation {

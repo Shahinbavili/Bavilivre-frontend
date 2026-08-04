@@ -207,6 +207,24 @@
       }
     </div>
   } @else {
+    <div
+      class="catalog-results-summary"
+      aria-live="polite"
+    >
+      @if (hasActiveCriteria()) {
+        {{
+          'books.catalog.pagination.filteredResults'
+            | translate: {total: totalElements()}
+        }}
+      } @else {
+        {{
+          'books.catalog.pagination.catalogTotal'
+            | translate: {total: totalElements()}
+        }}
+
+      }
+    </div>
+
     <div class="catalog-grid">
       @for (book of books(); track book.id) {
         <app-book-card [book]="book"/>
@@ -214,28 +232,6 @@
     </div>
 
     <footer class="catalog-pagination">
-      <div
-        class="catalog-pagination__summary"
-        aria-live="polite"
-      >
-        <p>
-          {{
-            'books.catalog.pagination.results'
-              | translate: {total: totalElements()}
-          }}
-        </p>
-
-        <p>
-          {{
-            'books.catalog.pagination.pageStatus'
-              | translate: {
-              current: currentPage() + 1,
-              total: totalPages()
-            }
-          }}
-        </p>
-      </div>
-
       <div class="catalog-pagination__actions">
         <div class="catalog-pagination__size">
           <label for="catalog-page-size">
@@ -245,11 +241,14 @@
           <select
             #pageSizeSelect
             id="catalog-page-size"
-            [value]="pageSize()"
+            [disabled]="loading()"
             (change)="onPageSizeChange(pageSizeSelect.value)"
           >
             @for (size of pageSizeOptions; track size) {
-              <option [value]="size">
+              <option
+                [value]="size"
+                [selected]="pageSize() === size"
+              >
                 {{ size }}
               </option>
             }
@@ -260,8 +259,8 @@
           <nav
             class="catalog-pagination__navigation"
             [attr.aria-label]="
-              'books.catalog.pagination.navigationLabel' | translate
-            "
+          'books.catalog.pagination.navigationLabel' | translate
+        "
           >
             <button
               type="button"
@@ -273,14 +272,14 @@
             </button>
 
             <span class="catalog-pagination__current">
-              {{
+          {{
                 'books.catalog.pagination.pageStatus'
                   | translate: {
                   current: currentPage() + 1,
                   total: totalPages()
                 }
               }}
-            </span>
+        </span>
 
             <button
               type="button"

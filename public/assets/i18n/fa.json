@@ -78,7 +78,7 @@
   },
   "books": {
     "catalog": {
-      "title": "فهرست کتاب‌ها",
+      "title": "فهرست کتاب‌ ها",
       "sort": {
         "label": "مرتب‌ سازی بر اساس",
         "newest": "جدید ترین",
@@ -106,7 +106,8 @@
         "reset": "باز نشانی فیلتر ها"
       },
       "pagination": {
-        "results": "{{ total }} نتیجه",
+        "catalogTotal": "{{ total }} کتاب در فهرست کتاب ها ",
+        "filteredResults": "{{ total }} نتیجه",
         "pageStatus": "صفحه {{ current }} از {{ total }}",
         "pageSize": "تعداد نتایج در هر صفحه",
         "navigationLabel": "پیمایش صفحه ‌های فهرست کتاب‌ ها",
