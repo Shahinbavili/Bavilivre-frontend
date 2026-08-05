@@ -1,8 +1,7 @@
-import {Component, inject, input} from '@angular/core';
+import {Component, input, output} from '@angular/core';
 import {Book} from '../../../../core/models/book.model';
 import {DatePipe} from '@angular/common';
 import {TranslatePipe} from '@ngx-translate/core';
-import {AuthService} from '../../../../core/auth/auth.service';
 import {RouterLink} from '@angular/router';
 
 @Component({
@@ -13,7 +12,13 @@ import {RouterLink} from '@angular/router';
 })
 export class BookCard {
 
-  readonly authService = inject(AuthService);
-  readonly currentUser = this.authService.currentUser;
   readonly book = input.required<Book>();
+  readonly isOwner = input(false);
+  readonly isArchiving = input(false);
+
+  readonly archiveRequested = output<Book>()
+
+  protected requestArchive(): void {
+    this.archiveRequested.emit(this.book());
+  }
 }
