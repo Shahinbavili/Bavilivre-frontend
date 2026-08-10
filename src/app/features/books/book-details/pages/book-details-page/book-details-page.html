@@ -23,7 +23,7 @@
 
       <p>
         <strong>{{ 'books.fields.language' | translate }}: </strong>
-        {{ book.language }}
+        {{ (`common.languages.` + book.language) | translate }}
       </p>
 
       <p>

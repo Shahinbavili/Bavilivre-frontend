@@ -1,18 +1,12 @@
 import {Component, computed, DestroyRef, ElementRef, inject, OnInit, signal, ViewChild} from '@angular/core';
 import {debounceTime, distinctUntilChanged, finalize, Subject} from 'rxjs';
-import {TranslatePipe, TranslateService} from '@ngx-translate/core';
+import {TranslatePipe} from '@ngx-translate/core';
 
 import {Book} from '../../../../../core/models/book.model';
 import {BookService} from '../../../../../core/services/book.service';
 import {BookCard} from '../../../components/book-card/book-card';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {AuthService} from '../../../../../core/auth/auth.service';
-import {HttpErrorResponse} from '@angular/common/http';
-
-interface ArchiveFeedback {
-  key: string;
-  error: boolean;
-}
 
 @Component({
   selector: 'app-book-catalog-page',
@@ -22,10 +16,6 @@ interface ArchiveFeedback {
 })
 export class BookCatalogPage implements OnInit {
   private readonly authService = inject(AuthService);
-  private translateService = inject(TranslateService);
-
-  readonly archivingBookId = signal<number | null>(null);
-  readonly archiveFeedback = signal<ArchiveFeedback | null>(null);
 
   private readonly bookService = inject(BookService);
 
@@ -194,61 +184,4 @@ export class BookCatalogPage implements OnInit {
 
     return currentUser !== null && currentUser.id === book.ownerId;
   }
-
-  protected isBookArchiving(bookId: number): boolean {
-    return this.archivingBookId() === bookId;
-  }
-
-  protected onArchiveBook(book: Book): void {
-    const confirmed = window.confirm(
-      this.translateService.instant(
-        'books.archive.confirmation',
-        {title: book.title}
-      )
-    );
-
-    if (!confirmed) {
-      return;
-    }
-
-    this.archivingBookId.set(book.id);
-    this.archiveFeedback.set(null);
-
-    this.bookService.archiveBook(book.id)
-      .pipe(
-        finalize(() => this.archivingBookId.set(null))
-      )
-      .subscribe({
-        next: () => {
-          const isLastBookOnPage =
-            this.books().length === 1 && this.currentPage() > 0;
-
-          if (isLastBookOnPage) {
-            this.currentPage.update(page => page - 1);
-          }
-
-          this.archiveFeedback.set({
-            key: 'books.archive.success',
-            error: false,
-          });
-
-          this.loadBooks();
-        },
-        error: (error: HttpErrorResponse) => {
-          let key = 'books.archive.error';
-
-          if (error.status === 403) {
-            key = 'books.archive.forbidden';
-          } else if (error.status === 404) {
-            key = 'books.archive.notFound';
-          }
-
-          this.archiveFeedback.set({
-            key,
-            error: true,
-          });
-        },
-      });
-  }
-
 }

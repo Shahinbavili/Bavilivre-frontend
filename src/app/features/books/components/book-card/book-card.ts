@@ -1,4 +1,4 @@
-import {Component, input, output} from '@angular/core';
+import {Component, input} from '@angular/core';
 import {Book} from '../../../../core/models/book.model';
 import {DatePipe} from '@angular/common';
 import {TranslatePipe} from '@ngx-translate/core';
@@ -13,12 +13,4 @@ import {RouterLink} from '@angular/router';
 export class BookCard {
 
   readonly book = input.required<Book>();
-  readonly isOwner = input(false);
-  readonly isArchiving = input(false);
-
-  readonly archiveRequested = output<Book>()
-
-  protected requestArchive(): void {
-    this.archiveRequested.emit(this.book());
-  }
 }

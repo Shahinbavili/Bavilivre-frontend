@@ -225,25 +225,9 @@
       }
     </div>
 
-    @if (archiveFeedback(); as feedback) {
-      <p
-        class="catalog-feedback"
-        [class.catalog-feedback--error]="feedback.error"
-        [class.catalog-feedback--success]="!feedback.error"
-        [attr.role]="feedback.error ? 'alert' : 'status'"
-      >
-        {{ feedback.key | translate }}
-      </p>
-    }
-
     <div class="catalog-grid">
       @for (book of books(); track book.id) {
-        <app-book-card
-          [book]="book"
-          [isOwner]="isBookOwner(book)"
-          [isArchiving]="isBookArchiving(book.id)"
-          (archiveRequested)="onArchiveBook($event)"
-        />
+        <app-book-card [book]="book"/>
       }
     </div>
 
