@@ -31,15 +31,19 @@
         {{ book.category }}
       </p>
 
-      <p>
-        <strong>{{ 'books.fields.owner' | translate }}: </strong>
+      @if (currentUser()) {
+        <p>
+          <strong>{{ 'books.fields.owner' | translate }}: </strong>
 
-        @if (owner(); as owner) {
-          {{ owner.displayName }}
-        } @else {
-          <app-loading-spinner/>
-        }
-      </p>
+          @if (owner(); as owner) {
+            {{ owner.displayName }}
+          } @else if (ownerLoading()) {
+            <app-loading-spinner/>
+          } @else {
+            {{ 'books.details.ownerUnavailable' | translate }}
+          }
+        </p>
+      }
 
       <footer class="book-actions">
 

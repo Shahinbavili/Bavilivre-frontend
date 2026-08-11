@@ -30,6 +30,7 @@ export class BookDetailsPage implements OnInit {
 
   readonly book = signal<Book | null>(null);
   readonly owner = signal<User | null>(null);
+  readonly ownerLoading = signal(false);
   readonly currentUser = this.authService.currentUser;
 
   readonly isLoading = signal(true);
@@ -62,7 +63,10 @@ export class BookDetailsPage implements OnInit {
     this.bookService.getBookById(bookId).subscribe({
       next: (book: Book) => {
         this.book.set(book);
-        this.loadOwner(book.ownerId);
+        this.isLoading.set(false);
+        if (this.currentUser()) {
+          this.loadOwner(book.ownerId);
+        }
       },
       error: () => {
         this.errorMessage.set('common.error');
@@ -72,17 +76,19 @@ export class BookDetailsPage implements OnInit {
   }
 
   private loadOwner(ownerId: number): void {
+    this.ownerLoading.set(true);
+    this.owner.set(null);
     this.userService
       .getUserById(ownerId)
       .pipe(
-        finalize(() => this.isLoading.set(false)),
+        finalize(() => this.ownerLoading.set(false)),
       )
       .subscribe({
         next: (user: User) => {
           this.owner.set(user);
         },
-        error: () => {
-          this.errorMessage.set('common.error');
+        error: error => {
+          console.warn('Failed to load book owner', error);
         },
       });
   }

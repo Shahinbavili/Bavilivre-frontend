@@ -123,7 +123,8 @@
       "devOps": "DevOps"
     },
     "details": {
-      "title": "Détails du livre"
+      "title": "Détails du livre",
+      "ownerUnavailable": "Propriétaire non disponible"
     },
     "fields": {
       "title": "Titre",

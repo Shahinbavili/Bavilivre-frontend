@@ -123,7 +123,8 @@
       "devOps": "DevOps"
     },
     "details": {
-      "title": "Book Details"
+      "title": "Book Details",
+      "ownerUnavailable": "Owner unavailable"
     },
     "fields": {
       "title": "Title",
