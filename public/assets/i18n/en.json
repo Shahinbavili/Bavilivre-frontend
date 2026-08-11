@@ -224,6 +224,10 @@
     "CURRENT_USER_NOT_FOUND": "Authenticated user not found.",
     "BOOK_NOT_FOUND": "Book not found.",
     "BORROWING_NOT_FOUND": "Borrowing record not found.",
-    "BOOK_ALREADY_RETURNED": "This book has already been returned."
+    "BOOK_ALREADY_RETURNED": "This book has already been returned.",
+    "NETWORK": "Unable to reach the server.",
+    "AUTHENTICATION_REQUIRED": "You must be signed in to access this resource.",
+    "FORBIDDEN": "You are not allowed to access this resource.",
+    "SERVER_ERROR": "The server encountered an error. Please try again later."
   }
 }

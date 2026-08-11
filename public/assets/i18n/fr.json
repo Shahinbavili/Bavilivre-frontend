@@ -223,6 +223,10 @@
     "CURRENT_USER_NOT_FOUND": "Utilisateur connecté introuvable.",
     "BOOK_NOT_FOUND": "Livre introuvable.",
     "BORROWING_NOT_FOUND": "Emprunt introuvable.",
-    "BOOK_ALREADY_RETURNED": "Ce livre a déjà été retourné."
+    "BOOK_ALREADY_RETURNED": "Ce livre a déjà été retourné.",
+    "NETWORK": "Impossible de joindre le serveur.",
+    "AUTHENTICATION_REQUIRED": "Vous devez être connecté pour accéder à cette ressource.",
+    "FORBIDDEN": "Vous n’êtes pas autorisé à accéder à cette ressource.",
+    "SERVER_ERROR": "Une erreur serveur est survenue. Veuillez réessayer plus tard."
   }
 }

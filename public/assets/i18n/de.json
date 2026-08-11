@@ -224,6 +224,10 @@
     "CURRENT_USER_NOT_FOUND": "Angemeldeter Benutzer nicht gefunden.",
     "BOOK_NOT_FOUND": "Buch nicht gefunden.",
     "BORROWING_NOT_FOUND": "Ausleihvorgang nicht gefunden.",
-    "BOOK_ALREADY_RETURNED": "Dieses Buch wurde bereits zurückgegeben."
+    "BOOK_ALREADY_RETURNED": "Dieses Buch wurde bereits zurückgegeben.",
+    "NETWORK": "Der Server ist nicht erreichbar.",
+    "AUTHENTICATION_REQUIRED": "Du musst angemeldet sein, um auf diese Ressource zuzugreifen.",
+    "FORBIDDEN": "Du bist nicht berechtigt, auf diese Ressource zuzugreifen.",
+    "SERVER_ERROR": "Auf dem Server ist ein Fehler aufgetreten. Bitte versuche es später erneut."
   }
 }

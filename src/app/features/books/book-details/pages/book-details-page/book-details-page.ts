@@ -48,7 +48,7 @@ export class BookDetailsPage implements OnInit {
     );
 
     if (!Number.isInteger(bookId) || bookId <= 0) {
-      this.errorMessage.set('common.error');
+      this.errorMessage.set('errors.BOOK_NOT_FOUND');
       this.isLoading.set(false);
       return;
     }
@@ -68,8 +68,35 @@ export class BookDetailsPage implements OnInit {
           this.loadOwner(book.ownerId);
         }
       },
-      error: () => {
-        this.errorMessage.set('common.error');
+      error: (error: HttpErrorResponse) => {
+        switch (error.status) {
+          case 0:
+            this.errorMessage.set('errors.NETWORK');
+            break;
+
+          case 401:
+            this.errorMessage.set('errors.AUTHENTICATION_REQUIRED');
+            break;
+
+          case 403:
+            this.errorMessage.set('errors.FORBIDDEN');
+            break;
+
+          case 404:
+            this.errorMessage.set('errors.BOOK_NOT_FOUND');
+            break;
+
+          case 500:
+          case 502:
+          case 503:
+          case 504:
+            this.errorMessage.set('errors.SERVER_ERROR');
+            break;
+
+          default:
+            this.errorMessage.set('common.error');
+        }
+
         this.isLoading.set(false);
       },
     });
