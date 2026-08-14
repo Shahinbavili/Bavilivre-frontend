@@ -106,4 +106,19 @@ export class BookService {
       {}
     )
   }
+
+  getMyBooks(
+    page = 0,
+    size = 12,
+  ): Observable<PageResponseModel<Book>> {
+    return this.http.get<PageResponseModel<Book>>(
+      `${this.apiUrl}/api/books/mine`,
+      {
+        params: {
+          page,
+          size,
+        },
+      },
+    );
+  }
 }

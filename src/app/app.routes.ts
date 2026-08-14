@@ -1,4 +1,5 @@
 import {Routes} from '@angular/router';
+import {authGuard} from './features/auth/guard/auth.guard';
 
 export const routes: Routes = [
   {
@@ -49,6 +50,13 @@ export const routes: Routes = [
       import(
         './features/books/archived-books/pages/archived-books-page/archived-books-page'
         ).then(m => m.ArchivedBooksPage),
+  },
+  {
+    path: 'books/mine',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/books/my-books/pages/my-books-page/my-books-page')
+        .then(m => m.MyBooksPage),
   },
   {
     path: 'books/:id/edit',

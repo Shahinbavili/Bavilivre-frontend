@@ -1,0 +1,137 @@
+.my-books-page {
+  display: block;
+}
+
+.my-books-summary {
+  margin-block-end: 1.5rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.my-books-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(17rem, 1fr)
+  );
+  gap: 4.5rem 1.5rem;
+}
+
+.my-books-state {
+  padding-block: 2rem;
+  text-align: center;
+  color: #475569;
+}
+
+.my-books-state--error {
+  color: #b91c1c;
+}
+
+/* Pagination */
+
+.my-books-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+
+  margin-block-start: 3rem;
+  padding-block-start: 1.5rem;
+
+  border-top: 1px solid #e5e7eb;
+}
+
+.my-books-pagination__size,
+.my-books-pagination__navigation {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.my-books-pagination__size label {
+  font-weight: 500;
+  color: #374151;
+}
+
+.my-books-pagination select,
+.my-books-pagination button {
+  min-height: 2.5rem;
+  padding: 0.5rem 0.75rem;
+
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+
+  background: #fff;
+  color: #374151;
+
+  font: inherit;
+}
+
+.my-books-pagination select {
+  cursor: pointer;
+}
+
+.my-books-pagination button {
+  cursor: pointer;
+  transition: background-color 0.2s ease,
+  border-color 0.2s ease,
+  color 0.2s ease;
+}
+
+.my-books-pagination button:hover:not(:disabled) {
+  border-color: #2563eb;
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.my-books-pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.my-books-pagination__navigation span {
+  white-space: nowrap;
+  font-weight: 500;
+  color: #475569;
+}
+
+/* Tablet / mobile */
+
+@media (max-width: 48rem) {
+  .my-books-grid {
+    grid-template-columns: 1fr;
+    row-gap: 1.5rem;
+  }
+
+  .my-books-pagination {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
+
+    margin-block-start: 2rem;
+  }
+
+  .my-books-pagination__size {
+    justify-content: space-between;
+  }
+
+  .my-books-pagination__navigation {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 30rem) {
+  .my-books-pagination__navigation {
+    flex-wrap: wrap;
+  }
+
+  .my-books-pagination__navigation span {
+    order: -1;
+    width: 100%;
+    text-align: center;
+  }
+
+  .my-books-pagination__navigation button {
+    flex: 1;
+  }
+}

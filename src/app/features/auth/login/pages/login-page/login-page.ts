@@ -49,7 +49,7 @@ export class LoginPage {
           return;
         }
 
-        if (error.statut === 0) {
+        if (error.status === 0) {
           this.errorMessageKey.set('auth.errors.network');
           return;
         }

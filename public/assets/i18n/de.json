@@ -115,6 +115,15 @@
         "next": "Weiter"
       }
     },
+    "mine": {
+      "title": "Meine Bücher",
+      "empty": "Du hast keine aktiven Bücher.",
+      "loadError": "Deine Bücher konnten nicht geladen werden. Bitte versuche es erneut.",
+      "total": "{{ total }} Buch/Bücher",
+      "pagination": {
+        "navigationLabel": "Seitennavigation meiner Bücher"
+      }
+    },
     "categories": {
       "softwareEngineering": "Softwareentwicklung",
       "softwareArchitecture": "Softwarearchitektur",

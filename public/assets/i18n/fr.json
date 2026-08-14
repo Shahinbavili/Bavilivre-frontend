@@ -115,6 +115,15 @@
         "next": "Suivant"
       }
     },
+    "mine": {
+      "title": "Mes livres",
+      "empty": "Vous n’avez aucun livre actif.",
+      "loadError": "Impossible de charger vos livres. Veuillez réessayer.",
+      "total": "{{ total }} livre(s)",
+      "pagination": {
+        "navigationLabel": "Navigation entre les pages de mes livres"
+      }
+    },
     "categories": {
       "softwareEngineering": "Génie logiciel",
       "softwareArchitecture": "Architecture logicielle",

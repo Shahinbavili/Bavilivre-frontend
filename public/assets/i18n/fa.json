@@ -115,6 +115,15 @@
         "next": "بعدی"
       }
     },
+    "mine": {
+      "title": "کتاب‌ های من",
+      "empty": "شما هیچ کتاب فعالی ندارید.",
+      "loadError": "بارگذاری کتاب‌ های شما امکان‌ پذیر نیست. دوباره تلاش کنید.",
+      "total": "{{ total }} کتاب",
+      "pagination": {
+        "navigationLabel": "پیمایش صفحه‌های کتاب‌ های من"
+      }
+    },
     "categories": {
       "softwareEngineering": "مهندسی نرم‌افزار",
       "softwareArchitecture": "معماری نرم‌افزار",
