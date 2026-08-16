@@ -8,7 +8,7 @@ import {AuthService} from '../../../../core/auth/auth.service';
   standalone: true,
   imports: [
     TranslatePipe,
-    RouterLink
+    RouterLink,
   ],
   templateUrl: './home-page.html',
   styleUrl: './home-page.scss',
