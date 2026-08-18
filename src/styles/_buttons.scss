@@ -9,42 +9,44 @@
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
+
   transition: background-color 0.2s ease,
   border-color 0.2s ease,
   color 0.2s ease;
 }
 
 .app-button--primary {
-  border: 1px solid #2563eb;
-  background: #2563eb;
-  color: #fff;
+  border: 1px solid var(--mat-sys-primary);
+  background: var(--mat-sys-primary);
+  color: var(--mat-sys-on-primary);
 }
 
 .app-button--primary:hover:not(:disabled) {
-  border-color: #1d4ed8;
-  background: #1d4ed8;
+  background: var(--mat-sys-primary-container);
+  border-color: var(--mat-sys-primary-container);
+  color: var(--mat-sys-on-primary-container);
 }
 
 .app-button--secondary {
-  border: 1px solid #d1d5db;
-  background: #f9fafb;
-  color: #374151;
+  border: 1px solid var(--mat-sys-outline);
+  background: var(--mat-sys-surface-container);
+  color: var(--mat-sys-on-surface);
 }
 
 .app-button--secondary:hover:not(:disabled) {
-  border-color: #9ca3af;
-  background: #f3f4f6;
+  background: var(--mat-sys-surface-container-high);
 }
 
 .app-button--danger {
-  border: 1px solid #dc2626;
-  background: #dc2626;
-  color: #fff;
+  border: 1px solid var(--mat-sys-error);
+  background: var(--mat-sys-error);
+  color: var(--mat-sys-on-error);
 }
 
 .app-button--danger:hover:not(:disabled) {
-  border-color: #b91c1c;
-  background: #b91c1c;
+  background: var(--mat-sys-error-container);
+  border-color: var(--mat-sys-error-container);
+  color: var(--mat-sys-on-error-container);
 }
 
 .app-button:disabled {
@@ -53,12 +55,11 @@
 }
 
 .app-button:focus-visible {
-  outline: 2px solid #2563eb;
+  outline: 2px solid var(--mat-sys-primary);
   outline-offset: 2px;
 }
 
 @media (max-width: 600px) {
-
   .form-actions,
   .book-actions {
     flex-direction: column;
