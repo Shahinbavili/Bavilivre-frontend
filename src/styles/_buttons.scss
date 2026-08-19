@@ -1,18 +1,24 @@
+@use 'tokens';
+
 .app-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 180px;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+
+  min-width: 11.25rem; // 180px
+  padding: tokens.$space-3 tokens.$space-6;
+
+  border-radius: tokens.$radius-small;
+
   font: inherit;
   font-weight: 600;
   text-decoration: none;
+
   cursor: pointer;
 
-  transition: background-color 0.2s ease,
-  border-color 0.2s ease,
-  color 0.2s ease;
+  transition: background-color tokens.$transition-fast,
+  border-color tokens.$transition-fast,
+  color tokens.$transition-fast;
 }
 
 .app-button--primary {
@@ -22,8 +28,8 @@
 }
 
 .app-button--primary:hover:not(:disabled) {
-  background: var(--mat-sys-primary-container);
   border-color: var(--mat-sys-primary-container);
+  background: var(--mat-sys-primary-container);
   color: var(--mat-sys-on-primary-container);
 }
 
@@ -44,8 +50,8 @@
 }
 
 .app-button--danger:hover:not(:disabled) {
-  background: var(--mat-sys-error-container);
   border-color: var(--mat-sys-error-container);
+  background: var(--mat-sys-error-container);
   color: var(--mat-sys-on-error-container);
 }
 

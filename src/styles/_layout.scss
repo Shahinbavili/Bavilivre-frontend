@@ -1,0 +1,15 @@
+@use 'tokens';
+
+.container {
+  width: 100%;
+  max-width: tokens.$content-max-width;
+  margin-inline: auto;
+  padding-inline: tokens.$page-padding-inline;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding-inline: tokens.$page-padding-inline-mobile;
+  }
+}
