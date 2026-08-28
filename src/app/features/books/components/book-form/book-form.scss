@@ -25,10 +25,12 @@ select {
   width: 100%;
   padding: 0.75rem;
 
-  border: 1px solid #d1d5db;
+  border: 1px solid var(--app-border-strong);
   border-radius: 0.5rem;
 
-  background: white;
+  background-color: var(--app-surface-card);
+  color: var(--app-text);
+
   font: inherit;
 
   transition: border-color 0.2s,
@@ -39,8 +41,9 @@ input:focus,
 textarea:focus,
 select:focus {
   outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 2px rgb(37 99 235 / 15%);
+  border-color: var(--mat-sys-primary);
+
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--mat-sys-primary) 15%, transparent);
 }
 
 textarea {
@@ -50,24 +53,25 @@ textarea {
 
 .character-counter {
   text-align: end;
+
   font-size: 0.85rem;
-  color: #6b7280;
+  color: var(--app-text-muted);
 }
 
 .character-counter.warning {
-  color: #d97706;
+  color: var(--app-warning);
   font-weight: 600;
 }
 
 .field-error {
-  color: #dc2626;
+  color: var(--app-error);
   font-size: 0.875rem;
 }
 
 input.ng-invalid.ng-touched,
 textarea.ng-invalid.ng-touched,
 select.ng-invalid.ng-touched {
-  border-color: #dc2626;
+  border-color: var(--app-error);
 }
 
 .form-actions {
@@ -78,39 +82,13 @@ select.ng-invalid.ng-touched {
   gap: 1rem;
 }
 
-.form-actions button {
-  min-width: 180px;
-  padding: 0.85rem 1.5rem;
-
-  border-radius: 0.5rem;
-
-  font: inherit;
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition: background-color 0.2s,
-  border-color 0.2s,
-  color 0.2s;
-}
-
-.form-actions button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.form-actions button:focus-visible {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
-}
-
 @media (max-width: 600px) {
   .form-actions {
     flex-direction: column;
     align-items: stretch;
   }
 
-  .form-actions button {
+  .form-actions .app-button {
     width: 100%;
     min-width: 0;
   }

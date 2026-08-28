@@ -11,6 +11,7 @@ h1 {
 
 .submit-error {
   margin-bottom: 1rem;
-  color: #dc2626;
+
+  color: var(--app-error);
   text-align: center;
 }

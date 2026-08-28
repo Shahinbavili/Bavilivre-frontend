@@ -16,10 +16,11 @@ h1 {
 
   padding: 2rem;
 
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--app-border);
   border-radius: .75rem;
 
-  background: #fff;
+  background-color: var(--app-surface-card);
+  color: var(--app-text);
 }
 
 .book-card h2 {
@@ -40,12 +41,15 @@ h1 {
   justify-content: flex-end;
   align-items: center;
   gap: 1rem;
+
   margin-top: 2rem;
 }
 
 .archive-error {
   margin: 1rem 0;
-  color: #dc2626;
+
+  color: var(--app-error);
+
   font-weight: 500;
 }
 
@@ -64,4 +68,3 @@ h1 {
     justify-content: center;
   }
 }
-

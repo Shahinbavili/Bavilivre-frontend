@@ -7,12 +7,13 @@
 .app-header__brand {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #2563eb;
+
+  color: var(--mat-sys-primary);
   text-decoration: none;
 }
 
 .app-header__brand:hover {
-  color: #1d4ed8;
+  color: var(--mat-sys-on-primary-container);
 }
 
 .app-header__navigation,
@@ -36,35 +37,41 @@
 .app-header__link,
 .app-header__auth button,
 .app-header__languages button {
-  padding: .5rem .9rem;
+  padding: 0.5rem 0.9rem;
+
   border: none;
-  border-radius: .5rem;
-  background: transparent;
-  color: #374151;
+  border-radius: 0.5rem;
+
+  background-color: transparent;
+  color: var(--app-text);
+
   font: inherit;
   font-weight: 500;
   text-decoration: none;
+
   cursor: pointer;
-  transition: all .2s ease;
+
+  transition: background-color 0.2s ease,
+  color 0.2s ease;
 }
 
 .app-header__link:hover,
 .app-header__auth button:hover,
 .app-header__languages button:hover {
-  background: #eff6ff;
-  color: #2563eb;
+  background-color: var(--mat-sys-primary-container);
+  color: var(--mat-sys-on-primary-container);
 }
 
 .app-header__languages button.active {
-  background: #2563eb;
-  color: white;
+  background-color: var(--mat-sys-primary);
+  color: var(--mat-sys-on-primary);
 }
 
 .app-header__auth button {
-  color: #dc2626;
+  color: var(--mat-sys-error);
 }
 
 .app-header__auth button:hover {
-  background: #fef2f2;
-  color: #b91c1c;
+  background-color: var(--mat-sys-error-container);
+  color: var(--mat-sys-on-error-container);
 }
