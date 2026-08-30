@@ -104,7 +104,7 @@
 @media (max-width: 48rem) {
   .my-books-grid {
     grid-template-columns: 1fr;
-    row-gap: 1.5rem;
+    row-gap: 2rem;
   }
 
   .my-books-pagination {
@@ -124,7 +124,12 @@
   }
 }
 
-@media (max-width: 30rem) {
+@media (max-width: 40rem) {
+  .my-books-grid {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+
   .my-books-pagination__navigation {
     flex-wrap: wrap;
   }

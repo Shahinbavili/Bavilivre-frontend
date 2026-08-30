@@ -13,6 +13,7 @@
 
 .app-header__brand {
   flex-shrink: 0;
+  white-space: nowrap;
 
   font-size: 1.4rem;
   font-weight: 700;
@@ -69,7 +70,8 @@
 }
 
 .app-header__link:focus-visible,
-.app-header__menu-trigger:focus-visible {
+.app-header__menu-trigger:focus-visible,
+.app-header__brand:focus-visible {
   outline: 2px solid var(--mat-sys-primary);
   outline-offset: 2px;
 }
@@ -79,4 +81,112 @@
   height: 1.25rem;
 
   font-size: 1.25rem;
+}
+
+.app-header__language-short {
+  display: none;
+}
+
+/* Tablet */
+
+@media (max-width: 56rem) {
+  .app-header__content {
+    gap: 0.75rem;
+  }
+
+  .app-header__navigation,
+  .app-header__actions {
+    gap: 0.25rem;
+  }
+
+  .app-header__link,
+  .app-header__menu-trigger {
+    padding-inline: 0.5rem;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 40rem) {
+  .app-header__content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "brand actions"
+      "navigation navigation";
+
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+
+    padding-block: 0.75rem;
+  }
+
+  .app-header__brand {
+    grid-area: brand;
+    margin-inline-end: 0;
+    font-size: 1.15rem;
+  }
+
+  .app-header__actions {
+    grid-area: actions;
+
+    min-width: 0;
+    justify-self: end;
+
+    gap: 0.125rem;
+  }
+
+  .app-header__navigation {
+    grid-area: navigation;
+
+    width: 100%;
+    margin-inline-end: 0;
+
+    justify-content: flex-start;
+  }
+
+  .app-header__link,
+  .app-header__menu-trigger {
+    min-height: 2.75rem;
+    padding-inline: 0.4rem;
+  }
+
+  .app-header__language-full {
+    display: none;
+  }
+
+  .app-header__language-short {
+    display: inline;
+    text-transform: uppercase;
+  }
+}
+
+@media (max-width: 22rem) {
+  .app-header__content {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "brand"
+      "actions"
+      "navigation";
+
+    gap: 0.35rem;
+  }
+
+  .app-header__brand {
+    justify-self: start;
+  }
+
+  .app-header__actions {
+    width: 100%;
+
+    justify-self: stretch;
+    justify-content: flex-start;
+
+    gap: 0.25rem;
+  }
+
+  .app-header__navigation {
+    width: 100%;
+    justify-content: flex-start;
+  }
 }
