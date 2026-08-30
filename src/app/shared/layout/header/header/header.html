@@ -1,49 +1,118 @@
 <header class="app-header">
   <div class="container app-header__content">
+
     <a routerLink="/" class="app-header__brand">
       {{ 'layout.header.appName' | translate }}
     </a>
 
-    <nav class="app-header__navigation">
-      <a routerLink="/" class="app-header__link">
-        {{ 'navigation.home' | translate }}
-      </a>
-
+    <nav
+      class="app-header__navigation"
+      [attr.aria-label]="'navigation.main' | translate"
+    >
       <a routerLink="/books" class="app-header__link">
         {{ 'navigation.catalog' | translate }}
       </a>
 
       @if (authService.isAuthenticated()) {
-        <a routerLink="/books/add" class="app-header__link">
-          {{ 'navigation.addBook' | translate }}
-        </a>
-      }
-    </nav>
-
-    <nav class="app-header__languages">
-      @for (lang of languages; track lang) {
         <button
           type="button"
-          (click)="setLang(lang)"
-          [class.active]="lang === currentLang">
-          {{ ('common.languageSwitcher.' + lang) | translate }}
+          class="app-header__menu-trigger"
+          [matMenuTriggerFor]="libraryMenu"
+        >
+          {{ 'navigation.myLibrary' | translate }}
+
+          <mat-icon>arrow_drop_down</mat-icon>
         </button>
+
+        <mat-menu #libraryMenu="matMenu">
+          <a mat-menu-item routerLink="/books/mine">
+            {{ 'navigation.myBooks' | translate }}
+          </a>
+
+          <a mat-menu-item routerLink="/books/add">
+            {{ 'navigation.addBook' | translate }}
+          </a>
+
+          <a mat-menu-item routerLink="/books/archived">
+            {{ 'navigation.archivedBooks' | translate }}
+          </a>
+
+          @if (authService.currentUser(); as user) {
+            <a
+              mat-menu-item
+              [routerLink]="['/users', user.id, 'borrowed-books']"
+            >
+              {{ 'navigation.borrowedBooks' | translate }}
+            </a>
+
+            <a
+              mat-menu-item
+              [routerLink]="['/users', user.id, 'lent-books']"
+            >
+              {{ 'navigation.lentBooks' | translate }}
+            </a>
+          }
+        </mat-menu>
       }
     </nav>
 
-    <nav class="app-header__auth">
+    <div class="app-header__actions">
+
+      <button
+        type="button"
+        class="app-header__menu-trigger"
+        [matMenuTriggerFor]="languageMenu"
+      >
+        {{ ('common.languageSwitcher.' + currentLang) | translate }}
+
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+
+      <mat-menu #languageMenu="matMenu">
+        @for (lang of languages; track lang) {
+          <button
+            mat-menu-item
+            type="button"
+            (click)="setLang(lang)"
+          >
+            {{ ('common.languageSwitcher.' + lang) | translate }}
+          </button>
+        }
+      </mat-menu>
+
       @if (authService.isAuthenticated()) {
-        <button type="button" (click)="logout()">
-          {{ 'auth.logout.submit' | translate }}
-        </button>
+        @if (authService.currentUser(); as user) {
+          <button
+            type="button"
+            class="app-header__menu-trigger"
+            [matMenuTriggerFor]="accountMenu"
+          >
+            {{ user.displayName }}
+
+            <mat-icon>arrow_drop_down</mat-icon>
+          </button>
+
+          <mat-menu #accountMenu="matMenu">
+            <button
+              mat-menu-item
+              type="button"
+              (click)="logout()"
+            >
+              {{ 'auth.logout.submit' | translate }}
+            </button>
+          </mat-menu>
+        }
       } @else {
         <a routerLink="/login" class="app-header__link">
           {{ 'auth.login.title' | translate }}
         </a>
+
         <a routerLink="/register" class="app-header__link">
           {{ 'auth.register.title' | translate }}
         </a>
       }
-    </nav>
+
+    </div>
+
   </div>
 </header>

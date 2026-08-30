@@ -2,7 +2,12 @@
   "navigation": {
     "home": "Accueil",
     "catalog": "Catalogue",
-    "addBook": "Ajouter un livre"
+    "addBook": "Ajouter un livre",
+    "myLibrary": "Ma bibliothèque",
+    "myBooks": "Mes livres",
+    "archivedBooks": "Livres archivés",
+    "borrowedBooks": "Livres empruntés",
+    "lentBooks": "Livres prêtés"
   },
   "common": {
     "loading": "Chargement...",

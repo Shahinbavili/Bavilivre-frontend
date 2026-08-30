@@ -2,7 +2,12 @@
   "navigation": {
     "home": "Home",
     "catalog": "Catalog",
-    "addBook": "Add a book"
+    "addBook": "Add a book",
+    "myLibrary": "My Library",
+    "myBooks": "My Books",
+    "archivedBooks": "Archived Books",
+    "borrowedBooks": "Borrowed Books",
+    "lentBooks": "Lent Books"
   },
   "common": {
     "loading": "Loading...",

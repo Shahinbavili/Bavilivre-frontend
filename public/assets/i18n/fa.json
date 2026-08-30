@@ -2,7 +2,12 @@
   "navigation": {
     "home": "خانه",
     "catalog": "فهرست کتاب‌ ها",
-    "addBook": "افزودن کتاب"
+    "addBook": "افزودن کتاب",
+    "myLibrary": "کتابخانه من",
+    "myBooks": "کتاب‌ های من",
+    "archivedBooks": "کتاب‌ های بایگانی‌ شده",
+    "borrowedBooks": "کتاب‌ های قرض‌ گرفته‌ شده",
+    "lentBooks": "کتاب‌ های قرض‌ داده‌ شده"
   },
   "common": {
     "loading": "در حال بارگذاری...",

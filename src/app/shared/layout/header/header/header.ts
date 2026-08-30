@@ -1,19 +1,27 @@
 import {Component, inject} from '@angular/core';
-import {TranslatePipe, TranslateService} from '@ngx-translate/core';
 import {RouterLink} from '@angular/router';
+import {TranslatePipe, TranslateService} from '@ngx-translate/core';
+import {MatMenu, MatMenuItem, MatMenuTrigger,} from '@angular/material/menu';
+import {MatIcon} from '@angular/material/icon';
+
 import {AuthService} from '../../../../core/auth/auth.service';
 
 @Component({
   selector: 'app-header',
   imports: [
     TranslatePipe,
-    RouterLink
+    RouterLink,
+    MatMenuTrigger,
+    MatMenuItem,
+    MatIcon,
+    MatMenu,
   ],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
 export class Header {
   private readonly translate = inject(TranslateService);
+
   protected readonly authService = inject(AuthService);
 
   readonly languages = ['fr', 'en', 'de', 'fa'];
