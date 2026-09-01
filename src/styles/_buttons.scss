@@ -6,13 +6,18 @@
   justify-content: center;
 
   min-width: 11.25rem; // 180px
+  min-height: 3.5rem;
   padding: tokens.$space-3 tokens.$space-6;
+
+  box-sizing: border-box;
 
   border: 1px solid transparent;
   border-radius: tokens.$radius-small;
 
   font: inherit;
   font-weight: 600;
+  line-height: 1.2rem;
+  text-align: center;
   text-decoration: none;
 
   cursor: pointer;
@@ -109,5 +114,12 @@
   .form-actions .app-button,
   .book-actions .app-button {
     width: 100%;
+  }
+}
+
+@media (max-width: 40rem) {
+  .hero-actions .app-button {
+    width: 100%;
+    min-width: 0;
   }
 }
