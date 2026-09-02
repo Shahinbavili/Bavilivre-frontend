@@ -20,109 +20,103 @@
           />
         </div>
 
-        <div class="catalog-field catalog-field--sort">
-          <label for="catalog-sort">
+        <mat-form-field appearance="outline" class="catalog-field catalog-field--sort">
+          <mat-label>
             {{ 'books.catalog.sort.label' | translate }}
-          </label>
+          </mat-label>
 
-          <select
-            #sortSelect
-            id="catalog-sort"
+          <mat-select
             [value]="selectedSort()"
             [disabled]="loading()"
-            (change)="onSortChange(sortSelect.value)"
+            (selectionChange)="onSortChange($event.value)"
           >
-            <option value="-createdAt">
+            <mat-option value="-createdAt">
               {{ 'books.catalog.sort.newest' | translate }}
-            </option>
+            </mat-option>
 
-            <option value="createdAt">
+            <mat-option value="createdAt">
               {{ 'books.catalog.sort.oldest' | translate }}
-            </option>
+            </mat-option>
 
-            <option value="title">
+            <mat-option value="title">
               {{ 'books.catalog.sort.titleAsc' | translate }}
-            </option>
+            </mat-option>
 
-            <option value="-title">
+            <mat-option value="-title">
               {{ 'books.catalog.sort.titleDesc' | translate }}
-            </option>
-          </select>
-        </div>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
 
       <div class="catalog-toolbar__filters">
-        <div class="catalog-field catalog-field--language">
-          <label for="catalog-language">
+        <mat-form-field appearance="outline" class="catalog-field catalog-field--language">
+          <mat-label>
             {{ 'books.catalog.filters.language.label' | translate }}
-          </label>
+          </mat-label>
 
-          <select
-            #languageSelect
-            id="catalog-language"
+          <mat-select
             [value]="selectedLanguage()"
             [disabled]="loading()"
-            (change)="onLanguageChange(languageSelect.value)"
+            (selectionChange)="onLanguageChange($event.value)"
           >
-            <option value="">
+            <mat-option value="">
               {{ 'books.catalog.filters.language.all' | translate }}
-            </option>
+            </mat-option>
 
-            <option value="fr">
+            <mat-option value="fr">
               {{ 'common.languages.fr' | translate }}
-            </option>
+            </mat-option>
 
-            <option value="en">
+            <mat-option value="en">
               {{ 'common.languages.en' | translate }}
-            </option>
+            </mat-option>
 
-            <option value="de">
+            <mat-option value="de">
               {{ 'common.languages.de' | translate }}
-            </option>
+            </mat-option>
 
-            <option value="fa">
+            <mat-option value="fa">
               {{ 'common.languages.fa' | translate }}
-            </option>
-          </select>
-        </div>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
-        <div class="catalog-field catalog-field--category">
-          <label for="catalog-category">
+        <mat-form-field appearance="outline" class="catalog-field catalog-field--category">
+          <mat-label>
             {{ 'books.catalog.filters.category.label' | translate }}
-          </label>
+          </mat-label>
 
-          <select
-            #categorySelect
-            id="catalog-category"
+          <mat-select
             [value]="selectedCategory()"
             [disabled]="loading()"
-            (change)="onCategoryChange(categorySelect.value)"
+            (selectionChange)="onCategoryChange($event.value)"
           >
-            <option value="">
+            <mat-option value="">
               {{ 'books.catalog.filters.category.all' | translate }}
-            </option>
+            </mat-option>
 
-            <option value="Software Engineering">
+            <mat-option value="Software Engineering">
               {{ 'books.categories.softwareEngineering' | translate }}
-            </option>
+            </mat-option>
 
-            <option value="Software Architecture">
+            <mat-option value="Software Architecture">
               {{ 'books.categories.softwareArchitecture' | translate }}
-            </option>
+            </mat-option>
 
-            <option value="Web Development">
+            <mat-option value="Web Development">
               {{ 'books.categories.webDevelopment' | translate }}
-            </option>
+            </mat-option>
 
-            <option value="Databases">
+            <mat-option value="Databases">
               {{ 'books.categories.databases' | translate }}
-            </option>
+            </mat-option>
 
-            <option value="DevOps">
+            <mat-option value="DevOps">
               {{ 'books.categories.devOps' | translate }}
-            </option>
-          </select>
-        </div>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
         <div class="catalog-field catalog-field--availability">
           <span class="catalog-field__label">
@@ -233,27 +227,23 @@
 
     <footer class="catalog-pagination">
       <div class="catalog-pagination__actions">
-        <div class="catalog-pagination__size">
-          <label for="catalog-page-size">
+        <mat-form-field appearance="outline" class="catalog-pagination__size-field">
+          <mat-label>
             {{ 'books.catalog.pagination.pageSize' | translate }}
-          </label>
+          </mat-label>
 
-          <select
-            #pageSizeSelect
-            id="catalog-page-size"
+          <mat-select
+            [value]="pageSize()"
             [disabled]="loading()"
-            (change)="onPageSizeChange(pageSizeSelect.value)"
+            (selectionChange)="onPageSizeChange($event.value)"
           >
             @for (size of pageSizeOptions; track size) {
-              <option
-                [value]="size"
-                [selected]="pageSize() === size"
-              >
+              <mat-option [value]="size">
                 {{ size }}
-              </option>
+              </mat-option>
             }
-          </select>
-        </div>
+          </mat-select>
+        </mat-form-field>
 
         @if (totalPages() > 1) {
           <nav

@@ -33,25 +33,23 @@
     <div class="my-books-pagination">
 
       <div class="my-books-pagination__size">
-        <label for="my-books-page-size">
-          {{ 'books.catalog.pagination.pageSize' | translate }}
-        </label>
+        <mat-form-field appearance="outline">
+          <mat-label>
+            {{ 'books.catalog.pagination.pageSize' | translate }}
+          </mat-label>
 
-        <select
-          #pageSizeSelect
-          id="my-books-page-size"
-          [disabled]="loading()"
-          (change)="onPageSizeChange(pageSizeSelect.value)"
-        >
-          @for (size of pageSizeOptions; track size) {
-            <option
-              [value]="size"
-              [selected]="pageSize() === size"
-            >
-              {{ size }}
-            </option>
-          }
-        </select>
+          <mat-select
+            [value]="pageSize()"
+            [disabled]="loading()"
+            (selectionChange)="onPageSizeChange($event.value)"
+          >
+            @for (size of pageSizeOptions; track size) {
+              <mat-option [value]="size">
+                {{ size }}
+              </mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
       </div>
 
       <nav

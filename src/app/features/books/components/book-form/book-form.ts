@@ -2,12 +2,19 @@ import {Component, effect, input, output} from '@angular/core';
 import {BookFormModel} from '../../../../core/models/book-form.model';
 import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
 import {TranslatePipe} from '@ngx-translate/core';
+import {MatError, MatFormField, MatLabel} from '@angular/material/input';
+import {MatOption, MatSelect} from '@angular/material/select';
 
 @Component({
   selector: 'app-book-form',
   imports: [
     ReactiveFormsModule,
-    TranslatePipe
+    TranslatePipe,
+    MatFormField,
+    MatLabel,
+    MatSelect,
+    MatOption,
+    MatError
   ],
   templateUrl: './book-form.html',
   styleUrl: './book-form.scss',

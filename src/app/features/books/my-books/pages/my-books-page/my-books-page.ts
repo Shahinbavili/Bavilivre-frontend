@@ -5,13 +5,19 @@ import {finalize} from 'rxjs';
 import {TranslatePipe} from '@ngx-translate/core';
 import {LoadingSpinner} from '../../../../../shared/components/loading-spinner/loading-spinner';
 import {BookCard} from '../../../components/book-card/book-card';
+import {MatFormField, MatLabel} from '@angular/material/input';
+import {MatOption, MatSelect} from '@angular/material/select';
 
 @Component({
   selector: 'app-my-books-page',
   imports: [
     TranslatePipe,
     LoadingSpinner,
-    BookCard
+    BookCard,
+    MatFormField,
+    MatLabel,
+    MatSelect,
+    MatOption
   ],
   templateUrl: './my-books-page.html',
   styleUrl: './my-books-page.scss',

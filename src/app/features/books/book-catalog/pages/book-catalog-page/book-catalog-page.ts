@@ -7,10 +7,12 @@ import {BookService} from '../../../../../core/services/book.service';
 import {BookCard} from '../../../components/book-card/book-card';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {AuthService} from '../../../../../core/auth/auth.service';
+import {MatFormField, MatLabel} from '@angular/material/input';
+import {MatOption, MatSelect} from '@angular/material/select';
 
 @Component({
   selector: 'app-book-catalog-page',
-  imports: [BookCard, TranslatePipe],
+  imports: [BookCard, TranslatePipe, MatFormField, MatLabel, MatSelect, MatOption],
   templateUrl: './book-catalog-page.html',
   styleUrl: './book-catalog-page.scss',
 })
@@ -152,15 +154,10 @@ export class BookCatalogPage implements OnInit {
     this.loadBooks();
   }
 
-  protected onPageSizeChange(size: string): void {
-    const parsedSize = Number(size);
-
-    if (!this.pageSizeOptions.includes(parsedSize)) {
-      return;
-    }
-
-    this.pageSize.set(parsedSize);
-    this.resetPageAndLoadBooks();
+  protected onPageSizeChange(size: number): void {
+    this.pageSize.set(size);
+    this.currentPage.set(0);
+    this.loadBooks();
   }
 
   protected resetFilters(): void {
