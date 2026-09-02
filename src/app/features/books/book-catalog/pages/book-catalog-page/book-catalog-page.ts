@@ -7,12 +7,13 @@ import {BookService} from '../../../../../core/services/book.service';
 import {BookCard} from '../../../components/book-card/book-card';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {AuthService} from '../../../../../core/auth/auth.service';
-import {MatFormField, MatLabel} from '@angular/material/input';
+import {MatFormField, MatInput, MatLabel} from '@angular/material/input';
 import {MatOption, MatSelect} from '@angular/material/select';
+import {MatCheckbox} from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-book-catalog-page',
-  imports: [BookCard, TranslatePipe, MatFormField, MatLabel, MatSelect, MatOption],
+  imports: [BookCard, TranslatePipe, MatFormField, MatLabel, MatSelect, MatOption, MatInput, MatCheckbox],
   templateUrl: './book-catalog-page.html',
   styleUrl: './book-catalog-page.scss',
 })

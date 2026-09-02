@@ -6,19 +6,22 @@
 
     <div class="catalog-toolbar">
       <div class="catalog-toolbar__primary">
-        <div class="catalog-field catalog-field--search">
-          <label for="catalog-search">
+        <mat-form-field
+          appearance="outline"
+          class="catalog-field catalog-field--search"
+        >
+          <mat-label>
             {{ 'books.catalog.search.label' | translate }}
-          </label>
+          </mat-label>
 
           <input
             #searchInput
-            id="catalog-search"
+            matInput
             type="search"
             [placeholder]="'books.catalog.search.placeholder' | translate"
             (input)="onSearchChange(searchInput.value)"
           />
-        </div>
+        </mat-form-field>
 
         <mat-form-field appearance="outline" class="catalog-field catalog-field--sort">
           <mat-label>
@@ -119,30 +122,21 @@
         </mat-form-field>
 
         <div class="catalog-field catalog-field--availability">
-          <span class="catalog-field__label">
-            {{ 'books.catalog.filters.availability.label' | translate }}
-          </span>
+          <div class="catalog-availability-field">
+            <span class="catalog-availability-field__label">
+              {{ 'books.catalog.filters.availability.label' | translate }}
+            </span>
 
-          <label
-            class="availability-control"
-            for="catalog-availability"
-          >
-            <input
-              #availabilityInput
-              id="catalog-availability"
-              type="checkbox"
+            <mat-checkbox
               [checked]="availableOnly()"
               [disabled]="loading()"
-              (change)="onAvailabilityChange(availabilityInput.checked)"
-            />
-
-            <span>
+              (change)="onAvailabilityChange($event.checked)"
+            >
               {{
-                'books.catalog.filters.availability.onlyAvailable'
-                  | translate
+                'books.catalog.filters.availability.onlyAvailable' | translate
               }}
-            </span>
-          </label>
+            </mat-checkbox>
+          </div>
         </div>
       </div>
 
