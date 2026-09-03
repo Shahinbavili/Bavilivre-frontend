@@ -1,29 +1,111 @@
 :root {
-  // Surfaces
-  --app-surface-page: var(--mat-sys-surface);
-  --app-surface-card: var(--mat-sys-surface-container-lowest);
-  --app-surface-subtle: var(--mat-sys-surface-container-low);
+  /* =========================
+     Brand
+     ========================= */
 
-  // Text
+  --app-primary: var(--mat-sys-primary);
+  --app-on-primary: var(--mat-sys-on-primary);
+
+  --app-secondary: var(--mat-sys-secondary);
+  --app-on-secondary: var(--mat-sys-on-secondary);
+
+  --app-accent: var(--mat-sys-tertiary);
+  --app-on-accent: var(--mat-sys-on-tertiary);
+
+
+  /* =========================
+     Surfaces
+     ========================= */
+
+  // Neutral 98 generated from #70756F
+  // Very light green-neutral page background
+  --app-surface-page: #f6fbf3;
+
+  // Cards and elevated content
+  --app-surface-card: #ffffff;
+
+  // Secondary 99 generated from #607568
+  // Very subtle eucalyptus background
+  --app-surface-subtle: #f4fff6;
+
+  // Secondary 98
+  // Use when a slightly stronger green surface is needed
+  --app-surface-subtle-strong: #e8ffef;
+
+
+  /* =========================
+     Text
+     ========================= */
+
   --app-text: var(--mat-sys-on-surface);
   --app-text-muted: var(--mat-sys-on-surface-variant);
 
-  // Borders
+
+  /* =========================
+     Borders
+     ========================= */
+
   --app-border: var(--mat-sys-outline-variant);
   --app-border-strong: var(--mat-sys-outline);
 
-  // Success
-  --app-success: #2e7d5b;
 
-  // Warning
+  /* =========================
+     Select / dropdown surfaces
+     ========================= */
+  --app-select-surface: #f4fff6;
+  --app-select-hover: #d1e8d8;
+  --app-select-selected: #b5ccbd;
+  --app-select-text: #21342a;
+  --app-select-accent: #4e6357;
+
+
+  /* =========================
+     Success / Available
+     Uses the eucalyptus palette
+     ========================= */
+
+  // Secondary tone 40
+  --app-success: #4e6357;
+
+  // Secondary tone 90
+  --app-success-container: #d1e8d8;
+
+  // Secondary tone 20
+  --app-on-success-container: #21342a;
+
+
+  /* =========================
+     Warning / Unavailable
+     ========================= */
+
   --app-warning: #a15c00;
+  --app-warning-container: #fff0d5;
+  --app-on-warning-container: #4b2b00;
 
-  // Error
+
+  /* =========================
+     Error / Danger
+     Managed by Material
+     ========================= */
+
   --app-error: var(--mat-sys-error);
   --app-error-container: var(--mat-sys-error-container);
   --app-on-error-container: var(--mat-sys-on-error-container);
 
-  // Archived
-  --app-archived-container: var(--mat-sys-tertiary-container);
-  --app-on-archived-container: var(--mat-sys-on-tertiary-container);
+
+  /* =========================
+     Archived
+     Uses violet, not pink
+     ========================= */
+
+  --app-archived-container: var(--mat-sys-primary-container);
+  --app-on-archived-container: var(--mat-sys-on-primary-container);
+
+
+  /* =========================
+     Accent / Floral
+     ========================= */
+
+  --app-accent-container: var(--mat-sys-tertiary-container);
+  --app-on-accent-container: var(--mat-sys-on-tertiary-container);
 }

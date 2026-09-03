@@ -1,0 +1,56 @@
+/* Mat Select */
+
+.app-select-panel {
+  background-color: var(--app-select-surface) !important;
+}
+
+.app-select-panel .mat-mdc-option {
+  color: var(--app-select-text);
+}
+
+.app-select-panel .mat-mdc-option:hover:not(.mdc-list-item--disabled) {
+  background-color: var(--app-select-hover);
+}
+
+.app-select-panel .mat-mdc-option.mdc-list-item--selected {
+  background-color: var(--app-select-selected);
+  color: var(--app-select-text);
+}
+
+
+/* =========================
+   Mat Menu
+   ========================= */
+
+.app-menu-panel.mat-mdc-menu-panel {
+  background-color: var(--app-select-surface);
+}
+
+.app-menu-panel .mat-mdc-menu-content {
+  background-color: var(--app-select-surface);
+}
+
+.app-menu-panel .mat-mdc-menu-item,
+.app-menu-panel .mat-mdc-menu-item:link,
+.app-menu-panel .mat-mdc-menu-item:visited {
+  color: var(--app-select-text);
+}
+
+/* Mouse hover */
+.app-menu-panel .mat-mdc-menu-item:hover:not([disabled]) {
+  background-color: var(--app-select-hover);
+}
+
+/* Keyboard focus / Material highlighted item */
+.app-menu-panel .mat-mdc-menu-item.cdk-keyboard-focused,
+.app-menu-panel .mat-mdc-menu-item.cdk-program-focused,
+.app-menu-panel .mat-mdc-menu-item.mat-mdc-menu-item-highlighted {
+  background-color: var(--app-select-hover);
+}
+
+/* Selected application item */
+.app-menu-panel .mat-mdc-menu-item.app-menu-item--selected {
+  background-color: var(--app-select-selected);
+  color: var(--app-select-text);
+  font-weight: 600;
+}

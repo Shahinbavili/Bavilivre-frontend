@@ -39,6 +39,7 @@
           </mat-label>
 
           <mat-select
+            panelClass="app-select-panel"
             [value]="pageSize()"
             [disabled]="loading()"
             (selectionChange)="onPageSizeChange($event.value)"

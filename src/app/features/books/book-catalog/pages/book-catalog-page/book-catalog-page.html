@@ -29,6 +29,7 @@
           </mat-label>
 
           <mat-select
+            panelClass="app-select-panel"
             [value]="selectedSort()"
             [disabled]="loading()"
             (selectionChange)="onSortChange($event.value)"
@@ -59,6 +60,7 @@
           </mat-label>
 
           <mat-select
+            panelClass="app-select-panel"
             [value]="selectedLanguage()"
             [disabled]="loading()"
             (selectionChange)="onLanguageChange($event.value)"
@@ -91,6 +93,7 @@
           </mat-label>
 
           <mat-select
+            panelClass="app-select-panel"
             [value]="selectedCategory()"
             [disabled]="loading()"
             (selectionChange)="onCategoryChange($event.value)"
@@ -227,6 +230,7 @@
           </mat-label>
 
           <mat-select
+            panelClass="app-select-panel"
             [value]="pageSize()"
             [disabled]="loading()"
             (selectionChange)="onPageSizeChange($event.value)"

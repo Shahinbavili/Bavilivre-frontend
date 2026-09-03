@@ -24,16 +24,17 @@
 
   </div>
 
-  <p
-    class="book-status"
-    [class.available]="book.available"
-    [class.unavailable]="!book.available">
-    {{
-      book.available
-        ? ('books.status.available' | translate)
-        : ('books.status.unavailable' | translate)
-    }}
-  </p>
+  <span
+    class="app-status"
+    [class.app-status--available]="book.available"
+    [class.app-status--unavailable]="!book.available"
+  >
+  @if (book.available) {
+    {{ 'books.status.available' | translate }}
+  } @else {
+    {{ 'books.status.unavailable' | translate }}
+  }
+  </span>
 
   <div class="book-date">
     <span class="label">{{ 'books.fields.createdAt' | translate }}</span>

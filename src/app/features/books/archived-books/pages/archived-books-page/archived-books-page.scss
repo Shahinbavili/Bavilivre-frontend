@@ -37,20 +37,6 @@
   line-height: 1.6;
 }
 
-.archived-status {
-  align-self: flex-start;
-
-  padding: .35rem .75rem;
-
-  border-radius: 999px;
-
-  background-color: var(--app-archived-container);
-  color: var(--app-on-archived-container);
-
-  font-size: .875rem;
-  font-weight: 600;
-}
-
 .book-actions {
   display: flex;
   justify-content: flex-end;

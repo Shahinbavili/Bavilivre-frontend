@@ -1,0 +1,28 @@
+.app-status {
+  display: inline-flex;
+  align-items: center;
+
+  width: fit-content;
+  padding: 0.35rem 0.75rem;
+
+  border-radius: 999px;
+
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.app-status--available {
+  background-color: var(--app-success-container);
+  color: var(--app-on-success-container);
+}
+
+.app-status--unavailable {
+  background-color: var(--app-warning-container);
+  color: var(--app-on-warning-container);
+}
+
+.app-status--archived {
+  background-color: var(--app-archived-container);
+  color: var(--app-on-archived-container);
+}

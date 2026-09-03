@@ -1,9 +1,11 @@
 @use '@angular/material' as mat;
-@use './styles/theme-colors' as bavilivre;
+@use 'styles/theme-colors' as bavilivre;
 @use './styles/colors';
 @use './styles/layout';
 @use './styles/buttons';
 @use './styles/auth-form';
+@use './styles/statuses';
+@use './styles/material-overrides';
 
 html {
   height: 100%;
