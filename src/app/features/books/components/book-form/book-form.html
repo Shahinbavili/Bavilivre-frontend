@@ -1,67 +1,89 @@
-<form class="book-form" [formGroup]="form" (ngSubmit)="submit()">
-  <div class="form-field">
-    <label for="title">
+<form
+  class="book-form"
+  [formGroup]="form"
+  (ngSubmit)="submit()"
+>
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>
       {{ 'books.fields.title' | translate }}
-    </label>
-    <input id="title" type="text" formControlName="title"/>
+    </mat-label>
 
-    @if (form.controls.title.touched && form.controls.title.hasError('required')) {
-      <p class="field-error">
+    <input
+      matInput
+      type="text"
+      formControlName="title"
+    />
+
+    @if (form.controls.title.touched &&
+    form.controls.title.hasError('required')) {
+      <mat-error>
         {{ 'books.validation.titleRequired' | translate }}
-      </p>
+      </mat-error>
     }
 
-    @if (form.controls.title.touched && form.controls.title.hasError('maxlength')) {
-      <p class="field-error">
+    @if (form.controls.title.touched &&
+    form.controls.title.hasError('maxlength')) {
+      <mat-error>
         {{ 'books.validation.titleMaxLength' | translate }}
-      </p>
+      </mat-error>
     }
-  </div>
+  </mat-form-field>
 
-  <div class="form-field">
-    <label for="author">
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>
       {{ 'books.fields.author' | translate }}
-    </label>
-    <input type="text" id="author" formControlName="author"/>
+    </mat-label>
 
-    @if (form.controls.author.touched && form.controls.author.hasError('required')) {
-      <p class="field-error">
+    <input
+      matInput
+      type="text"
+      formControlName="author"
+    />
+
+    @if (form.controls.author.touched &&
+    form.controls.author.hasError('required')) {
+      <mat-error>
         {{ 'books.validation.authorRequired' | translate }}
-      </p>
+      </mat-error>
     }
 
-    @if (form.controls.author.touched && form.controls.author.hasError('maxlength')) {
-      <p class="field-error">
+    @if (form.controls.author.touched &&
+    form.controls.author.hasError('maxlength')) {
+      <mat-error>
         {{ 'books.validation.authorMaxLength' | translate }}
-      </p>
+      </mat-error>
     }
-  </div>
+  </mat-form-field>
 
-  <div class="form-field">
-    <label for="description">
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>
       {{ 'books.fields.description' | translate }}
-    </label>
-    <textarea id="description" rows="6" formControlName="description"></textarea>
+    </mat-label>
 
-    <p
-      class="character-counter"
-      [class.warning]="form.controls.description.value.length > 1800"
-    >
+    <textarea
+      matInput
+      rows="6"
+      formControlName="description"
+    ></textarea>
+
+    <mat-hint align="end">
       {{ form.controls.description.value.length }}/2000
-    </p>
+    </mat-hint>
 
-    @if (form.controls.description.touched && form.controls.description.hasError('required')) {
-      <p class="field-error">
+    @if (form.controls.description.touched &&
+    form.controls.description.hasError('required')) {
+      <mat-error>
         {{ 'books.validation.descriptionRequired' | translate }}
-      </p>
+      </mat-error>
     }
 
-    @if (form.controls.description.touched && form.controls.description.hasError('maxlength')) {
-      <p class="field-error">
+    @if (form.controls.description.touched &&
+    form.controls.description.hasError('maxlength')) {
+      <mat-error>
         {{ 'books.validation.descriptionMaxLength' | translate }}
-      </p>
+      </mat-error>
     }
-  </div>
+  </mat-form-field>
 
   <mat-form-field appearance="outline" class="form-field language-field">
     <mat-label>
@@ -98,34 +120,48 @@
     }
   </mat-form-field>
 
-  <div class="form-field">
-    <label for="category">
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>
       {{ 'books.fields.category' | translate }}
-    </label>
+    </mat-label>
 
-    <input type="text" id="category" formControlName="category"/>
+    <input
+      matInput
+      type="text"
+      formControlName="category"
+    />
 
-    @if (form.controls.category.touched && form.controls.category.hasError('required')) {
-      <p class="field-error">
+    @if (form.controls.category.touched &&
+    form.controls.category.hasError('required')) {
+      <mat-error>
         {{ 'books.validation.categoryRequired' | translate }}
-      </p>
+      </mat-error>
     }
 
-    @if (form.controls.category.touched && form.controls.category.hasError('maxlength')) {
-      <p class="field-error">
-        {{ 'books.validation.catego[ryMaxLength' | translate }}
-      </p>
+    @if (form.controls.category.touched &&
+    form.controls.category.hasError('maxlength')) {
+      <mat-error>
+        {{ 'books.validation.categoryMaxLength' | translate }}
+      </mat-error>
     }
-  </div>
+  </mat-form-field>
 
   <div class="form-actions">
     @if (showCancel()) {
-      <button type="button" class="app-button app-button--secondary" (click)="cancelled.emit()">
+      <button
+        type="button"
+        class="app-button app-button--secondary"
+        (click)="cancelled.emit()"
+      >
         {{ 'common.actions.cancel' | translate }}
       </button>
     }
 
-    <button type="submit" class="app-button app-button--primary" [disabled]="form.invalid || submitting()">
+    <button
+      type="submit"
+      class="app-button app-button--primary"
+      [disabled]="form.invalid || submitting()"
+    >
       {{ submitLabel() | translate }}
     </button>
   </div>
