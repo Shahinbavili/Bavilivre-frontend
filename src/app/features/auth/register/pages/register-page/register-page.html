@@ -1,5 +1,7 @@
 <section class="auth-page">
-  <h1>{{ 'auth.register.title' | translate }}</h1>
+  <h1>
+    {{ 'auth.register.title' | translate }}
+  </h1>
 
   @if (successMessageKey()) {
     <p class="form-success">
@@ -8,7 +10,7 @@
   }
 
   @if (errorMessageKey()) {
-    <p class="form-error">
+    <p class="form-error" role="alert">
       {{ errorMessageKey() | translate }}
     </p>
   }
@@ -28,6 +30,13 @@
         type="text"
         formControlName="displayName"
       />
+
+      @if (registerForm.controls.displayName.touched &&
+      registerForm.controls.displayName.hasError('required')) {
+        <mat-error>
+          {{ 'auth.validation.displayNameRequired' | translate }}
+        </mat-error>
+      }
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -40,6 +49,20 @@
         type="email"
         formControlName="email"
       />
+
+      @if (registerForm.controls.email.touched &&
+      registerForm.controls.email.hasError('required')) {
+        <mat-error>
+          {{ 'auth.validation.emailRequired' | translate }}
+        </mat-error>
+      }
+
+      @if (registerForm.controls.email.touched &&
+      registerForm.controls.email.hasError('email')) {
+        <mat-error>
+          {{ 'auth.validation.emailInvalid' | translate }}
+        </mat-error>
+      }
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -52,6 +75,13 @@
         type="password"
         formControlName="password"
       />
+
+      @if (registerForm.controls.password.touched &&
+      registerForm.controls.password.hasError('required')) {
+        <mat-error>
+          {{ 'auth.validation.passwordRequired' | translate }}
+        </mat-error>
+      }
     </mat-form-field>
 
     <button

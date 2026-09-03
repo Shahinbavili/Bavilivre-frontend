@@ -1,9 +1,12 @@
 import {Component, inject, signal} from '@angular/core';
-import {AuthService} from '../../../../../core/auth/auth.service';
-import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {TranslatePipe} from '@ngx-translate/core';
+import {FormControl, FormGroup, ReactiveFormsModule, Validators,} from '@angular/forms';
 import {Router} from '@angular/router';
-import {MatFormField, MatInput, MatLabel} from '@angular/material/input';
+import {TranslatePipe} from '@ngx-translate/core';
+
+import {MatError, MatFormField, MatLabel,} from '@angular/material/form-field';
+import {MatInput} from '@angular/material/input';
+
+import {AuthService} from '../../../../../core/auth/auth.service';
 
 @Component({
   selector: 'app-register-page',
@@ -12,15 +15,16 @@ import {MatFormField, MatInput, MatLabel} from '@angular/material/input';
     ReactiveFormsModule,
     MatFormField,
     MatLabel,
-    MatInput
+    MatInput,
+    MatError,
   ],
   templateUrl: './register-page.html',
   styleUrl: './register-page.scss',
 })
 export class RegisterPage {
-
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
+
   readonly successMessageKey = signal<string | null>(null);
   readonly errorMessageKey = signal<string | null>(null);
 
@@ -31,11 +35,14 @@ export class RegisterPage {
     }),
     email: new FormControl('', {
       nonNullable: true,
-      validators: [Validators.required, Validators.email],
+      validators: [
+        Validators.required,
+        Validators.email,
+      ],
     }),
     password: new FormControl('', {
       nonNullable: true,
-      validators: [Validators.required]
+      validators: [Validators.required],
     }),
   });
 
@@ -48,27 +55,32 @@ export class RegisterPage {
     this.errorMessageKey.set(null);
     this.successMessageKey.set(null);
 
-    this.authService.register(this.registerForm.getRawValue()).subscribe({
-      next: () => {
-        this.successMessageKey.set('auth.register.success');
+    this.authService
+      .register(this.registerForm.getRawValue())
+      .subscribe({
+        next: () => {
+          this.successMessageKey.set('auth.register.success');
 
-        setTimeout(() => {
-          this.router.navigate(['/login']);
-        }, 1500);
+          setTimeout(() => {
+            this.router.navigate(['/login']);
+          }, 1500);
+        },
 
-      }, error: error => {
-        const errorCode = error.error?.code;
+        error: error => {
+          const errorCode = error.error?.code;
 
-        if (errorCode) {
-          this.errorMessageKey.set(`errors.${errorCode}`);
-          return;
-        }
-        if (error.status === 0) {
-          this.errorMessageKey.set('auth.errors.network');
-          return;
-        }
-        this.errorMessageKey.set('auth.errors.unknown');
-      }
-    })
+          if (errorCode) {
+            this.errorMessageKey.set(`errors.${errorCode}`);
+            return;
+          }
+
+          if (error.status === 0) {
+            this.errorMessageKey.set('auth.errors.network');
+            return;
+          }
+
+          this.errorMessageKey.set('auth.errors.unknown');
+        },
+      });
   }
 }

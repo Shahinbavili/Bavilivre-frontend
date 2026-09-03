@@ -63,13 +63,13 @@
         class="app-header__menu-trigger"
         [matMenuTriggerFor]="languageMenu"
       >
-  <span class="app-header__language-full">
-    {{ ('common.languageSwitcher.' + currentLang) | translate }}
-  </span>
+        <span class="app-header__language-full">
+          {{ ('common.languageSwitcher.' + currentLang) | translate }}
+        </span>
 
         <span class="app-header__language-short">
-    {{ currentLang.toUpperCase() }}
-  </span>
+          {{ currentLang.toUpperCase() }}
+        </span>
 
         <mat-icon>arrow_drop_down</mat-icon>
       </button>
@@ -93,7 +93,7 @@
             class="app-header__menu-trigger"
             [matMenuTriggerFor]="accountMenu"
           >
-            {{ user.displayName }}
+            {{ displayName(user.displayName) }}
 
             <mat-icon>arrow_drop_down</mat-icon>
           </button>

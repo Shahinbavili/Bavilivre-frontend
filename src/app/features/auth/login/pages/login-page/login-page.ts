@@ -29,12 +29,10 @@ export class LoginPage {
     email: new FormControl('', {
       nonNullable: true,
       validators: [Validators.required, Validators.email],
-      updateOn: 'blur',
     }),
     password: new FormControl('', {
       nonNullable: true,
       validators: [Validators.required],
-      updateOn: 'blur',
     }),
   });
 

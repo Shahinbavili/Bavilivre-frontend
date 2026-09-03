@@ -35,6 +35,14 @@ export class Header {
     localStorage.setItem('lang', lang);
   }
 
+  displayName(name: string): string {
+    if (!name) {
+      return '';
+    }
+
+    return name.charAt(0).toLocaleUpperCase() + name.slice(1);
+  }
+
   logout(): void {
     this.authService.logout();
   }
