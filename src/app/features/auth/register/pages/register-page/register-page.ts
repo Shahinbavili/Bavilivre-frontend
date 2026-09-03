@@ -3,12 +3,16 @@ import {AuthService} from '../../../../../core/auth/auth.service';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {TranslatePipe} from '@ngx-translate/core';
 import {Router} from '@angular/router';
+import {MatFormField, MatInput, MatLabel} from '@angular/material/input';
 
 @Component({
   selector: 'app-register-page',
   imports: [
     TranslatePipe,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatFormField,
+    MatLabel,
+    MatInput
   ],
   templateUrl: './register-page.html',
   styleUrl: './register-page.scss',

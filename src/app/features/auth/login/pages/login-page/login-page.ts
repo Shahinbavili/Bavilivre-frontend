@@ -2,12 +2,17 @@ import {Component, inject, signal} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {AuthService} from '../../../../../core/auth/auth.service';
 import {TranslatePipe} from '@ngx-translate/core';
+import {MatError, MatFormField, MatInput, MatLabel} from '@angular/material/input';
 
 @Component({
   selector: 'app-login-page',
   imports: [
     ReactiveFormsModule,
-    TranslatePipe
+    TranslatePipe,
+    MatFormField,
+    MatLabel,
+    MatError,
+    MatInput
   ],
   templateUrl: './login-page.html',
   styleUrl: './login-page.scss',

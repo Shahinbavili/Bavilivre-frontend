@@ -1,35 +1,65 @@
-<h1>{{ 'auth.register.title' | translate }}</h1>
+<section class="auth-page">
+  <h1>{{ 'auth.register.title' | translate }}</h1>
 
-@if (successMessageKey()) {
-  <p class="form-success">
-    {{ successMessageKey() | translate }}
-  </p>
-}
+  @if (successMessageKey()) {
+    <p class="form-success">
+      {{ successMessageKey() | translate }}
+    </p>
+  }
 
-@if (errorMessageKey()) {
-  <p class="form-error">
-    {{ errorMessageKey() | translate }}
-  </p>
-}
+  @if (errorMessageKey()) {
+    <p class="form-error">
+      {{ errorMessageKey() | translate }}
+    </p>
+  }
 
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="displayName">{{ 'auth.register.displayName' | translate }}</label>
-    <input id="displayName" type="text" formControlName="displayName">
-  </div>
-  <div>
-    <label for="email">{{ 'auth.register.email' | translate }}</label>
-    <input id="email" type="email" formControlName="email">
-  </div>
-  <div>
-    <label for="password">{{ 'auth.register.password' | translate }}</label>
-    <input id="password" type="password" formControlName="password">
-  </div>
+  <form
+    class="auth-form"
+    [formGroup]="registerForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <mat-form-field appearance="outline">
+      <mat-label>
+        {{ 'auth.register.displayName' | translate }}
+      </mat-label>
 
-  <button
-    type="submit"
-    [disabled]="registerForm.invalid"
-    class="auth-form__submit">
-    {{ 'auth.register.submit' | translate }}
-  </button>
-</form>
+      <input
+        matInput
+        type="text"
+        formControlName="displayName"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>
+        {{ 'auth.register.email' | translate }}
+      </mat-label>
+
+      <input
+        matInput
+        type="email"
+        formControlName="email"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>
+        {{ 'auth.register.password' | translate }}
+      </mat-label>
+
+      <input
+        matInput
+        type="password"
+        formControlName="password"
+      />
+    </mat-form-field>
+
+    <button
+      type="submit"
+      class="app-button app-button--primary"
+      [disabled]="registerForm.invalid"
+    >
+      {{ 'auth.register.submit' | translate }}
+    </button>
+  </form>
+</section>

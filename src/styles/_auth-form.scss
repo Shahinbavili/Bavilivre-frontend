@@ -1,0 +1,45 @@
+.auth-page {
+  max-width: 900px;
+  margin-inline: auto;
+  padding: 2rem 1rem;
+}
+
+.auth-page h1 {
+  max-width: 28rem;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  width: 100%;
+  max-width: 28rem;
+  margin-inline: auto;
+}
+
+.auth-form mat-form-field {
+  width: 100%;
+}
+
+.auth-form .app-button {
+  width: 100%;
+}
+
+.form-error,
+.form-success {
+  max-width: 28rem;
+  margin: 0 auto 1rem;
+
+  text-align: center;
+}
+
+.form-error {
+  color: var(--app-error);
+}
+
+.form-success {
+  color: var(--app-success);
+}
