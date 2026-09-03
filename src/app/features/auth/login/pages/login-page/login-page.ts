@@ -3,6 +3,7 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import {AuthService} from '../../../../../core/auth/auth.service';
 import {TranslatePipe} from '@ngx-translate/core';
 import {MatError, MatFormField, MatInput, MatLabel} from '@angular/material/input';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -20,6 +21,8 @@ import {MatError, MatFormField, MatInput, MatLabel} from '@angular/material/inpu
 export class LoginPage {
 
   private readonly authService = inject(AuthService);
+  private readonly router = inject(Router);
+
   readonly errorMessageKey = signal<string | null>(null);
 
   readonly loginForm = new FormGroup({
@@ -37,15 +40,18 @@ export class LoginPage {
 
   onSubmit(): void {
     this.errorMessageKey.set(null);
+
     if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
       return;
     }
 
     this.authService.login(this.loginForm.getRawValue()).subscribe({
-
       next: () => {
-        this.authService.loadCurrentUser().subscribe();
+        this.authService.loadCurrentUser().subscribe({
+            next: () => this.router.navigate(['/']),
+          }
+        );
       },
 
       error: error => {
