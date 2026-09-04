@@ -71,22 +71,6 @@
   font-size: 0.95rem;
 }
 
-/* ---------- Status ---------- */
-
-.book-status {
-  margin: 0;
-
-  font-weight: 600;
-}
-
-.available {
-  color: var(--app-success);
-}
-
-.unavailable {
-  color: var(--app-error);
-}
-
 /* ---------- Date ---------- */
 
 .book-date {

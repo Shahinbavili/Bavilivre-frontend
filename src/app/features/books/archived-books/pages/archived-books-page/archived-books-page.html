@@ -6,11 +6,17 @@
   @if (isLoading()) {
     <app-loading-spinner/>
   } @else if (errorMessage()) {
-    <p class="error-message">
+    <p
+      class="error-message"
+      role="alert"
+    >
       {{ errorMessage()! | translate }}
     </p>
   } @else if (archivedBooks().length === 0) {
-    <p class="empty-message">
+    <p
+      class="empty-message"
+      aria-live="polite"
+    >
       {{ 'books.archived.empty' | translate }}
     </p>
   } @else {

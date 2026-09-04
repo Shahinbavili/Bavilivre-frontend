@@ -29,11 +29,11 @@
     [class.app-status--available]="book.available"
     [class.app-status--unavailable]="!book.available"
   >
-  @if (book.available) {
-    {{ 'books.status.available' | translate }}
-  } @else {
-    {{ 'books.status.unavailable' | translate }}
-  }
+    @if (book.available) {
+      {{ 'books.status.available' | translate }}
+    } @else {
+      {{ 'books.status.unavailable' | translate }}
+    }
   </span>
 
   <div class="book-date">
