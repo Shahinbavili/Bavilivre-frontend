@@ -1,5 +1,17 @@
 # Bavilivre Frontend
 
+![Angular 21](https://img.shields.io/badge/Angular-21-DD0031?logo=angular&logoColor=white)
+![Angular Material](https://img.shields.io/badge/Angular%20Material-Material%203-7B1FA2?logo=angular&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+
+![RxJS](https://img.shields.io/badge/RxJS-Reactive-B7178C?logo=reactivex&logoColor=white)
+![SCSS](https://img.shields.io/badge/SCSS-Styles-CC6699?logo=sass&logoColor=white)
+![ngx--translate](https://img.shields.io/badge/i18n-FR%20%7C%20EN%20%7C%20DE%20%7C%20FA-4E6357)
+
+![JWT](https://img.shields.io/badge/Auth-JWT-000000?logo=jsonwebtokens&logoColor=white)
+![Material 3](https://img.shields.io/badge/UI-Material%203-8256A3)
+![RTL](https://img.shields.io/badge/Layout-LTR%20%2F%20RTL-607568)
+
 Frontend de **Bavilivre**, une plateforme web multilingue de partage de livres entre particuliers.
 
 Le projet est développé avec **Angular 21** et repose sur une architecture frontend moderne utilisant notamment les **standalone components**, le **routing Angular**, les **services HTTP**, les **signals**, l’authentification JWT et **Angular Material 3**.
