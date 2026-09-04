@@ -85,6 +85,12 @@
   color: var(--mat-sys-on-error-container);
 }
 
+.app-button--compact {
+  min-width: 0;
+  min-height: 2.5rem;
+  padding-inline: 1rem;
+}
+
 .app-button:disabled {
   cursor: not-allowed;
   opacity: 0.6;

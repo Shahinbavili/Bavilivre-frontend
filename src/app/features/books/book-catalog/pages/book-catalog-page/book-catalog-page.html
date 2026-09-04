@@ -186,7 +186,7 @@
 
         <button
           type="button"
-          class="catalog-reset"
+          class="catalog-reset app-button app-button--secondary app-button--compact"
           (click)="resetFilters()"
         >
           {{ 'books.catalog.filters.reset' | translate }}
@@ -252,7 +252,7 @@
           >
             <button
               type="button"
-              class="catalog-pagination__button"
+              class="catalog-pagination__button app-button app-button--secondary app-button--compact"
               [disabled]="!hasPreviousPage()"
               (click)="onPreviousPage()"
             >
@@ -260,18 +260,18 @@
             </button>
 
             <span class="catalog-pagination__current">
-          {{
+              {{
                 'books.catalog.pagination.pageStatus'
                   | translate: {
                   current: currentPage() + 1,
                   total: totalPages()
                 }
               }}
-        </span>
+            </span>
 
             <button
               type="button"
-              class="catalog-pagination__button"
+              class="catalog-pagination__button app-button app-button--secondary app-button--compact"
               [disabled]="!hasNextPage()"
               (click)="onNextPage()"
             >
