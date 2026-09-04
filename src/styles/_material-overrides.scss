@@ -54,3 +54,32 @@
   color: var(--app-select-text);
   font-weight: 600;
 }
+
+/* =========================
+   Mat Menu direction
+   ========================= */
+
+html[dir='ltr'] .app-menu-panel .mat-mdc-menu-item {
+  direction: ltr;
+  text-align: start;
+}
+
+html[dir='rtl'] .app-menu-panel .mat-mdc-menu-item {
+  direction: rtl;
+  text-align: start;
+}
+
+.app-menu-panel .mat-mdc-menu-item-text {
+  width: 100%;
+}
+
+/* Keep the selected indicator on the visual left in RTL selects */
+html[dir='rtl'] .app-select-panel .mat-mdc-option {
+  flex-direction: row;
+}
+
+html[dir='rtl'] .app-select-panel .mat-pseudo-checkbox {
+  order: 1;
+  margin-inline-start: 0.75rem;
+  margin-inline-end: 0;
+}

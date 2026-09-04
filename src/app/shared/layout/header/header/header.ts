@@ -33,6 +33,11 @@ export class Header {
   setLang(lang: string): void {
     this.translate.use(lang);
     localStorage.setItem('lang', lang);
+
+    const direction = lang === 'fa' ? 'rtl' : 'ltr';
+
+    document.documentElement.lang = lang;
+    document.documentElement.dir = direction;
   }
 
   displayName(name: string): string {

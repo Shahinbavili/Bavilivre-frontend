@@ -3,32 +3,39 @@ import {RouterOutlet} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
 import {AppLayout} from './shared/layout/app-layout/app-layout';
 import {AuthService} from './core/auth/auth.service';
+import {Dir} from '@angular/cdk/bidi';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, AppLayout],
+  imports: [
+    RouterOutlet,
+    AppLayout,
+    Dir
+  ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
 export class App {
   protected readonly title = signal('bavilivre-frontend');
+  protected readonly direction = signal<'ltr' | 'rtl'>('ltr');
 
   private translate = inject(TranslateService);
-  private supportedLangs = ['fr', 'en', 'de', 'fa'];
-
   private readonly authService = inject(AuthService);
 
+  private supportedLanguages = ['fr', 'en', 'de', 'fa'];
+
+
   constructor() {
-    this.translate.addLangs(this.supportedLangs);
+    this.translate.addLangs(this.supportedLanguages);
     this.translate.setFallbackLang('fr');
 
     const savedLang = localStorage.getItem('lang');
     const browserLang = this.translate.getBrowserLang();
 
     const selectedLang =
-      savedLang && this.supportedLangs.includes(savedLang)
+      savedLang && this.supportedLanguages.includes(savedLang)
         ? savedLang
-        : this.supportedLangs.includes(browserLang ?? '')
+        : this.supportedLanguages.includes(browserLang ?? '')
           ? browserLang!
           : 'fr';
 
@@ -47,7 +54,11 @@ export class App {
   }
 
   private updateDirection(lang: string): void {
-    document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
+    const direction: 'ltr' | 'rtl' = lang === 'fa' ? 'rtl' : 'ltr';
+
+    this.direction.set(direction);
+
+    document.documentElement.dir = direction;
     document.documentElement.lang = lang;
   }
 }

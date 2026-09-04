@@ -1,14 +1,9 @@
-@use 'src/styles/_tokens.scss' as tokens;
+@use 'tokens';
 
 .archived-books-page {
   max-width: 62.5rem; // 1000px
   margin-inline: auto;
   padding: tokens.$space-8 tokens.$space-4;
-}
-
-.archived-books-page h1 {
-  margin: 0 0 tokens.$space-8;
-  text-align: center;
 }
 
 .archived-books-list {
@@ -28,10 +23,6 @@
 
   border: 1px solid var(--app-border);
   border-radius: tokens.$radius-medium;
-}
-
-.archived-book-card h2 {
-  margin: 0;
 }
 
 .archived-book-card p {

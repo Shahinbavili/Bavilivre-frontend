@@ -14,7 +14,7 @@
   border: 1px solid transparent;
   border-radius: tokens.$radius-small;
 
-  font: inherit;
+  font: var(--mat-sys-label-large);
   font-weight: 600;
   line-height: 1.2rem;
   text-align: center;

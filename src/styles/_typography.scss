@@ -1,0 +1,34 @@
+/* Bavilivre typography conventions */
+
+.app-page-title {
+  margin: 0;
+  font: var(--mat-sys-headline-medium);
+  color: var(--app-text);
+}
+
+.app-section-title {
+  margin: 0;
+  font: var(--mat-sys-title-large);
+  color: var(--app-text);
+}
+
+.app-card-title {
+  margin: 0;
+  font: var(--mat-sys-title-medium);
+  color: var(--app-text);
+}
+
+.app-body {
+  font: var(--mat-sys-body-medium);
+  color: var(--app-text);
+}
+
+.app-supporting-text {
+  font: var(--mat-sys-body-small);
+  color: var(--app-text-muted);
+}
+
+.app-label {
+  font: var(--mat-sys-label-large);
+  color: var(--app-text);
+}

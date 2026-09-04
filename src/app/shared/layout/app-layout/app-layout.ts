@@ -4,7 +4,7 @@ import {RouterOutlet} from '@angular/router';
 import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-app-layout',
+  selector: 'app-layout',
   imports: [
     Header,
     RouterOutlet,
