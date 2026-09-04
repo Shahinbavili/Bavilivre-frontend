@@ -1,31 +1,28 @@
 # Bavilivre Frontend
 
-![Angular](https://img.shields.io/badge/Angular%2021-DD0031?style=for-the-badge&logo=angular&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![RxJS](https://img.shields.io/badge/RxJS-B7178C?style=for-the-badge&logo=reactivex&logoColor=white)
-![i18n](https://img.shields.io/badge/i18n-FR%20%7C%20EN%20%7C%20DE%20%7C%20FA-1E90FF?style=for-the-badge)
-![RTL](https://img.shields.io/badge/RTL-Persian%20Support-purple?style=for-the-badge)
-
 Frontend de **Bavilivre**, une plateforme web multilingue de partage de livres entre particuliers.
 
-Ce projet est développé avec **Angular 21** dans une approche moderne basée sur les **standalone components**, le **routing Angular**, les **services HTTP**, les **signals** et une structure frontend évolutive.
+Le projet est développé avec **Angular 21** et repose sur une architecture frontend moderne utilisant notamment les **standalone components**, le **routing Angular**, les **services HTTP**, les **signals**, l’authentification JWT et **Angular Material 3**.
 
 Le backend Spring Boot est développé séparément :
 
 - Backend repository:  
-  https://github.com/Shahinbavili/Bavilivre-backend
+  [https://github.com/Shahinbavili/Bavilivre-backend](https://github.com/Shahinbavili/Bavilivre-backend)
 
 ---
 
-# Technologies
+## Technologies
 
 - Angular 21
+- Angular Material 3
+- Angular CDK
 - TypeScript
 - RxJS
 - Angular Router
 - Angular HTTP Client
 - Standalone Components
 - Signals
+- SCSS
 - TailwindCSS
 - ngx-translate
 - HTML5
@@ -33,25 +30,25 @@ Le backend Spring Boot est développé séparément :
 
 ---
 
-# Project Goals
+## Project Goals
 
 Bavilivre Frontend est conçu pour :
 
 - construire une interface moderne pour une application full-stack réelle
 - pratiquer Angular moderne avec standalone components et signals
 - intégrer une API REST Spring Boot
-- gérer une interface multilingue
+- gérer l’authentification et les routes protégées
+- proposer une interface multilingue
 - supporter les langues FR / EN / DE / FA
-- préparer le support RTL pour le persan
-- construire une base frontend maintenable et évolutive
+- supporter dynamiquement les layouts LTR et RTL
+- construire un système UI/UX cohérent avec Material 3
+- maintenir une architecture frontend claire et évolutive
 
 ---
 
-# Architecture
+## Architecture
 
 Le projet suit une organisation modulaire par fonctionnalités.
-
-## Structure principale
 
 ### `features`
 
@@ -59,35 +56,42 @@ Contient les fonctionnalités métier de l’application.
 
 Exemples :
 
+- authentication
+- book catalog
+- book details
+- add / edit book
+- my books
+- archived books
 - borrowed books
 - lent books
-- book catalog
-- authentication
-- user area
 
 ---
 
 ### `core`
 
-Contient les services globaux et la configuration centrale.
+Contient les services et mécanismes globaux de l’application.
 
 Exemples :
 
+- authentication service
 - API services
-- HTTP configuration
-- shared application logic
-- global providers
+- HTTP interceptors
+- route guards
+- global application state
+- application configuration
 
 ---
 
 ### `shared`
 
-Contient les éléments réutilisables.
+Contient les éléments réutilisables de l’interface.
 
 Exemples :
 
+- application layout
+- header
 - reusable components
-- pipes
+- loading states
 - shared UI elements
 - utility helpers
 
@@ -97,74 +101,180 @@ Exemples :
 
 Contient les fichiers de traduction.
 
-Langues prévues :
+Langues supportées :
 
 - French (`fr`)
 - English (`en`)
 - German (`de`)
 - Persian / Farsi (`fa`)
 
----
+Le persan utilise automatiquement une mise en page **RTL**, tandis que les autres langues utilisent **LTR**.
 
-# Current Features
-
-## Book Sharing UI
-
-- Borrowed books page
-- Lent books page
-- Backend API integration
-- Display backend data in Angular components
+Le changement de direction est appliqué dynamiquement sans rechargement de l’application.
 
 ---
 
-## Internationalization
+### `styles`
+
+Contient le système de styles partagé de Bavilivre.
+
+Principaux fichiers :
+
+- `_theme-colors.scss` — palettes Material 3 générées
+- `_colors.scss` — couleurs sémantiques de l’application
+- `_tokens.scss` — spacing, radius, widths, transitions et shadows
+- `_typography.scss` — conventions typographiques
+- `_buttons.scss` — boutons partagés
+- `_statuses.scss` — états Available / Unavailable / Archived
+- `_layout.scss` — règles de layout communes
+- `_material-overrides.scss` — personnalisations globales Angular Material
+
+---
+
+## Current Features
+
+### Authentication
+
+- User registration
+- User login
+- JWT authentication
+- Authentication persistence
+- Current user loading
+- Protected routes
+- Automatic logout when authentication becomes invalid
+- Authentication error handling
+
+---
+
+### Book Catalog
+
+- Paginated catalog
+- Search
+- Sorting
+- Language filtering
+- Category filtering
+- Availability filtering
+- Configurable page size
+- Book details page
+- Ownership-aware actions
+
+---
+
+### User Library
+
+- My Books
+- Add Book
+- Edit Book
+- Archive Book
+- Archived Books
+- Restore archived books
+- Borrowed Books
+- Lent Books
+
+Management actions are kept on the book details pages rather than catalog cards.
+
+---
+
+### Internationalization
 
 - ngx-translate configuration
-- Translation files structure
-- Language switcher
+- French, English, German and Persian translations
+- Global language switcher
 - Selected language persistence
-- Persian RTL support preparation
+- Dynamic LTR / RTL switching
+- RTL support for Angular Material menus and controls
 
 ---
 
-## Angular Modern Practices
+### Angular Material UI
 
-- Standalone components
-- Lazy-loaded routes
-- Angular services
-- HTTP client integration
-- Signals for component state
-- Clean component structure
+The application uses Angular Material 3 as its main UI foundation.
+
+Implemented components include:
+
+- Material form fields
+- Material inputs
+- Material selects
+- Material checkboxes
+- Material menus
+- Material icons
+- Accessible keyboard focus states
+
+Native form controls are progressively replaced by their Material equivalents when appropriate.
 
 ---
 
-# Backend Integration
+## Design System
+
+Bavilivre uses a dedicated **Material 3 UI/UX design system** to keep pages and components visually consistent.
+
+The design direction combines:
+
+- violet for the main brand identity and primary actions
+- eucalyptus green for subtle surfaces, selections and positive states
+- floral pink as a limited accent color
+- amber for warnings and unavailable states
+- red for errors and destructive actions
+
+The design system defines:
+
+- Material 3 color palettes
+- semantic color roles
+- typography conventions
+- spacing tokens
+- border-radius conventions
+- surfaces and elevation
+- page widths
+- buttons
+- statuses
+- form controls
+- menus and dropdown states
+- hover, focus, selected and disabled states
+- accessibility conventions
+- LTR / RTL rules
+
+Full documentation:
+
+[View the Bavilivre Design System](docs/design-system.md)
+
+---
+
+## Backend Integration
 
 The frontend communicates with the Spring Boot backend through REST APIs.
 
 Default local backend URL:
 
-```ts
+```text
 http://localhost:8080
 ```
-Example API usage:
+
+The Angular environment configuration is used as the API base URL.
+
+Example:
+
 ```ts
-this.http.get('http://localhost:8080/users/1/borrowed-books');
+this.http.get(`${environment.apiBaseUrl}/api/books`);
 ```
 
 ---
 
-# Run the Project
+## Run the Project
 
 Install dependencies:
+
 ```bash
 npm install
 ```
-Start development server:
+
+Start the development server:
+
 ```bash
 ng serve
 ```
+
 Then open:
+
 ```text
 http://localhost:4200
 ```
@@ -172,47 +282,63 @@ http://localhost:4200
 ---
 
 ## Build
+
+Create a production build:
+
 ```bash
 ng build
 ```
+
+---
+
 ## Tests
+
+Run frontend tests:
+
 ```bash
 ng test
 ```
 
 ---
 
-## Development Notes
+## Development Principles
 
-This frontend is part of the full-stack Bavilivre project.
+Bavilivre is developed progressively with a focus on:
 
-The project is developed progressively with a focus on:
+- clean Angular architecture
+- reusable components
+- real backend integration
+- maintainable code
+- Material 3 consistency
+- responsive design
+- multilingual support
+- LTR / RTL compatibility
+- accessibility
+- readable commits
+- GitHub Issues and milestones
+- incremental delivery and refactoring
 
-* clean Angular structure
-* real backend integration
-* multilingual support
-* maintainable routing
-* readable commits
-* GitHub Issues and milestones
+Visual rules should preferably come from the shared design system rather than being redefined locally inside individual components.
 
 ---
 
 ## Next Steps
 
-* Improve book catalog pages
-* Add login/register UI
-* Integrate JWT authentication
-* Add protected routes
-* Integrate Angular Material UI components
-* Improve error/loading states
-* Add pagination for book lists
-* Polish responsive UI
-* Prepare production deployment
+Upcoming frontend work includes:
+
+- continue Sprint 5 page redesigns using the shared design system
+- refine responsive layouts
+- improve UX and interaction feedback
+- complete accessibility checks
+- improve error and loading states
+- continue frontend testing
+- prepare production deployment
+- improve project documentation and portfolio presentation
 
 ---
 
 ## Author
 
-Shahin Bavili
+**Shahin Bavili**
 
 Full Stack Developer — Java / Spring Boot / Angular
