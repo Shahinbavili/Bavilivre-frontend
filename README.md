@@ -5,10 +5,10 @@
 ![RxJS](https://img.shields.io/badge/RxJS-B7178C?style=for-the-badge&logo=reactivex&logoColor=white)
 ![i18n](https://img.shields.io/badge/i18n-FR%20%7C%20EN%20%7C%20DE%20%7C%20FA-1E90FF?style=for-the-badge)
 
-![Angular Material](https://img.shields.io/badge/Angular%20Material-Material%203-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![Angular Material](https://img.shields.io/badge/Angular%20Material-Material%203-6750A4?style=for-the-badge&logo=angular&logoColor=white&labelColor=6750A4)
 ![SCSS](https://img.shields.io/badge/SCSS-CC6699?style=for-the-badge&logo=sass&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
-![LTR / RTL](https://img.shields.io/badge/Layout-LTR%20%2F%20RTL-555555?style=for-the-badge)
+![LTR / RTL](https://img.shields.io/badge/Layout-LTR%20%2F%20RTL-455A64?style=for-the-badge&labelColor=455A64)
 
 Frontend de **Bavilivre**, une plateforme web multilingue de partage de livres entre particuliers.
 
