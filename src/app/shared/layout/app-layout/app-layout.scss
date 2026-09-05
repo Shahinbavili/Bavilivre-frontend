@@ -1,19 +1,27 @@
 .app-layout {
-  min-height: 100vh;
+  min-height: 100dvh;
+
   display: flex;
   flex-direction: column;
+
+  background-color: var(--app-surface-page);
+  color: var(--app-text);
 }
 
 .app-layout__main {
   flex: 1;
+  width: 100%;
 }
 
 .app-layout__footer {
-  border-top: 1px solid var(--app-border);
+  border-block-start: 1px solid var(--app-border);
+  background-color: var(--app-surface-card);
 }
 
 .app-layout__footer-content {
-  padding: 1rem 0;
+  padding-block: 1rem;
+
+  color: var(--app-text-muted);
+  font: var(--mat-sys-body-small);
   text-align: center;
-  font-size: 0.875rem;
 }
