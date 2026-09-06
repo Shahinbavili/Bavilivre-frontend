@@ -347,10 +347,6 @@ Upcoming frontend work includes:
 
 ---
 
-## Future roadmap
-
-- [Bibliographic Model & Book Copies](docs/roadmap/future-bibliographic-model-and-book-copies.md) — intentionally postponed until after the MVP launch and initial user feedback.
-
 ## Author
 
 **Shahin Bavili**
