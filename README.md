@@ -336,7 +336,7 @@ Visual rules should preferably come from the shared design system rather than be
 
 Upcoming frontend work includes:
 
-- continue Sprint 5 page redesigns using the shared design system
+- continue Sprint-5 page redesigns using the shared design system
 - refine responsive layouts
 - improve UX and interaction feedback
 - complete accessibility checks
@@ -346,6 +346,10 @@ Upcoming frontend work includes:
 - improve project documentation and portfolio presentation
 
 ---
+
+## Future roadmap
+
+- [Bibliographic Model & Book Copies](docs/roadmap/future-bibliographic-model-and-book-copies.md) — intentionally postponed until after the MVP launch and initial user feedback.
 
 ## Author
 
