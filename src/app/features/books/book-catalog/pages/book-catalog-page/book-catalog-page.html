@@ -156,7 +156,13 @@
     </div>
   </header>
 
-  @if (loading()) {
+  <div class="catalog-progress">
+    @if (refreshing()) {
+      <mat-progress-bar mode="indeterminate"/>
+    }
+  </div>
+
+  @if (initialLoading()) {
     <p
       class="catalog-state"
       aria-live="polite"
@@ -232,7 +238,7 @@
           <mat-select
             panelClass="app-select-panel"
             [value]="pageSize()"
-            [disabled]="loading()"
+            [disabled]="loading() || totalElements() <= pageSize()"
             (selectionChange)="onPageSizeChange($event.value)"
           >
             @for (size of pageSizeOptions; track size) {

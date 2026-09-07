@@ -32,6 +32,11 @@
   align-items: start;
 }
 
+.catalog-progress {
+  height: 0.25rem;
+  margin-block-end: 1rem;
+}
+
 .catalog-toolbar__filters {
   display: grid;
   grid-template-columns:

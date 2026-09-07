@@ -10,10 +10,11 @@ import {AuthService} from '../../../../../core/auth/auth.service';
 import {MatFormField, MatInput, MatLabel} from '@angular/material/input';
 import {MatOption, MatSelect} from '@angular/material/select';
 import {MatCheckbox} from '@angular/material/checkbox';
+import {MatProgressBar} from '@angular/material/progress-bar';
 
 @Component({
   selector: 'app-book-catalog-page',
-  imports: [BookCard, TranslatePipe, MatFormField, MatLabel, MatSelect, MatOption, MatInput, MatCheckbox],
+  imports: [BookCard, TranslatePipe, MatFormField, MatLabel, MatSelect, MatOption, MatInput, MatCheckbox, MatProgressBar],
   templateUrl: './book-catalog-page.html',
   styleUrl: './book-catalog-page.scss',
 })
@@ -28,7 +29,16 @@ export class BookCatalogPage implements OnInit {
 
   readonly books = signal<Book[]>([]);
   readonly loading = signal(true);
+  readonly hasLoadedOnce = signal(false);
   readonly loadError = signal(false);
+
+  readonly initialLoading = computed(
+    () => this.loading() && !this.hasLoadedOnce()
+  );
+
+  readonly refreshing = computed(
+    () => this.loading() && this.hasLoadedOnce()
+  )
 
   readonly searchTitle = signal('');
   readonly selectedLanguage = signal('');
@@ -38,7 +48,7 @@ export class BookCatalogPage implements OnInit {
 
   readonly currentPage = signal(0);
   readonly pageSize = signal(12);
-  readonly totalPages = signal(10);
+  readonly totalPages = signal(0);
   readonly totalElements = signal(0);
 
   readonly pageSizeOptions = [12, 24, 48];
@@ -92,14 +102,17 @@ export class BookCatalogPage implements OnInit {
       size: this.pageSize(),
     })
       .pipe(
-        finalize(() => this.loading.set(false))
+        finalize(() => {
+          this.hasLoadedOnce.set(true);
+          this.loading.set(false);
+        })
       )
       .subscribe({
         next: response => {
           this.books.set(response.content);
-          this.currentPage.set(response.page);
-          this.totalPages.set(response.totalPages);
           this.totalElements.set(response.totalElements);
+          this.totalPages.set(response.totalPages);
+          this.currentPage.set(response.page);
         },
         error: error => {
           console.error('Failed to load books', error);
@@ -138,7 +151,7 @@ export class BookCatalogPage implements OnInit {
   }
 
   protected onPreviousPage(): void {
-    if (!this.hasPreviousPage) {
+    if (!this.hasPreviousPage()) {
       return;
     }
 
@@ -147,7 +160,7 @@ export class BookCatalogPage implements OnInit {
   }
 
   protected onNextPage(): void {
-    if (!this.hasNextPage) {
+    if (!this.hasNextPage()) {
       return;
     }
 
