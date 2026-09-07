@@ -238,7 +238,7 @@
           <mat-select
             panelClass="app-select-panel"
             [value]="pageSize()"
-            [disabled]="loading() || totalElements() <= pageSize()"
+            [disabled]="loading() || !canChangePageSize()"
             (selectionChange)="onPageSizeChange($event.value)"
           >
             @for (size of pageSizeOptions; track size) {

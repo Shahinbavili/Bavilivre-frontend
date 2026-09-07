@@ -53,6 +53,10 @@ export class BookCatalogPage implements OnInit {
 
   readonly pageSizeOptions = [12, 24, 48];
 
+  readonly canChangePageSize = computed(
+    () => this.totalElements() > Math.min(...this.pageSizeOptions)
+  );
+
   // Gives direct access to the search input to reset its value programmatically.
   @ViewChild('searchInput')
   private searchInput?: ElementRef<HTMLInputElement>;
