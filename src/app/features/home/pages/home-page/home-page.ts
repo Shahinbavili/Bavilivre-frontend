@@ -17,5 +17,4 @@ export class HomePage {
 
   private readonly authService = inject(AuthService);
   readonly isAuthenticated = this.authService.isAuthenticated;
-  readonly currentUser = this.authService.currentUser;
 }

@@ -42,12 +42,8 @@
   },
   "home": {
     "hero": {
-      "title": "Bienvenue sur Bavilivre",
-      "subtitle": "Partagez votre bibliothèque, découvrez de nouveaux livres et empruntez facilement auprès de votre communauté."
-    },
-    "actions": {
-      "borrowedBooks": "Voir mes livres empruntés",
-      "lentBooks": "Voir mes livres prêtés"
+      "title": "Partagez vos livres. Découvrez de nouvelles lectures.",
+      "subtitle": "Donnez une seconde vie à vos livres et découvrez les livres partagés par votre communauté."
     }
   },
   "auth": {

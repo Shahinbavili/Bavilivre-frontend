@@ -1,31 +1,31 @@
-<section class="hero">
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-content">
+    <h1 id="hero-title">
+      {{ 'home.hero.title' | translate }}
+    </h1>
 
-  <h1>{{ 'home.hero.title' | translate }}</h1>
+    <p>
+      {{ 'home.hero.subtitle' | translate }}
+    </p>
 
-  <p>
-    {{ 'home.hero.subtitle' | translate }}
-  </p>
-
-  <div class="hero-actions">
-    <a routerLink="/books" class="app-button app-button--primary">
-      {{ 'navigation.catalog' | translate }}
-    </a>
-
-    @if (isAuthenticated()) {
-      <a routerLink="/books/add" class="app-button app-button--secondary">
-        {{ 'navigation.addBook' | translate }}
+    <div class="hero-actions">
+      <a routerLink="/books" class="app-button app-button--primary">
+        {{ 'navigation.catalog' | translate }}
       </a>
 
-      @if (isAuthenticated() && currentUser(); as user) {
-        <a [routerLink]="['/users', user.id, 'borrowed-books']" class="app-button app-button--secondary">
-          {{ 'home.actions.borrowedBooks' | translate }}
+      @if (isAuthenticated()) {
+        <a routerLink="/books/add" class="app-button app-button--secondary">
+          {{ 'navigation.addBook' | translate }}
+        </a>
+      } @else {
+        <a routerLink="/login" class="app-button app-button--secondary">
+          {{ 'auth.login.title' | translate }}
         </a>
 
-        <a [routerLink]="['/users', user.id, 'lent-books']" class="app-button app-button--secondary">
-          {{ 'home.actions.lentBooks' | translate }}
+        <a routerLink="/register" class="app-button app-button--secondary">
+          {{ 'auth.register.title' | translate }}
         </a>
       }
-    }
+    </div>
   </div>
-
 </section>
