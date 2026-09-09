@@ -33,8 +33,8 @@
 }
 
 .catalog-progress {
-  height: 0.25rem;
-  margin-block-end: 1rem;
+  height: tokens.$space-1;
+  margin-block-end: tokens.$space-4;
 }
 
 .catalog-toolbar__filters {
@@ -94,8 +94,8 @@
 .catalog-results-summary {
   margin-block-end: tokens.$space-5;
 
-  font-weight: 600;
   color: var(--app-text-muted);
+  font: var(--mat-sys-title-small);
 }
 
 .catalog-grid {
@@ -140,7 +140,8 @@
 }
 
 .catalog-reset {
-  justify-self: start;
+  align-self: flex-start;
+
   width: fit-content;
   white-space: nowrap;
 }
@@ -177,6 +178,8 @@
 .catalog-pagination__current {
   min-width: 8rem;
 
+  color: var(--app-text-muted);
+  font: var(--mat-sys-label-large);
   text-align: center;
   white-space: nowrap;
 }

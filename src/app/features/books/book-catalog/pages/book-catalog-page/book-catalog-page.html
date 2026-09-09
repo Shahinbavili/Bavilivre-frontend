@@ -1,6 +1,6 @@
 <section class="book-catalog">
   <header class="catalog-header">
-    <h1 class="catalog-title">
+    <h1 class="catalog-title app-page-title">
       {{ 'books.catalog.title' | translate }}
     </h1>
 
@@ -252,9 +252,7 @@
         @if (totalPages() > 1) {
           <nav
             class="catalog-pagination__navigation"
-            [attr.aria-label]="
-          'books.catalog.pagination.navigationLabel' | translate
-        "
+            [attr.aria-label]="'books.catalog.pagination.navigationLabel' | translate"
           >
             <button
               type="button"
@@ -265,7 +263,10 @@
               {{ 'books.catalog.pagination.previous' | translate }}
             </button>
 
-            <span class="catalog-pagination__current">
+            <span
+              class="catalog-pagination__current"
+              aria-live="polite"
+            >
               {{
                 'books.catalog.pagination.pageStatus'
                   | translate: {
