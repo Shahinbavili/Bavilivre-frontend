@@ -172,7 +172,8 @@
       "backToCatalog": "Retour au catalogue",
       "archiving": "Archivage en cours...",
       "archive": "Archiver",
-      "unarchive": "Désarchiver"
+      "unarchive": "Désarchiver",
+      "detailsFor": "Voir les détails de « {{title}} »"
     },
     "archive": {
       "confirmation": "Voulez-vous vraiment archiver « {{title}} » ?",

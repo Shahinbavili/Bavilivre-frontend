@@ -172,7 +172,8 @@
       "backToCatalog": "Back to catalog",
       "archiving": "Archiving...",
       "archive": "Archive",
-      "unarchive": "Restore"
+      "unarchive": "Restore",
+      "detailsFor": "View details for {{title}}"
     },
     "archive": {
       "confirmation": "Are you sure you want to archive \"{{title}}\"?",

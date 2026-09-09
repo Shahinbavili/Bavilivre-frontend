@@ -2,27 +2,9 @@
 
 <article class="book-card">
 
-  <h2 class="book-title">
+  <h2 class="book-title" dir="auto">
     {{ book.title }}
   </h2>
-
-  <p class="book-author">
-    {{ 'books.fields.author' | translate }} : {{ book.author }}
-  </p>
-
-  <div class="book-metadata">
-
-    <div class="book-metadata-item">
-      <span class="label">{{ 'books.fields.language' | translate }}</span>
-      <span class="value">{{ ('common.languages.' + book.language) | translate }}</span>
-    </div>
-
-    <div class="book-metadata-item">
-      <span class="label">{{ 'books.fields.category' | translate }}</span>
-      <span class="value">{{ book.category }}</span>
-    </div>
-
-  </div>
 
   <span
     class="app-status"
@@ -36,6 +18,32 @@
     }
   </span>
 
+  <p class="book-author">
+    <span class="label">
+      {{ 'books.fields.author' | translate }}
+    </span>
+
+    <span class="value" dir="auto">
+      {{ book.author }}
+    </span>
+  </p>
+
+
+  <div class="book-metadata">
+
+    <div class="book-metadata-item">
+      <span class="label">{{ 'books.fields.language' | translate }}</span>
+      <span class="value">{{ ('common.languages.' + book.language) | translate }}</span>
+    </div>
+
+    <div class="book-metadata-item">
+      <span class="label">{{ 'books.fields.category' | translate }}</span>
+      <span class="value" dir="auto">{{ book.category }}</span>
+    </div>
+
+  </div>
+
+
   <div class="book-date">
     <span class="label">{{ 'books.fields.createdAt' | translate }}</span>
 
@@ -45,6 +53,7 @@
   <footer class="book-actions">
     <a
       [routerLink]="['/books', book.id]"
+      [attr.aria-label]="'books.actions.detailsFor' | translate: {title: book.title}"
       class="app-button app-button--primary"
     >
       {{ 'books.actions.details' | translate }}

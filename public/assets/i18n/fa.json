@@ -172,7 +172,8 @@
       "backToCatalog": "بازگشت به فهرست کتاب‌ ها",
       "archiving": "در حال بایگانی...",
       "archive": "بایگانی کردن",
-      "unarchive": "بازگردانی"
+      "unarchive": "بازگردانی",
+      "detailsFor": "مشاهده جزئیات «{{title}}»"
     },
     "archive": {
       "confirmation": "آیا مطمئن هستید که می‌خواهید «{{title}}» را بایگانی کنید؟",

@@ -172,7 +172,8 @@
       "backToCatalog": "Zurück zum Katalog",
       "archiving": "Wird archiviert...",
       "archive": "Archivieren",
-      "unarchive": "Wiederherstellen"
+      "unarchive": "Wiederherstellen",
+      "detailsFor": "Details zu „{{title}}“ anzeigen"
     },
     "archive": {
       "confirmation": "Möchten Sie „{{title}}“ wirklich archivieren?",

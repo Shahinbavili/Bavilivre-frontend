@@ -101,7 +101,7 @@
 .catalog-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-  gap: 4.5rem tokens.$space-8;
+  gap: tokens.$space-8;
 }
 
 .catalog-state {
