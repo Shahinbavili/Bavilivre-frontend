@@ -1,5 +1,7 @@
-<div class="book-details-page">
-  <h1>{{ 'books.details.title' | translate }}</h1>
+<section class="book-details-page">
+  <h1 class="app-page-title">
+    {{ 'books.details.title' | translate }}
+  </h1>
 
   @if (isLoading()) {
     <app-loading-spinner/>
@@ -9,44 +11,69 @@
 
     <article class="book-card">
 
-      <h2 class="app-card-title">
-        {{ book.title }}
-      </h2>
+      <header class="book-details-header">
 
-      <p>
-        <strong>{{ 'books.fields.author' | translate }}: </strong>
-        {{ book.author }}
-      </p>
+        <h2 class="app-section-title" dir="auto">
+          {{ book.title }}
+        </h2>
 
-      <p>
-        <strong>{{ 'books.fields.description' | translate }}: </strong>
-        <span dir="auto">{{ book.description }}</span>
-      </p>
-
-      <p>
-        <strong>{{ 'books.fields.language' | translate }}: </strong>
-        {{ (`common.languages.` + book.language) | translate }}
-      </p>
-
-      <p>
-        <strong>{{ 'books.fields.category' | translate }}: </strong>
-        {{ book.category }}
-      </p>
-
-      @if (currentUser()) {
-        <p>
-          <strong>{{ 'books.fields.owner' | translate }}: </strong>
-
-          @if (owner(); as owner) {
-            {{ owner.displayName }}
-          } @else if (ownerLoading()) {
-            <app-loading-spinner/>
+        <span
+          class="app-status"
+          [class.app-status--available]="book.available"
+          [class.app-status--unavailable]="!book.available"
+        >
+          @if (book.available) {
+            {{ 'books.status.available' | translate }}
           } @else {
-            {{ 'books.details.ownerUnavailable' | translate }}
+            {{ 'books.status.unavailable' | translate }}
           }
-        </p>
-      }
+        </span>
+      </header>
 
+      <dl class="book-details-metadata">
+        <div class="book-details-metadata__item">
+          <dt>{{ 'books.fields.author' | translate }}</dt>
+          <dd dir="auto">{{ book.author }}</dd>
+        </div>
+
+        <div class="book-details-metadata__item">
+          <dt>{{ 'books.fields.language' | translate }}</dt>
+          <dd>
+            {{ ('common.languages.' + book.language) | translate }}
+          </dd>
+        </div>
+
+        <div class="book-details-metadata__item">
+          <dt>{{ 'books.fields.category' | translate }}</dt>
+          <dd dir="auto">{{ book.category }}</dd>
+        </div>
+
+        @if (currentUser()) {
+          <div class="book-details-metadata__item">
+            <dt>{{ 'books.fields.owner' | translate }}</dt>
+
+            <dd dir="auto">
+              @if (owner(); as owner) {
+                {{ owner.displayName }}
+              } @else if (ownerLoading()) {
+                <app-loading-spinner/>
+              } @else {
+                {{ 'books.details.ownerUnavailable' | translate }}
+              }
+            </dd>
+          </div>
+        }
+      </dl>
+
+      <section class="book-description">
+        <h3 class="app-card-title">
+          {{ 'books.fields.description' | translate }}
+        </h3>
+
+        <p dir="auto">
+          {{ book.description }}
+        </p>
+      </section>
       <footer class="book-actions">
 
         @if (archiveError()) {
@@ -66,7 +93,7 @@
 
           <button
             type="button"
-            class="app-button app-button--tertiary"
+            class="app-button app-button--danger"
             [disabled]="archiving()"
             (click)="archiveBook(book)"
           >
@@ -83,4 +110,4 @@
   } @else {
     <p>{{ 'common.empty' | translate }}</p>
   }
-</div>
+</section>
