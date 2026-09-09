@@ -6,7 +6,6 @@ import {Book} from '../../../../../core/models/book.model';
 import {BookService} from '../../../../../core/services/book.service';
 import {BookCard} from '../../../components/book-card/book-card';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
-import {AuthService} from '../../../../../core/auth/auth.service';
 import {MatFormField, MatInput, MatLabel} from '@angular/material/input';
 import {MatOption, MatSelect} from '@angular/material/select';
 import {MatCheckbox} from '@angular/material/checkbox';
@@ -19,8 +18,6 @@ import {MatProgressBar} from '@angular/material/progress-bar';
   styleUrl: './book-catalog-page.scss',
 })
 export class BookCatalogPage implements OnInit {
-  private readonly authService = inject(AuthService);
-
   private readonly bookService = inject(BookService);
 
   // Provides the component destruction lifecycle to RxJS operators.
@@ -192,11 +189,5 @@ export class BookCatalogPage implements OnInit {
     }
 
     this.resetPageAndLoadBooks();
-  }
-
-  protected isBookOwner(book: Book): boolean {
-    const currentUser = this.authService.currentUser();
-
-    return currentUser !== null && currentUser.id === book.ownerId;
   }
 }
