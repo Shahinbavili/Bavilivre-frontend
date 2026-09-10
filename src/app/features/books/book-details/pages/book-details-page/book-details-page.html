@@ -11,11 +11,23 @@
 
     <article class="book-card">
 
-      <header class="book-details-header">
+      <header
+        class="book-details-header"
+        [attr.dir]="book.language === 'fa' ? 'rtl' : 'ltr'"
+      >
+        <div class="book-details-header__icon" aria-hidden="true">
+          <mat-icon>menu_book</mat-icon>
+        </div>
 
-        <h2 class="app-section-title" dir="auto">
-          {{ book.title }}
-        </h2>
+        <div class="book-details-header__content">
+          <h2 class="app-section-title" dir="auto">
+            {{ book.title }}
+          </h2>
+
+          <p class="book-details-author" dir="auto">
+            {{ book.author }}
+          </p>
+        </div>
 
         <span
           class="app-status"
@@ -23,8 +35,10 @@
           [class.app-status--unavailable]="!book.available"
         >
           @if (book.available) {
+            <mat-icon aria-hidden="true">check_circle</mat-icon>
             {{ 'books.status.available' | translate }}
           } @else {
+            <mat-icon aria-hidden="true">cancel</mat-icon>
             {{ 'books.status.unavailable' | translate }}
           }
         </span>
@@ -32,25 +46,31 @@
 
       <dl class="book-details-metadata">
         <div class="book-details-metadata__item">
-          <dt>{{ 'books.fields.author' | translate }}</dt>
-          <dd dir="auto">{{ book.author }}</dd>
-        </div>
+          <dt>
+            <mat-icon aria-hidden="true">language</mat-icon>
+            <span>{{ 'books.fields.language' | translate }}</span>
+          </dt>
 
-        <div class="book-details-metadata__item">
-          <dt>{{ 'books.fields.language' | translate }}</dt>
           <dd>
             {{ ('common.languages.' + book.language) | translate }}
           </dd>
         </div>
 
         <div class="book-details-metadata__item">
-          <dt>{{ 'books.fields.category' | translate }}</dt>
+          <dt>
+            <mat-icon aria-hidden="true">category</mat-icon>
+            <span>{{ 'books.fields.category' | translate }}</span>
+          </dt>
+
           <dd dir="auto">{{ book.category }}</dd>
         </div>
 
         @if (currentUser()) {
           <div class="book-details-metadata__item">
-            <dt>{{ 'books.fields.owner' | translate }}</dt>
+            <dt>
+              <mat-icon aria-hidden="true">person</mat-icon>
+              <span>{{ 'books.fields.owner' | translate }}</span>
+            </dt>
 
             <dd dir="auto">
               @if (owner(); as owner) {
@@ -66,14 +86,21 @@
       </dl>
 
       <section class="book-description">
-        <h3 class="app-card-title">
-          {{ 'books.fields.description' | translate }}
-        </h3>
+        <div class="book-description__heading">
+          <span class="book-description__icon" aria-hidden="true">
+            <mat-icon>subject</mat-icon>
+          </span>
+
+          <h3 class="app-card-title">
+            {{ 'books.fields.description' | translate }}
+          </h3>
+        </div>
 
         <p dir="auto">
           {{ book.description }}
         </p>
       </section>
+
       <footer class="book-actions">
 
         @if (archiveError()) {
@@ -82,7 +109,10 @@
           </p>
         }
 
-        <a routerLink="/books" class="app-button app-button--secondary">
+        <a
+          routerLink="/books"
+          class="book-actions__back app-button app-button--secondary"
+        >
           {{ 'books.actions.backToCatalog' | translate }}
         </a>
 
@@ -99,7 +129,7 @@
           >
             {{
               archiving()
-                ? ('books.active.archiving' | translate)
+                ? ('books.actions.archiving' | translate)
                 : ('books.actions.archive' | translate)
             }}
           </button>

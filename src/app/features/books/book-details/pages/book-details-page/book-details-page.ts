@@ -10,6 +10,7 @@ import {Book} from '../../../../../core/models/book.model';
 import {User} from '../../../../../core/models/user.model';
 import {LoadingSpinner} from '../../../../../shared/components/loading-spinner/loading-spinner';
 import {HttpErrorResponse} from '@angular/common/http';
+import {MatIcon} from '@angular/material/icon';
 
 @Component({
   selector: 'app-book-details-page',
@@ -17,6 +18,7 @@ import {HttpErrorResponse} from '@angular/common/http';
     TranslatePipe,
     LoadingSpinner,
     RouterLink,
+    MatIcon,
   ],
   templateUrl: './book-details-page.html',
   styleUrl: './book-details-page.scss',
