@@ -216,7 +216,8 @@
       "title": "Ausgeliehene Bücher",
       "empty": "Keine ausgeliehenen Bücher",
       "loadingBook": "Buch #{{bookId}} wird geladen...",
-      "item": "{{title}} — {{author}}, ausgeliehen von {{lenderName}}"
+      "item": "{{title}} — {{author}}, ausgeliehen von {{lenderName}}",
+      "lender": "Verleiher"
     },
     "lent": {
       "title": "Verliehene Bücher",

@@ -216,7 +216,8 @@
       "title": "Borrowed Books",
       "empty": "No borrowed books",
       "loadingBook": "Loading book #{{bookId}}...",
-      "item": "{{title}} — {{author}}, borrowed from {{lenderName}}"
+      "item": "{{title}} — {{author}}, borrowed from {{lenderName}}",
+      "lender": "Lender"
     },
     "lent": {
       "title": "Lent Books",

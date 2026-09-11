@@ -9,14 +9,17 @@ import {UserService} from '../../../../../core/services/user.service';
 import {User} from '../../../../../core/models/user.model';
 import {LoadingSpinner} from '../../../../../shared/components/loading-spinner/loading-spinner';
 import {finalize} from 'rxjs';
+import {MatIcon} from '@angular/material/icon';
 
 @Component({
   selector: 'app-borrowed-books-page',
   standalone: true,
   templateUrl: './borrowed-books-page.html',
+  styleUrls: ['./borrowed-books-page.scss'],
   imports: [
     TranslatePipe,
-    LoadingSpinner
+    LoadingSpinner,
+    MatIcon
   ]
 })
 export class BorrowedBooksPage implements OnInit {

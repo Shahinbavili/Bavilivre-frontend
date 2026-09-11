@@ -1,17 +1,66 @@
-<h2>{{ 'books.borrowed.title' | translate }}</h2>
+<section class="loan-page">
+  <h1 class="app-page-title">
+    {{ 'books.borrowed.title' | translate }}
+  </h1>
 
-@if (isLoading()) {
-  <app-loading-spinner/>
-} @else if (errorMessage()) {
-  <p>{{ errorMessage()! | translate }}</p>
-} @else if (borrowedBookEntries().length > 0) {
-  <ul>
-    @for (entry of borrowedBookEntries(); track entry.bookId) {
-      <li>
-        {{ borrowedBookLabel(entry) }}
-      </li>
-    }
-  </ul>
-} @else {
-  <p>{{ 'books.borrowed.empty' | translate }}</p>
-}
+  @if (isLoading()) {
+    <app-loading-spinner/>
+  } @else if (errorMessage()) {
+    <p class="loan-state loan-state--error" role="alert">
+      {{ errorMessage()! | translate }}
+    </p>
+  } @else if (borrowedBookEntries().length > 0) {
+    <ul class="loan-list">
+      @for (entry of borrowedBookEntries(); track entry.bookId) {
+        <li class="loan-card">
+          @if (books()[entry.bookId]; as book) {
+            <div
+              class="loan-card__book"
+              [attr.dir]="book.language === 'fa' ? 'rtl' : 'ltr'"
+            >
+              <span class="loan-card__book-icon" aria-hidden="true">
+                <mat-icon>menu_book</mat-icon>
+              </span>
+
+              <div class="loan-card__book-content">
+                <h2 class="app-card-title" dir="auto">
+                  {{ book.title }}
+                </h2>
+
+                <p dir="auto">{{ book.author }}</p>
+              </div>
+            </div>
+
+            @if (users()[entry.lenderId]; as lender) {
+              <div class="loan-card__party">
+                <span class="loan-card__party-icon" aria-hidden="true">
+                  <mat-icon>person</mat-icon>
+                </span>
+
+                <div class="loan-card__party-content">
+                  <span class="loan-card__party-label">
+                    {{ 'books.borrowed.lender' | translate }}
+                  </span>
+
+                  <strong dir="auto">{{ lender.displayName }}</strong>
+                </div>
+              </div>
+            } @else {
+              <p class="loan-card__loading">
+                {{ borrowedBookLabel(entry) }}
+              </p>
+            }
+          } @else {
+            <p class="loan-card__loading">
+              {{ borrowedBookLabel(entry) }}
+            </p>
+          }
+        </li>
+      }
+    </ul>
+  } @else {
+    <p class="loan-state">
+      {{ 'books.borrowed.empty' | translate }}
+    </p>
+  }
+</section>

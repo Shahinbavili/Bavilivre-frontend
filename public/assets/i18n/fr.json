@@ -216,7 +216,8 @@
       "title": "Livres empruntés",
       "empty": "Aucun livre emprunté",
       "loadingBook": "Chargement du livre #{{bookId}}...",
-      "item": "{{title}} — {{author}}, emprunté auprès de {{lenderName}}"
+      "item": "{{title}} — {{author}}, emprunté auprès de {{lenderName}}",
+      "lender": "Prêteur"
     },
     "lent": {
       "title": "Livres prêtés",

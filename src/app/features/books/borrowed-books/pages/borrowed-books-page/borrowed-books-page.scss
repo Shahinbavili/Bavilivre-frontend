@@ -1,0 +1,209 @@
+@use 'tokens';
+
+.loan-page {
+  max-width: 56rem;
+  margin-inline: auto;
+  padding-block: tokens.$space-8 tokens.$space-12;
+}
+
+.loan-page > .app-page-title {
+  margin-block-end: tokens.$space-8;
+}
+
+.loan-list {
+  display: grid;
+  gap: tokens.$space-4;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.loan-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: tokens.$space-4;
+
+  padding: tokens.$space-5;
+
+  border: 1px solid var(--app-border);
+  border-radius: tokens.$radius-medium;
+  background-color: var(--app-surface-card);
+  box-shadow: tokens.$shadow-small;
+}
+
+.loan-card__book {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: tokens.$space-4;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.loan-card__book-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+
+  width: 3rem;
+  height: 3rem;
+
+  border-radius: 50%;
+  background-color: var(--mat-sys-primary-container);
+  color: var(--mat-sys-on-primary-container);
+}
+
+.loan-card__book-icon mat-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+
+  font-size: 1.5rem;
+}
+
+.loan-card__book-content {
+  min-width: 0;
+}
+
+.loan-card__book-content h2 {
+  margin: 0;
+  overflow-wrap: anywhere;
+
+  color: var(--app-text);
+}
+
+.loan-card__book-content p {
+  margin: tokens.$space-1 0 0;
+  overflow-wrap: anywhere;
+
+  color: var(--app-text-muted);
+  font: var(--mat-sys-body-medium);
+}
+
+.loan-card__party {
+  display: flex;
+  align-items: center;
+  gap: tokens.$space-4;
+
+  width: 100%;
+  min-width: 0;
+  padding: tokens.$space-4;
+  box-sizing: border-box;
+
+  border-radius: tokens.$radius-medium;
+  background-color: var(--app-surface-subtle);
+}
+
+.loan-card__party-icon {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: 2.75rem;
+  height: 2.75rem;
+
+  border-radius: 50%;
+  background-color: var(--app-surface-card);
+  color: var(--app-success);
+  box-shadow: tokens.$shadow-small;
+}
+
+.loan-card__party-icon mat-icon {
+  display: block;
+
+  width: 1.5rem;
+  height: 1.5rem;
+
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.loan-card__party-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: tokens.$space-4;
+  flex: 1;
+
+  min-width: 0;
+
+  text-align: start;
+}
+
+.loan-card__party-label {
+  flex-shrink: 0;
+
+  color: var(--app-text-muted);
+  font: var(--mat-sys-label-medium);
+}
+
+.loan-card__party strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+
+  color: var(--app-text);
+  font: var(--mat-sys-title-small);
+  text-align: end;
+}
+
+.loan-card__party mat-icon {
+  grid-area: icon;
+
+  color: var(--app-success);
+}
+
+.loan-card__party-label {
+  grid-area: label;
+
+  color: var(--app-text-muted);
+  font: var(--mat-sys-label-medium);
+}
+
+.loan-card__party strong {
+  grid-area: value;
+  overflow-wrap: anywhere;
+
+  color: var(--app-text);
+  font: var(--mat-sys-body-large);
+}
+
+.loan-card__loading {
+  margin: 0;
+
+  color: var(--app-text-muted);
+  font: var(--mat-sys-body-medium);
+}
+
+.loan-state {
+  margin: 0;
+  padding: tokens.$space-8;
+
+  border: 1px solid var(--app-border);
+  border-radius: tokens.$radius-medium;
+  background-color: var(--app-surface-subtle);
+  color: var(--app-text-muted);
+  font: var(--mat-sys-body-large);
+  text-align: center;
+}
+
+.loan-state--error {
+  border-color: var(--app-error);
+  background-color: var(--app-error-container);
+  color: var(--app-on-error-container);
+}
+
+@media (max-width: 40rem) {
+  .loan-page {
+    padding-block: tokens.$space-6 tokens.$space-8;
+  }
+
+  .loan-card {
+    gap: tokens.$space-4;
+    padding: tokens.$space-4;
+  }
+}
