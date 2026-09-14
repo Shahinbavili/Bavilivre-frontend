@@ -223,7 +223,8 @@
       "title": "کتاب‌های امانت داده ‌شده",
       "empty": "هیچ کتابی امانت داده نشده است.",
       "loadingBook": "در حال بارگذاری کتاب شماره {{bookId}}...",
-      "item": "{{title}} — {{author}}، امانت داده شده به {{borrowerName}}"
+      "item": "{{title}} — {{author}}، امانت داده شده به {{borrowerName}}",
+      "borrower": "امانت‌ گیرنده"
     }
   },
   "users": {

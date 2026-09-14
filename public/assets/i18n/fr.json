@@ -222,7 +222,9 @@
     "lent": {
       "title": "Livres prêtés",
       "empty": "Aucun livre prêté",
-      "item": "{{title}} — {{author}}, prêté à {{borrowerName}}"
+      "loadingBook": "Chargement du livre #{{bookId}}...",
+      "item": "{{title}} — {{author}}, prêté à {{borrowerName}}",
+      "borrower": "Emprunteur"
     }
   },
   "users": {

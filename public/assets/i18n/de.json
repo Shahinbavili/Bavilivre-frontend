@@ -223,7 +223,8 @@
       "title": "Verliehene Bücher",
       "empty": "Keine verliehenen Bücher",
       "loadingBook": "Buch #{{bookId}} wird geladen...",
-      "item": "{{title}} — {{author}}, verliehen an {{borrowerName}}"
+      "item": "{{title}} — {{author}}, verliehen an {{borrowerName}}",
+      "borrower": "Entleiher"
     }
   },
   "users": {

@@ -7,11 +7,16 @@ import {LoadingSpinner} from '../../../../../shared/components/loading-spinner/l
 import {Book} from '../../../../../core/models/book.model';
 import {User} from '../../../../../core/models/user.model';
 import {UserService} from '../../../../../core/services/user.service';
+import {MatIcon} from '@angular/material/icon';
 
 @Component({
   selector: 'app-lent-books-page',
   standalone: true,
-  imports: [TranslatePipe, LoadingSpinner],
+  imports: [
+    TranslatePipe,
+    LoadingSpinner,
+    MatIcon
+  ],
   templateUrl: './lent-books-page.html',
   styleUrl: './lent-books-page.scss',
 })
