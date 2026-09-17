@@ -1,23 +1,69 @@
+@use 'tokens';
+
 .auth-page {
-  max-width: 900px;
+  width: 100%;
+  max-width: 34rem;
   margin-inline: auto;
-  padding: 2rem 1rem;
+  padding-block: tokens.$space-8 tokens.$space-12;
+
+  box-sizing: border-box;
 }
 
-.auth-page h1 {
-  max-width: 28rem;
-  margin: 0 auto 2rem;
+.auth-card {
+  padding: tokens.$space-8;
+
+  border: 1px solid var(--app-border);
+  border-radius: tokens.$radius-large;
+  background-color: var(--app-surface-card);
+  box-shadow: tokens.$shadow-medium;
+}
+
+.auth-card__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: tokens.$space-4;
+
+  margin-block-end: tokens.$space-8;
+
   text-align: center;
+}
+
+.auth-card__icon {
+  display: grid;
+  place-items: center;
+
+  width: 3.5rem;
+  height: 3.5rem;
+
+  border-radius: 50%;
+  background-color: var(--mat-sys-primary-container);
+  color: var(--mat-sys-on-primary-container);
+}
+
+.auth-card__icon mat-icon {
+  display: block;
+
+  width: 1.75rem;
+  height: 1.75rem;
+
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.auth-card__header .app-page-title {
+  margin: 0;
+
+  color: var(--app-text);
+  font: var(--mat-sys-headline-medium);
 }
 
 .auth-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: tokens.$space-5;
 
   width: 100%;
-  max-width: 28rem;
-  margin-inline: auto;
 }
 
 .auth-form mat-form-field {
@@ -30,16 +76,41 @@
 
 .form-error,
 .form-success {
-  max-width: 28rem;
-  margin: 0 auto 1rem;
+  margin: 0 0 tokens.$space-5;
+  padding: tokens.$space-3 tokens.$space-4;
 
-  text-align: center;
+  border-radius: tokens.$radius-small;
+
+  font: var(--mat-sys-body-medium);
+  text-align: start;
 }
 
 .form-error {
-  color: var(--app-error);
+  border-inline-start: 0.25rem solid var(--app-error);
+  background-color: var(--app-error-container);
+  color: var(--app-on-error-container);
 }
 
 .form-success {
-  color: var(--app-success);
+  border-inline-start: 0.25rem solid var(--app-success);
+  background-color: var(--app-success-container);
+  color: var(--app-on-success-container);
+}
+
+@media (max-width: 40rem) {
+  .auth-page {
+    padding-block: tokens.$space-6 tokens.$space-8;
+  }
+
+  .auth-card {
+    padding: tokens.$space-5;
+  }
+
+  .auth-card__header {
+    margin-block-end: tokens.$space-6;
+  }
+
+  .auth-form {
+    gap: tokens.$space-4;
+  }
 }

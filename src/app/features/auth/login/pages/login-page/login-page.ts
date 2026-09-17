@@ -5,6 +5,7 @@ import {TranslatePipe} from '@ngx-translate/core';
 import {MatError, MatFormField, MatInput, MatLabel} from '@angular/material/input';
 import {Router} from '@angular/router';
 import {finalize, switchMap} from 'rxjs';
+import {MatIcon} from '@angular/material/icon';
 
 @Component({
   selector: 'app-login-page',
@@ -14,7 +15,8 @@ import {finalize, switchMap} from 'rxjs';
     MatFormField,
     MatLabel,
     MatError,
-    MatInput
+    MatInput,
+    MatIcon
   ],
   templateUrl: './login-page.html',
   styleUrl: './login-page.scss',
