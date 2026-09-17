@@ -51,7 +51,8 @@
       "title": "Login",
       "email": "Email address",
       "password": "Password",
-      "submit": "Sign in"
+      "submit": "Sign in",
+      "submitting": "Signing in..."
     },
     "register": {
       "title": "Register",

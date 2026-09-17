@@ -51,7 +51,8 @@
       "title": "Connexion",
       "email": "Adresse e-mail",
       "password": "Mot de passe",
-      "submit": "Se connecter"
+      "submit": "Se connecter",
+      "submitting": "Connexion..."
     },
     "register": {
       "title": "Inscription",

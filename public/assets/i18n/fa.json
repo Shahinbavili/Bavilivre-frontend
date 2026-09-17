@@ -51,7 +51,8 @@
       "title": "ورود",
       "email": "ایمیل",
       "password": "رمز عبور",
-      "submit": "ورود"
+      "submit": "ورود",
+      "submitting": "در حال ورود..."
     },
     "register": {
       "title": "ثبت‌ نام",

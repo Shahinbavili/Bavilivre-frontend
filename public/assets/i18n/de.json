@@ -51,7 +51,8 @@
       "title": "Anmeldung",
       "email": "E-Mail-Adresse",
       "password": "Passwort",
-      "submit": "Anmelden"
+      "submit": "Anmelden",
+      "submitting": "Anmeldung..."
     },
     "register": {
       "title": "Registrierung",
