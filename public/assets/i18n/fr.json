@@ -60,6 +60,7 @@
       "email": "Adresse e-mail",
       "password": "Mot de passe",
       "submit": "S'inscrire",
+      "submitting": "Création du compte...",
       "success": "Votre compte a été créé avec succès. Redirection vers la page de connexion..."
     },
     "logout": {

@@ -60,6 +60,7 @@
       "email": "E-Mail-Adresse",
       "password": "Passwort",
       "submit": "Konto erstellen",
+      "submitting": "Konto wird erstellt...",
       "success": "Ihr Konto wurde erfolgreich erstellt. Weiterleitung zur Anmeldeseite..."
     },
     "logout": {

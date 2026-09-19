@@ -1,95 +1,117 @@
 <section class="auth-page">
-  <h1>
-    {{ 'auth.register.title' | translate }}
-  </h1>
+  <div class="auth-card">
+    <header class="auth-card__header">
+      <span class="auth-card__icon" aria-hidden="true">
+        <mat-icon>person_add</mat-icon>
+      </span>
 
-  @if (successMessageKey()) {
-    <p class="form-success">
-      {{ successMessageKey() | translate }}
-    </p>
-  }
+      <h1 class="app-page-title">
+        {{ 'auth.register.title' | translate }}
+      </h1>
+    </header>
 
-  @if (errorMessageKey()) {
-    <p class="form-error" role="alert">
-      {{ errorMessageKey() | translate }}
-    </p>
-  }
+    @if (successMessageKey()) {
+      <p class="form-success" role="status">
+        {{ successMessageKey() | translate }}
+      </p>
+    }
 
-  <form
-    class="auth-form"
-    [formGroup]="registerForm"
-    (ngSubmit)="onSubmit()"
-  >
-    <mat-form-field appearance="outline">
-      <mat-label>
-        {{ 'auth.register.displayName' | translate }}
-      </mat-label>
+    @if (errorMessageKey()) {
+      <p class="form-error" role="alert">
+        {{ errorMessageKey() | translate }}
+      </p>
+    }
 
-      <input
-        matInput
-        type="text"
-        formControlName="displayName"
-      />
-
-      @if (registerForm.controls.displayName.touched &&
-      registerForm.controls.displayName.hasError('required')) {
-        <mat-error>
-          {{ 'auth.validation.displayNameRequired' | translate }}
-        </mat-error>
-      }
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>
-        {{ 'auth.register.email' | translate }}
-      </mat-label>
-
-      <input
-        matInput
-        type="email"
-        formControlName="email"
-      />
-
-      @if (registerForm.controls.email.touched &&
-      registerForm.controls.email.hasError('required')) {
-        <mat-error>
-          {{ 'auth.validation.emailRequired' | translate }}
-        </mat-error>
-      }
-
-      @if (registerForm.controls.email.touched &&
-      registerForm.controls.email.hasError('email')) {
-        <mat-error>
-          {{ 'auth.validation.emailInvalid' | translate }}
-        </mat-error>
-      }
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>
-        {{ 'auth.register.password' | translate }}
-      </mat-label>
-
-      <input
-        matInput
-        type="password"
-        formControlName="password"
-      />
-
-      @if (registerForm.controls.password.touched &&
-      registerForm.controls.password.hasError('required')) {
-        <mat-error>
-          {{ 'auth.validation.passwordRequired' | translate }}
-        </mat-error>
-      }
-    </mat-form-field>
-
-    <button
-      type="submit"
-      class="app-button app-button--primary"
-      [disabled]="registerForm.invalid"
+    <form
+      class="auth-form"
+      [formGroup]="registerForm"
+      (ngSubmit)="onSubmit()"
     >
-      {{ 'auth.register.submit' | translate }}
-    </button>
-  </form>
+      <mat-form-field appearance="outline">
+        <mat-label>
+          {{ 'auth.register.displayName' | translate }}
+        </mat-label>
+
+        <input
+          matInput
+          type="text"
+          formControlName="displayName"
+          autocomplete="name"
+          required
+        />
+
+        @if (registerForm.controls.displayName.touched &&
+        registerForm.controls.displayName.hasError('required')) {
+          <mat-error>
+            {{ 'auth.validation.displayNameRequired' | translate }}
+          </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>
+          {{ 'auth.register.email' | translate }}
+        </mat-label>
+
+        <input
+          matInput
+          type="email"
+          formControlName="email"
+          autocomplete="email"
+          required
+        />
+
+        @if (registerForm.controls.email.touched &&
+        registerForm.controls.email.hasError('required')) {
+          <mat-error>
+            {{ 'auth.validation.emailRequired' | translate }}
+          </mat-error>
+        }
+
+        @if (registerForm.controls.email.touched &&
+        registerForm.controls.email.hasError('email')) {
+          <mat-error>
+            {{ 'auth.validation.emailInvalid' | translate }}
+          </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>
+          {{ 'auth.register.password' | translate }}
+        </mat-label>
+
+        <input
+          matInput
+          type="password"
+          formControlName="password"
+          autocomplete="new-password"
+          required
+        />
+
+        @if (registerForm.controls.password.touched &&
+        registerForm.controls.password.hasError('required')) {
+          <mat-error>
+            {{ 'auth.validation.passwordRequired' | translate }}
+          </mat-error>
+        }
+      </mat-form-field>
+
+      <button
+        type="submit"
+        class="app-button app-button--primary"
+        [disabled]="
+          registerForm.invalid ||
+          submitting() ||
+          successMessageKey() !== null
+        "
+      >
+        {{
+          (submitting()
+            ? 'auth.register.submitting'
+            : 'auth.register.submit') | translate
+        }}
+      </button>
+    </form>
+  </div>
 </section>
