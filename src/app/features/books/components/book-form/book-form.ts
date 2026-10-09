@@ -24,6 +24,7 @@ import {MatOption, MatSelect} from '@angular/material/select';
 export class BookForm {
   readonly initialValue = input<BookFormModel | null>(null);
   readonly submitLabel = input.required<string>();
+  readonly submittingLabel = input.required<string>();
   readonly submitting = input(false);
   readonly submitted = output<BookFormModel>();
   readonly showCancel = input(false);
@@ -64,7 +65,13 @@ export class BookForm {
   }
 
   submit(): void {
+    // Prevent duplicate submissions while the parent request is in progress.
+    if (this.submitting()) {
+      return;
+    }
+
     if (this.form.invalid) {
+      this.form.markAllAsTouched();
       return;
     }
 

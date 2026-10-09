@@ -6,12 +6,14 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {BookService} from '../../../../../core/services/book.service';
 import {Book} from '../../../../../core/models/book.model';
 import {finalize} from 'rxjs';
+import {LoadingSpinner} from '../../../../../shared/components/loading-spinner/loading-spinner';
 
 @Component({
   selector: 'app-edit-book-page',
   imports: [
     TranslatePipe,
-    BookForm
+    BookForm,
+    LoadingSpinner
   ],
   templateUrl: './edit-book-page.html',
   styleUrl: './edit-book-page.scss',
@@ -26,6 +28,7 @@ export class EditBookPage implements OnInit {
   readonly initialValue = signal<BookFormModel | null>(null);
 
   readonly isLoading = signal(true);
+  readonly loadError = signal(false);
   readonly submitting = signal(false);
   readonly submitError = signal(false);
 
@@ -34,7 +37,7 @@ export class EditBookPage implements OnInit {
     const bookId = Number(this.route.snapshot.paramMap.get('id'));
 
     if (!Number.isInteger(bookId) || bookId <= 0) {
-      this.submitError.set(true);
+      this.loadError.set(true);
       this.isLoading.set(false);
       return;
     }
@@ -55,7 +58,7 @@ export class EditBookPage implements OnInit {
         this.isLoading.set(false);
       },
       error: () => {
-        this.submitError.set(true);
+        this.loadError.set(true);
         this.isLoading.set(false);
       },
     });

@@ -206,6 +206,7 @@
       "empty": "No books found.",
       "error": "Unable to load books.",
       "creating": "Adding the book...",
+      "updating": "Updating the book...",
       "createError": "Unable to add the book.",
       "updateError": "An error occurred while updating the book.",
       "noResults": {

@@ -206,6 +206,7 @@
       "empty": "Aucun livre trouvé.",
       "error": "Impossible de charger les livres.",
       "creating": "Ajout du livre en cours...",
+      "updating": "Mise à jour du livre en cours...",
       "createError": "Impossible d'ajouter le livre.",
       "updateError": "Une erreur est survenue lors de la mise à jour du livre.",
       "noResults": {

@@ -206,6 +206,7 @@
       "empty": "Keine Bücher gefunden.",
       "error": "Die Bücher konnten nicht geladen werden.",
       "creating": "Das Buch wird hinzugefügt...",
+      "updating": "Das Buch wird aktualisiert...",
       "createError": "Das Buch konnte nicht hinzugefügt werden.",
       "updateError": "Beim Aktualisieren des Buches ist ein Fehler aufgetreten.",
       "noResults": {

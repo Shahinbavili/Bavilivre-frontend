@@ -12,6 +12,8 @@
       matInput
       type="text"
       formControlName="title"
+      autocomplete="off"
+      required
     />
 
     @if (form.controls.title.touched &&
@@ -38,6 +40,8 @@
       matInput
       type="text"
       formControlName="author"
+      autocomplete="off"
+      required
     />
 
     @if (form.controls.author.touched &&
@@ -64,6 +68,8 @@
       matInput
       rows="6"
       formControlName="description"
+      autocomplete="off"
+      required
     ></textarea>
 
     <mat-hint align="end">
@@ -93,6 +99,7 @@
     <mat-select
       panelClass="app-select-panel"
       formControlName="language"
+      required
     >
       <mat-option value="">
         {{ 'books.form.selectLanguage' | translate }}
@@ -132,6 +139,8 @@
       matInput
       type="text"
       formControlName="category"
+      autocomplete="off"
+      required
     />
 
     @if (form.controls.category.touched &&
@@ -154,6 +163,7 @@
       <button
         type="button"
         class="app-button app-button--secondary"
+        [disabled]="submitting()"
         (click)="cancelled.emit()"
       >
         {{ 'common.actions.cancel' | translate }}
@@ -165,7 +175,11 @@
       class="app-button app-button--primary"
       [disabled]="form.invalid || submitting()"
     >
-      {{ submitLabel() | translate }}
+      {{
+        (submitting()
+          ? submittingLabel()
+          : submitLabel()) | translate
+      }}
     </button>
   </div>
 </form>

@@ -4,20 +4,15 @@
   </h1>
 
   @if (submitError()) {
-    <p class="submit-error">
+    <p class="submit-error" role="alert">
       {{ 'books.messages.createError' | translate }}
     </p>
   }
 
   <app-book-form
     [submitLabel]="'books.actions.create'"
+    [submittingLabel]="'books.messages.creating'"
     [submitting]="submitting()"
     (submitted)="createBook($event)"
   />
-
-  @if (submitting()) {
-    <p>
-      {{ 'books.messages.creating' | translate }}
-    </p>
-  }
 </section>

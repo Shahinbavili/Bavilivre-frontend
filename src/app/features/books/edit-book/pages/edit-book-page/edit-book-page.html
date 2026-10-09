@@ -1,22 +1,29 @@
 <section class="edit-book-page">
-
   <h1>
     {{ 'books.edit.title' | translate }}
   </h1>
 
-  @if (submitError()) {
-    <p class="submit-error">
-      {{ 'books.messages.updateError' | translate }}
+  @if (isLoading()) {
+    <app-loading-spinner/>
+  } @else if (loadError()) {
+    <p class="submit-error" role="alert">
+      {{ 'books.messages.loadError' | translate }}
     </p>
+  } @else {
+    @if (submitError()) {
+      <p class="submit-error" role="alert">
+        {{ 'books.messages.updateError' | translate }}
+      </p>
+    }
+
+    <app-book-form
+      [initialValue]="initialValue()"
+      [submitLabel]="'books.actions.update'"
+      [submittingLabel]="'books.messages.updating'"
+      [submitting]="submitting()"
+      [showCancel]="true"
+      (submitted)="updateBook($event)"
+      (cancelled)="cancel()"
+    />
   }
-
-  <app-book-form
-    [initialValue]="initialValue()"
-    [submitLabel]="'books.actions.update'"
-    [submitting]="submitting()"
-    (submitted)="updateBook($event)"
-    [showCancel]="true"
-    (cancelled)="cancel()"
-  />
-
 </section>
