@@ -5,12 +5,14 @@ import {BookFormModel} from '../../../../../core/models/book-form.model';
 import {finalize} from 'rxjs';
 import {TranslatePipe} from '@ngx-translate/core';
 import {BookForm} from '../../../components/book-form/book-form';
+import {MatIcon} from '@angular/material/icon';
 
 @Component({
   selector: 'app-add-book-page',
   imports: [
     TranslatePipe,
-    BookForm
+    BookForm,
+    MatIcon
   ],
   templateUrl: './add-book-page.html',
   styleUrl: './add-book-page.scss',

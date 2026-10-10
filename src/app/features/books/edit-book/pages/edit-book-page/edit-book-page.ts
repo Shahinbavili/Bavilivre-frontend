@@ -7,13 +7,15 @@ import {BookService} from '../../../../../core/services/book.service';
 import {Book} from '../../../../../core/models/book.model';
 import {finalize} from 'rxjs';
 import {LoadingSpinner} from '../../../../../shared/components/loading-spinner/loading-spinner';
+import {MatIcon} from '@angular/material/icon';
 
 @Component({
   selector: 'app-edit-book-page',
   imports: [
     TranslatePipe,
     BookForm,
-    LoadingSpinner
+    LoadingSpinner,
+    MatIcon
   ],
   templateUrl: './edit-book-page.html',
   styleUrl: './edit-book-page.scss',

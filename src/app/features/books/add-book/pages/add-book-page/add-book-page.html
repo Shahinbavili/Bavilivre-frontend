@@ -1,18 +1,26 @@
-<section class="add-book-page">
-  <h1>
-    {{ 'books.add.title' | translate }}
-  </h1>
+<section class="book-form-page">
+  <div class="book-form-card">
+    <header class="book-form-card__header">
+      <span class="book-form-card__icon" aria-hidden="true">
+        <mat-icon>library_add</mat-icon>
+      </span>
 
-  @if (submitError()) {
-    <p class="submit-error" role="alert">
-      {{ 'books.messages.createError' | translate }}
-    </p>
-  }
+      <h1 class="app-page-title">
+        {{ 'books.add.title' | translate }}
+      </h1>
+    </header>
 
-  <app-book-form
-    [submitLabel]="'books.actions.create'"
-    [submittingLabel]="'books.messages.creating'"
-    [submitting]="submitting()"
-    (submitted)="createBook($event)"
-  />
+    @if (submitError()) {
+      <p class="submit-error" role="alert">
+        {{ 'books.messages.createError' | translate }}
+      </p>
+    }
+
+    <app-book-form
+      [submitLabel]="'books.actions.create'"
+      [submittingLabel]="'books.messages.creating'"
+      [submitting]="submitting()"
+      (submitted)="createBook($event)"
+    />
+  </div>
 </section>

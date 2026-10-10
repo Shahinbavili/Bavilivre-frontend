@@ -1,29 +1,37 @@
-<section class="edit-book-page">
-  <h1>
-    {{ 'books.edit.title' | translate }}
-  </h1>
+<section class="book-form-page">
+  <div class="book-form-card">
+    <header class="book-form-card__header">
+      <span class="book-form-card__icon" aria-hidden="true">
+        <mat-icon>edit_note</mat-icon>
+      </span>
 
-  @if (isLoading()) {
-    <app-loading-spinner/>
-  } @else if (loadError()) {
-    <p class="submit-error" role="alert">
-      {{ 'books.messages.loadError' | translate }}
-    </p>
-  } @else {
-    @if (submitError()) {
+      <h1 class="app-page-title">
+        {{ 'books.edit.title' | translate }}
+      </h1>
+    </header>
+
+    @if (isLoading()) {
+      <app-loading-spinner/>
+    } @else if (loadError()) {
       <p class="submit-error" role="alert">
-        {{ 'books.messages.updateError' | translate }}
+        {{ 'books.messages.loadError' | translate }}
       </p>
-    }
+    } @else {
+      @if (submitError()) {
+        <p class="submit-error" role="alert">
+          {{ 'books.messages.updateError' | translate }}
+        </p>
+      }
 
-    <app-book-form
-      [initialValue]="initialValue()"
-      [submitLabel]="'books.actions.update'"
-      [submittingLabel]="'books.messages.updating'"
-      [submitting]="submitting()"
-      [showCancel]="true"
-      (submitted)="updateBook($event)"
-      (cancelled)="cancel()"
-    />
-  }
+      <app-book-form
+        [initialValue]="initialValue()"
+        [submitLabel]="'books.actions.update'"
+        [submittingLabel]="'books.messages.updating'"
+        [submitting]="submitting()"
+        [showCancel]="true"
+        (submitted)="updateBook($event)"
+        (cancelled)="cancel()"
+      />
+    }
+  </div>
 </section>

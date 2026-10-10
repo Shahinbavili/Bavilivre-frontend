@@ -1,18 +1,1 @@
-.edit-book-page {
-  max-width: 900px;
-  margin-inline: auto;
-  padding: 2rem 1rem;
-}
-
-.edit-book-page h1 {
-  max-width: 700px;
-  margin: 0 auto 2rem;
-  text-align: center;
-}
-
-.submit-error {
-  margin-bottom: 1rem;
-
-  color: var(--app-error);
-  text-align: center;
-}
+@use '../../../styles/book-form-page';

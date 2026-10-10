@@ -1,6 +1,7 @@
 <form
   class="book-form"
   [formGroup]="form"
+  [attr.aria-busy]="submitting()"
   (ngSubmit)="submit()"
 >
   <mat-form-field appearance="outline" class="form-field">
@@ -13,6 +14,7 @@
       type="text"
       formControlName="title"
       autocomplete="off"
+      dir="auto"
       required
     />
 
@@ -41,6 +43,7 @@
       type="text"
       formControlName="author"
       autocomplete="off"
+      dir="auto"
       required
     />
 
@@ -69,6 +72,7 @@
       rows="6"
       formControlName="description"
       autocomplete="off"
+      dir="auto"
       required
     ></textarea>
 
@@ -140,6 +144,7 @@
       type="text"
       formControlName="category"
       autocomplete="off"
+      dir="auto"
       required
     />
 

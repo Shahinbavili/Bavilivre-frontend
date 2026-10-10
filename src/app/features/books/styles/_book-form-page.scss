@@ -1,0 +1,97 @@
+@use 'tokens';
+
+.book-form-page {
+  width: 100%;
+  max-width: 48rem;
+  margin-inline: auto;
+  padding-block: tokens.$space-8 tokens.$space-12;
+
+  box-sizing: border-box;
+}
+
+.book-form-card {
+  padding: tokens.$space-8;
+
+  border: 1px solid var(--app-border);
+  border-radius: tokens.$radius-large;
+  background-color: var(--app-surface-card);
+  box-shadow: tokens.$shadow-medium;
+}
+
+.book-form-card__header {
+  display: flex;
+  align-items: center;
+  gap: tokens.$space-4;
+
+  margin-block-end: tokens.$space-8;
+  padding: tokens.$space-5;
+
+  border-radius: tokens.$radius-medium;
+  background-color: var(--mat-sys-primary-container);
+  color: var(--mat-sys-on-primary-container);
+}
+
+.book-form-card__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+
+  width: 3rem;
+  height: 3rem;
+
+  border-radius: 50%;
+  background-color: var(--mat-sys-primary);
+  color: var(--mat-sys-on-primary);
+}
+
+.book-form-card__icon mat-icon {
+  display: block;
+
+  width: 1.5rem;
+  height: 1.5rem;
+
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.book-form-card__header .app-page-title {
+  min-width: 0;
+  overflow-wrap: anywhere;
+
+  color: var(--mat-sys-on-primary-container);
+}
+
+.submit-error {
+  margin: 0 0 tokens.$space-5;
+  padding: tokens.$space-3 tokens.$space-4;
+
+  border-inline-start: 0.25rem solid var(--app-error);
+  border-radius: tokens.$radius-small;
+  background-color: var(--app-error-container);
+
+  color: var(--app-on-error-container);
+  font: var(--mat-sys-body-medium);
+  text-align: start;
+}
+
+.book-form-card app-loading-spinner {
+  display: block;
+
+  color: var(--app-text-muted);
+  text-align: center;
+}
+
+@media (max-width: 40rem) {
+  .book-form-page {
+    padding-block: tokens.$space-6 tokens.$space-8;
+  }
+
+  .book-form-card {
+    padding: tokens.$space-5;
+  }
+
+  .book-form-card__header {
+    margin-block-end: tokens.$space-6;
+    padding: tokens.$space-4;
+  }
+}
