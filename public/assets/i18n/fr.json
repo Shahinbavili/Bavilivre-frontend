@@ -62,7 +62,7 @@
       "password": "Mot de passe",
       "submit": "S'inscrire",
       "submitting": "Création du compte...",
-      "success": "Votre compte a été créé avec succès. Redirection vers la page de connexion..."
+      "success": "Votre compte a été créé avec succès. Vous pouvez maintenant vous connecter."
     },
     "logout": {
       "submit": "Se déconnecter"
@@ -196,8 +196,7 @@
       "success": "Le livre a été restauré.",
       "forbidden": "Vous n'êtes pas autorisé à restaurer ce livre.",
       "notFound": "Livre introuvable.",
-      "error": "Impossible de restaurer le livre.",
-
+      "error": "Impossible de restaurer le livre."
     },
     "add": {
       "title": "Ajouter un livre"

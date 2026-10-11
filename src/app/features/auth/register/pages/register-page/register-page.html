@@ -10,11 +10,6 @@
       </h1>
     </header>
 
-    @if (successMessageKey()) {
-      <p class="form-success" role="status">
-        {{ successMessageKey() | translate }}
-      </p>
-    }
 
     @if (errorMessageKey()) {
       <p class="form-error" role="alert">
@@ -103,7 +98,7 @@
         [disabled]="
           registerForm.invalid ||
           submitting() ||
-          successMessageKey() !== null
+          registrationCompleted()
         "
       >
         {{

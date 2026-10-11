@@ -1,7 +1,7 @@
 import {Component, inject, signal} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators,} from '@angular/forms';
 import {Router} from '@angular/router';
-import {TranslatePipe} from '@ngx-translate/core';
+import {TranslatePipe, TranslateService} from '@ngx-translate/core';
 import {finalize} from 'rxjs';
 
 import {MatError, MatFormField, MatLabel,} from '@angular/material/form-field';
@@ -9,6 +9,7 @@ import {MatInput} from '@angular/material/input';
 import {MatIcon} from '@angular/material/icon';
 
 import {AuthService} from '../../../../../core/auth/auth.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register-page',
@@ -30,8 +31,11 @@ export class RegisterPage {
 
   readonly submitting = signal(false);
 
-  readonly successMessageKey = signal<string | null>(null);
+  readonly registrationCompleted = signal(false);
   readonly errorMessageKey = signal<string | null>(null);
+
+  private readonly translate = inject(TranslateService);
+  private readonly snackBar = inject(MatSnackBar);
 
   readonly registerForm = new FormGroup({
     displayName: new FormControl('', {
@@ -53,7 +57,7 @@ export class RegisterPage {
 
   onSubmit(): void {
     // Prevent duplicate submissions while registration is in progress or already completed.
-    if (this.submitting() || this.successMessageKey()) {
+    if (this.submitting() || this.registrationCompleted()) {
       return;
     }
 
@@ -63,7 +67,6 @@ export class RegisterPage {
     }
 
     this.errorMessageKey.set(null);
-    this.successMessageKey.set(null);
     this.submitting.set(true);
 
     this.authService
@@ -73,12 +76,27 @@ export class RegisterPage {
       )
       .subscribe({
         next: () => {
-          this.successMessageKey.set('auth.register.success');
+          this.registrationCompleted.set(true);
 
-          setTimeout(() => {
-            // Redirect to the login page; the navigation result is not needed here.
-            void this.router.navigate(['/login']);
-          }, 1500);
+          // Show the success feedback after the login page is active.
+          void this.router.navigate(['/login']).then(() => {
+            this.snackBar.open(
+              this.translate.instant('auth.register.success'),
+              this.translate.instant('common.actions.close'),
+              {
+                duration: 6000,
+                horizontalPosition: 'center',
+                verticalPosition: 'top',
+                direction:
+                  this.translate.getCurrentLang() === 'fa' ? 'rtl' : 'ltr',
+                politeness: 'polite',
+                panelClass: [
+                  'app-snackbar',
+                  'app-snackbar--success',
+                ],
+              },
+            );
+          });
         },
 
         error: error => {

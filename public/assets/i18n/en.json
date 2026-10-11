@@ -62,7 +62,7 @@
       "password": "Password",
       "submit": "Create account",
       "submitting": "Creating account...",
-      "success": "Your account has been created successfully. Redirecting to the login page..."
+      "success": "Your account has been created successfully. You can now sign in."
     },
     "logout": {
       "submit": "Sign out"
