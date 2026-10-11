@@ -190,12 +190,14 @@
       "title": "Mes livres archivés",
       "empty": "Vous n'avez aucun livre archivé.",
       "status": "Archivé",
-      "confirmation": "Voulez-vous vraiment restaurer « {{title}} » dans votre catalogue ?",
+      "dialogTitle": "Restaurer ce livre ?",
+      "confirmation": "«\u2068{{title}}\u2069» sera de nouveau visible dans le catalogue.",
       "unarchiving": "Restauration...",
       "success": "Le livre a été restauré.",
       "forbidden": "Vous n'êtes pas autorisé à restaurer ce livre.",
       "notFound": "Livre introuvable.",
-      "error": "Impossible de restaurer le livre."
+      "error": "Impossible de restaurer le livre.",
+
     },
     "add": {
       "title": "Ajouter un livre"
