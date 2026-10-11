@@ -1,0 +1,31 @@
+@use 'tokens';
+
+:host {
+  display: block;
+}
+
+.confirmation-dialog__message {
+  max-width: 32rem;
+  margin: 0;
+
+  color: var(--app-text);
+  font: var(--mat-sys-body-large);
+  line-height: 1.6;
+}
+
+.confirmation-dialog__actions {
+  gap: tokens.$space-3;
+
+  padding: tokens.$space-4 tokens.$space-6 tokens.$space-6;
+}
+
+@media (max-width: 40rem) {
+  .confirmation-dialog__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .confirmation-dialog__actions .app-button {
+    width: 100%;
+  }
+}

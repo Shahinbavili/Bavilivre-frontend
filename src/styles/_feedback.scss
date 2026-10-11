@@ -1,0 +1,29 @@
+@use 'tokens';
+
+.app-snackbar.mat-mdc-snack-bar-container {
+  --mat-snack-bar-container-shape: #{tokens.$radius-small};
+}
+
+.app-snackbar--success.mat-mdc-snack-bar-container {
+  --mat-snack-bar-container-color: var(--app-success-container);
+  --mat-snack-bar-supporting-text-color: var(--app-on-success-container);
+  --mat-snack-bar-button-color: var(--app-success);
+}
+
+.app-snackbar--info.mat-mdc-snack-bar-container {
+  --mat-snack-bar-container-color: var(--mat-sys-primary-container);
+  --mat-snack-bar-supporting-text-color: var(--mat-sys-on-primary-container);
+  --mat-snack-bar-button-color: var(--mat-sys-primary);
+}
+
+.app-snackbar--warning.mat-mdc-snack-bar-container {
+  --mat-snack-bar-container-color: var(--app-warning-container);
+  --mat-snack-bar-supporting-text-color: var(--app-on-warning-container);
+  --mat-snack-bar-button-color: var(--app-warning);
+}
+
+.app-snackbar--error.mat-mdc-snack-bar-container {
+  --mat-snack-bar-container-color: var(--app-error-container);
+  --mat-snack-bar-supporting-text-color: var(--app-on-error-container);
+  --mat-snack-bar-button-color: var(--app-error);
+}

@@ -11,6 +11,10 @@ import {User} from '../../../../../core/models/user.model';
 import {LoadingSpinner} from '../../../../../shared/components/loading-spinner/loading-spinner';
 import {HttpErrorResponse} from '@angular/common/http';
 import {MatIcon} from '@angular/material/icon';
+import {MatDialog} from '@angular/material/dialog';
+import {ConfirmationDialog} from '../../../../../shared/components/confirmation-dialog/confirmation-dialog';
+import {ConfirmationDialogData} from '../../../../../shared/components/confirmation-dialog/confirmation-dialog-data';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-book-details-page',
@@ -29,6 +33,9 @@ export class BookDetailsPage implements OnInit {
   private readonly bookService = inject(BookService);
   private readonly userService = inject(UserService);
   private readonly authService = inject(AuthService);
+
+  private readonly dialog = inject(MatDialog);
+  private readonly snackBar = inject(MatSnackBar);
 
   readonly book = signal<Book | null>(null);
   readonly owner = signal<User | null>(null);
@@ -123,32 +130,33 @@ export class BookDetailsPage implements OnInit {
   }
 
   archiveBook(book: Book): void {
-    if (!this.confirmArchive(book)) {
-      return;
-    }
+    const dialogRef = this.dialog.open<
+      ConfirmationDialog,
+      ConfirmationDialogData,
+      boolean
+    >(ConfirmationDialog, {
+      data: {
+        title: this.translate.instant('books.archive.dialogTitle'),
+        message: this.translate.instant(
+          'books.archive.confirmation',
+          {title: book.title},
+        ),
+        confirmLabel: this.translate.instant('books.actions.archive'),
+        cancelLabel: this.translate.instant('common.actions.cancel'),
+        destructive: true,
+      },
+      direction: this.translate.getCurrentLang() === 'fa' ? 'rtl' : 'ltr',
+      autoFocus: 'first-tabbable',
+      restoreFocus: true,
+    });
 
-    this.archiving.set(true);
-    this.archiveError.set(null);
+    dialogRef.afterClosed().subscribe(confirmed => {
+      if (!confirmed) {
+        return;
+      }
 
-    this.bookService.archiveBook(book.id).pipe(
-      finalize(() => this.archiving.set(false)),
-    )
-      .subscribe({
-        next: () => {
-          void this.router.navigate(['/books']);
-        },
-        error: (error: HttpErrorResponse) => {
-          this.handleArchiveError(error);
-        },
-      });
-  }
-
-  private confirmArchive(book: Book): boolean {
-    return window.confirm(
-      this.translate.instant('books.archive.confirmation', {
-        title: book.title,
-      }),
-    );
+      this.performArchive(book);
+    });
   }
 
   private handleArchiveError(error: HttpErrorResponse): void {
@@ -164,5 +172,43 @@ export class BookDetailsPage implements OnInit {
       default:
         this.archiveError.set('books.archive.error');
     }
+  }
+
+  private performArchive(book: Book): void {
+    this.archiving.set(true);
+    this.archiveError.set(null);
+
+    this.bookService.archiveBook(book.id).pipe(
+      finalize(() => this.archiving.set(false)),
+    )
+      .subscribe({
+        next: () => {
+          // Show the success feedback after the destination page is active.
+          void this.router.navigate(['/books']).then(navigated => {
+            if (!navigated) {
+              return;
+            }
+
+            this.snackBar.open(
+              this.translate.instant('books.archive.success'),
+              this.translate.instant('common.actions.close'),
+              {
+                duration: 6000,
+                horizontalPosition: 'center',
+                verticalPosition: 'top',
+                direction: this.translate.getCurrentLang() === 'fa' ? 'rtl' : 'ltr',
+                politeness: 'polite',
+                panelClass: [
+                  'app-snackbar',
+                  'app-snackbar--success',
+                ],
+              },
+            );
+          });
+        },
+        error: (error: HttpErrorResponse) => {
+          this.handleArchiveError(error);
+        },
+      });
   }
 }

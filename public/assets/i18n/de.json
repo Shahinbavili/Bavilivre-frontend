@@ -16,7 +16,8 @@
     "actions": {
       "save": "Speichern",
       "cancel": "Abbrechen",
-      "back": "Zurück"
+      "back": "Zurück",
+      "close": "Schließen"
     },
     "languageSwitcher": {
       "fr": "Français",
@@ -178,7 +179,8 @@
       "detailsFor": "Details zu „{{title}}“ anzeigen"
     },
     "archive": {
-      "confirmation": "Möchten Sie „{{title}}“ wirklich archivieren?",
+      "dialogTitle": "Dieses Buch archivieren?",
+      "confirmation": "„\u2068{{title}}\u2069“ wird nicht mehr im Katalog angezeigt. Sie können es über Ihre archivierten Bücher wiederherstellen.",
       "success": "Das Buch wurde archiviert.",
       "forbidden": "Sie sind nicht berechtigt, dieses Buch zu archivieren.",
       "notFound": "Buch nicht gefunden.",

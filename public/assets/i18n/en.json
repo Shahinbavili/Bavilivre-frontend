@@ -16,7 +16,8 @@
     "actions": {
       "save": "Save",
       "cancel": "Cancel",
-      "back": "Back"
+      "back": "Back",
+      "close": "Close"
     },
     "languageSwitcher": {
       "fr": "Français",
@@ -178,7 +179,8 @@
       "detailsFor": "View details for {{title}}"
     },
     "archive": {
-      "confirmation": "Are you sure you want to archive \"{{title}}\"?",
+      "dialogTitle": "Archive this book?",
+      "confirmation": "\"\u2068{{title}}\u2069\" will no longer appear in the catalog. You can restore it from your archived books.",
       "success": "The book has been archived.",
       "forbidden": "You are not allowed to archive this book.",
       "notFound": "Book not found.",

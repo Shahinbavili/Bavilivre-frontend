@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>
+  {{ data.title }}
+</h2>
+
+<mat-dialog-content>
+  <p class="confirmation-dialog__message">
+    {{ data.message }}
+  </p>
+</mat-dialog-content>
+
+<mat-dialog-actions
+  class="confirmation-dialog__actions"
+  align="end"
+>
+  <button
+    type="button"
+    class="app-button app-button--secondary app-button--compact"
+    [mat-dialog-close]="false"
+  >
+    {{ data.cancelLabel }}
+  </button>
+
+  <button
+    type="button"
+    class="app-button app-button--compact"
+    [class.app-button--danger-filled]="data.destructive"
+    [class.app-button--primary]="!data.destructive"
+    [mat-dialog-close]="true"
+  >
+    {{ data.confirmLabel }}
+  </button>
+</mat-dialog-actions>
