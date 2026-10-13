@@ -1,5 +1,8 @@
 <section class="archived-books-page">
-  <h1 class="app-page-title">
+  <h1
+    class="app-page-title"
+    dir="auto"
+  >
     {{ 'books.archived.title' | translate }}
   </h1>
 
@@ -23,18 +26,18 @@
     <div class="archived-books-list">
       @for (book of archivedBooks(); track book.id) {
         <article class="archived-book-card">
-          <h2 class="app-card-title">
+          <h2 class="app-card-title" dir="auto">
             {{ book.title }}
           </h2>
 
-          <p>
+          <p class="archived-book-card__metadata">
             <strong>{{ 'books.fields.author' | translate }}:</strong>
-            {{ book.author }}
+            <bdi>{{ book.author }}</bdi>
           </p>
 
-          <p>
+          <p class="archived-book-card__metadata">
             <strong>{{ 'books.fields.category' | translate }}:</strong>
-            {{ book.category }}
+            <bdi>{{ book.category }}</bdi>
           </p>
 
           <span class="app-status app-status--archived">

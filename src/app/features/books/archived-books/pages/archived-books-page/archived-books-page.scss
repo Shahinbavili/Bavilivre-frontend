@@ -6,6 +6,10 @@
   padding: tokens.$space-8 tokens.$space-4;
 }
 
+.archived-books-page > .app-page-title {
+  margin-block-end: tokens.$space-6;
+}
+
 .archived-books-list {
   display: grid;
   gap: tokens.$space-6;
@@ -23,6 +27,18 @@
 
   border: 1px solid var(--app-border);
   border-radius: tokens.$radius-medium;
+}
+
+.archived-book-card__metadata {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: tokens.$space-4;
+
+  bdi {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
 }
 
 .archived-book-card p {

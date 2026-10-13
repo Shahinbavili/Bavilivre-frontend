@@ -109,7 +109,7 @@
 
 .book-details-metadata__item {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: center;
   gap: tokens.$space-4;
 
