@@ -9,7 +9,13 @@
       class="app-header__navigation"
       [attr.aria-label]="'navigation.main' | translate"
     >
-      <a routerLink="/books" class="app-header__link">
+      <a
+        routerLink="/books"
+        routerLinkActive="app-header__link--active"
+        ariaCurrentWhenActive="page"
+        [routerLinkActiveOptions]="{exact: true}"
+        class="app-header__link"
+      >
         {{ 'navigation.catalog' | translate }}
       </a>
 
@@ -28,15 +34,33 @@
           #libraryMenu="matMenu"
           class="app-menu-panel"
         >
-          <a mat-menu-item routerLink="/books/mine">
+          <a
+            mat-menu-item
+            routerLink="/books/mine"
+            routerLinkActive="app-menu-item--selected"
+            ariaCurrentWhenActive="page"
+            [routerLinkActiveOptions]="{exact: true}"
+          >
             {{ 'navigation.myBooks' | translate }}
           </a>
 
-          <a mat-menu-item routerLink="/books/add">
+          <a
+            mat-menu-item
+            routerLink="/books/add"
+            routerLinkActive="app-menu-item--selected"
+            ariaCurrentWhenActive="page"
+            [routerLinkActiveOptions]="{exact: true}"
+          >
             {{ 'navigation.addBook' | translate }}
           </a>
 
-          <a mat-menu-item routerLink="/books/archived">
+          <a
+            mat-menu-item
+            routerLink="/books/archived"
+            routerLinkActive="app-menu-item--selected"
+            ariaCurrentWhenActive="page"
+            [routerLinkActiveOptions]="{exact: true}"
+          >
             {{ 'navigation.archivedBooks' | translate }}
           </a>
 
@@ -44,6 +68,9 @@
             <a
               mat-menu-item
               [routerLink]="['/users', user.id, 'borrowed-books']"
+              routerLinkActive="app-menu-item--selected"
+              ariaCurrentWhenActive="page"
+              [routerLinkActiveOptions]="{exact: true}"
             >
               {{ 'navigation.borrowedBooks' | translate }}
             </a>
@@ -51,6 +78,9 @@
             <a
               mat-menu-item
               [routerLink]="['/users', user.id, 'lent-books']"
+              routerLinkActive="app-menu-item--selected"
+              ariaCurrentWhenActive="page"
+              [routerLinkActiveOptions]="{exact: true}"
             >
               {{ 'navigation.lentBooks' | translate }}
             </a>
@@ -85,6 +115,8 @@
           <button
             mat-menu-item
             type="button"
+            role="menuitemradio"
+            [attr.aria-checked]="lang === currentLang"
             [class.app-menu-item--selected]="lang === currentLang"
             (click)="setLang(lang)"
           >
@@ -119,11 +151,23 @@
           </mat-menu>
         }
       } @else {
-        <a routerLink="/login" class="app-header__link">
+        <a
+          routerLink="/login"
+          routerLinkActive="app-header__link--active"
+          ariaCurrentWhenActive="page"
+          [routerLinkActiveOptions]="{exact: true}"
+          class="app-header__link"
+        >
           {{ 'auth.login.title' | translate }}
         </a>
 
-        <a routerLink="/register" class="app-header__link">
+        <a
+          routerLink="/register"
+          routerLinkActive="app-header__link--active"
+          ariaCurrentWhenActive="page"
+          [routerLinkActiveOptions]="{exact: true}"
+          class="app-header__link"
+        >
           {{ 'auth.register.title' | translate }}
         </a>
       }

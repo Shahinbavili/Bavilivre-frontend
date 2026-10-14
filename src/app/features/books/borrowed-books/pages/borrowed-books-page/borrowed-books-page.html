@@ -23,7 +23,11 @@
               </span>
 
               <div class="loan-card__book-content">
-                <h2 class="app-card-title" dir="auto">
+                <h2
+                  class="app-card-title"
+                  dir="auto"
+                  [attr.lang]="book.language"
+                >
                   {{ book.title }}
                 </h2>
 
@@ -59,7 +63,7 @@
       }
     </ul>
   } @else {
-    <p class="loan-state">
+    <p class="loan-state" role="status">
       {{ 'books.borrowed.empty' | translate }}
     </p>
   }

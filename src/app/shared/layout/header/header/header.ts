@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import {RouterLink} from '@angular/router';
+import {RouterLink, RouterLinkActive} from '@angular/router';
 import {TranslatePipe, TranslateService} from '@ngx-translate/core';
 import {MatMenu, MatMenuItem, MatMenuTrigger,} from '@angular/material/menu';
 import {MatIcon} from '@angular/material/icon';
@@ -11,6 +11,7 @@ import {AuthService} from '../../../../core/auth/auth.service';
   imports: [
     TranslatePipe,
     RouterLink,
+    RouterLinkActive,
     MatMenuTrigger,
     MatMenuItem,
     MatIcon,
@@ -33,11 +34,6 @@ export class Header {
   setLang(lang: string): void {
     this.translate.use(lang);
     localStorage.setItem('lang', lang);
-
-    const direction = lang === 'fa' ? 'rtl' : 'ltr';
-
-    document.documentElement.lang = lang;
-    document.documentElement.dir = direction;
   }
 
   displayName(name: string): string {

@@ -6,7 +6,9 @@
   @if (isLoading()) {
     <app-loading-spinner/>
   } @else if (errorMessage()) {
-    <p>{{ errorMessage()! | translate }}</p>
+    <p role="alert">
+      {{ errorMessage()! | translate }}
+    </p>
   } @else if (book(); as book) {
 
     <article class="book-card">
@@ -20,7 +22,11 @@
         </div>
 
         <div class="book-details-header__content">
-          <h2 class="app-section-title" dir="auto">
+          <h2
+            class="app-section-title"
+            dir="auto"
+            [attr.lang]="book.language"
+          >
             {{ book.title }}
           </h2>
 
@@ -62,7 +68,9 @@
             <span>{{ 'books.fields.category' | translate }}</span>
           </dt>
 
-          <dd dir="auto">{{ book.category }}</dd>
+          <dd>
+            <bdi>{{ book.category }}</bdi>
+          </dd>
         </div>
 
         @if (currentUser()) {
@@ -72,9 +80,9 @@
               <span>{{ 'books.fields.owner' | translate }}</span>
             </dt>
 
-            <dd dir="auto">
+            <dd>
               @if (owner(); as owner) {
-                {{ owner.displayName }}
+                <bdi>{{ owner.displayName }}</bdi>
               } @else if (ownerLoading()) {
                 <app-loading-spinner/>
               } @else {
@@ -96,7 +104,10 @@
           </h3>
         </div>
 
-        <p dir="auto">
+        <p
+          dir="auto"
+          [attr.lang]="book.language"
+        >
           {{ book.description }}
         </p>
       </section>
@@ -104,7 +115,7 @@
       <footer class="book-actions">
 
         @if (archiveError()) {
-          <p class="archive-error">
+          <p class="archive-error" role="alert">
             {{ archiveError()! | translate }}
           </p>
         }
@@ -138,6 +149,8 @@
     </article>
 
   } @else {
-    <p>{{ 'common.empty' | translate }}</p>
+    <p role="status">
+      {{ 'common.empty' | translate }}
+    </p>
   }
 </section>

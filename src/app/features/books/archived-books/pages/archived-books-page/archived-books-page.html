@@ -26,7 +26,11 @@
     <div class="archived-books-list">
       @for (book of archivedBooks(); track book.id) {
         <article class="archived-book-card">
-          <h2 class="app-card-title" dir="auto">
+          <h2
+            class="app-card-title"
+            dir="auto"
+            [attr.lang]="book.language"
+          >
             {{ book.title }}
           </h2>
 

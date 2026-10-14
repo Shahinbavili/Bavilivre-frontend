@@ -1,6 +1,4 @@
-.my-books-page {
-  display: block;
-}
+@use 'tokens';
 
 .my-books-summary {
   margin-block-end: 1.5rem;
@@ -15,7 +13,7 @@
     auto-fill,
     minmax(17rem, 1fr)
   );
-  gap: 4.5rem 1.5rem;
+  gap: tokens.$space-6;
 }
 
 .my-books-state {
@@ -50,48 +48,6 @@
   gap: 0.75rem;
 }
 
-.my-books-pagination__size label {
-  font-weight: 500;
-  color: var(--app-text);
-}
-
-.my-books-pagination select,
-.my-books-pagination button {
-  min-height: 2.5rem;
-  padding: 0.5rem 0.75rem;
-
-  border: 1px solid var(--app-border-strong);
-  border-radius: 0.5rem;
-
-  background-color: var(--app-surface-card);
-  color: var(--app-text);
-
-  font: inherit;
-}
-
-.my-books-pagination select {
-  cursor: pointer;
-}
-
-.my-books-pagination button {
-  cursor: pointer;
-
-  transition: background-color 0.2s ease,
-  border-color 0.2s ease,
-  color 0.2s ease;
-}
-
-.my-books-pagination button:hover:not(:disabled) {
-  border-color: var(--mat-sys-primary);
-  background-color: var(--mat-sys-primary-container);
-  color: var(--mat-sys-on-primary-container);
-}
-
-.my-books-pagination button:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-}
-
 .my-books-pagination__navigation span {
   white-space: nowrap;
 
@@ -101,34 +57,7 @@
 
 /* Tablet / mobile */
 
-@media (max-width: 48rem) {
-  .my-books-grid {
-    grid-template-columns: 1fr;
-    row-gap: 2rem;
-  }
-
-  .my-books-pagination {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1.25rem;
-
-    margin-block-start: 2rem;
-  }
-
-  .my-books-pagination__size {
-    justify-content: space-between;
-  }
-
-  .my-books-pagination__navigation {
-    justify-content: space-between;
-  }
-}
-
 @media (max-width: 40rem) {
-  .my-books-grid {
-    grid-template-columns: 1fr;
-    column-gap: 0;
-  }
 
   .my-books-pagination__navigation {
     flex-wrap: wrap;

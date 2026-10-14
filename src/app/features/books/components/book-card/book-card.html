@@ -2,7 +2,11 @@
 
 <article class="book-card">
 
-  <h2 class="book-title" dir="auto">
+  <h2
+    class="book-title"
+    dir="auto"
+    [attr.lang]="book.language"
+  >
     {{ book.title }}
   </h2>
 

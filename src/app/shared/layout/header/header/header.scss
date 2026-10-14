@@ -3,6 +3,7 @@
   background-color: var(--app-surface-card);
 }
 
+
 .app-header__content {
   display: flex;
   align-items: center;
@@ -67,6 +68,12 @@
 .app-header__menu-trigger:hover {
   background-color: var(--mat-sys-primary-container);
   color: var(--mat-sys-on-primary-container);
+}
+
+.app-header__link--active {
+  background-color: var(--mat-sys-primary-container);
+  color: var(--mat-sys-on-primary-container);
+  font-weight: 600;
 }
 
 .app-header__link:focus-visible,

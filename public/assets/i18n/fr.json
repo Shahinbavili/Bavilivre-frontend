@@ -1,6 +1,7 @@
 {
   "navigation": {
     "home": "Accueil",
+    "main": "Navigation principale",
     "catalog": "Catalogue",
     "addBook": "Ajouter un livre",
     "myLibrary": "Ma bibliothèque",

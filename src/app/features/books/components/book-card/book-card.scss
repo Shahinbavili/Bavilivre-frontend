@@ -98,3 +98,13 @@
 
   padding-inline: tokens.$space-3;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .book-card {
+    transition: none;
+  }
+
+  .book-card:hover {
+    transform: none;
+  }
+}

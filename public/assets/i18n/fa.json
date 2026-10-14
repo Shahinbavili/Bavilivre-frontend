@@ -1,6 +1,7 @@
 {
   "navigation": {
     "home": "خانه",
+    "main": "پیمایش اصلی",
     "catalog": "فهرست کتاب‌ ها",
     "addBook": "افزودن کتاب",
     "myLibrary": "کتابخانه من",
