@@ -10,12 +10,14 @@ export const routes: Routes = [
   },
   {
     path: 'users/:id/borrowed-books',
+    canActivate: [authGuard],
     loadComponent: () =>
       import('./features/books/borrowed-books/pages/borrowed-books-page/borrowed-books-page')
         .then(m => m.BorrowedBooksPage),
   },
   {
     path: 'users/:id/lent-books',
+    canActivate: [authGuard],
     loadComponent: () =>
       import('./features/books/lent-books/pages/lent-books-page/lent-books-page')
         .then(m => m.LentBooksPage),
@@ -40,12 +42,14 @@ export const routes: Routes = [
   },
   {
     path: 'books/add',
+    canActivate: [authGuard],
     loadComponent: () =>
       import('./features/books/add-book/pages/add-book-page/add-book-page')
         .then(m => m.AddBookPage),
   },
   {
     path: 'books/archived',
+    canActivate: [authGuard],
     loadComponent: () =>
       import(
         './features/books/archived-books/pages/archived-books-page/archived-books-page'
@@ -60,6 +64,7 @@ export const routes: Routes = [
   },
   {
     path: 'books/:id/edit',
+    canActivate: [authGuard],
     loadComponent: () =>
       import('./features/books/edit-book/pages/edit-book-page/edit-book-page')
         .then(m => m.EditBookPage),

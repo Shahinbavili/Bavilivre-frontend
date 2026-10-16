@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import {RouterLink, RouterLinkActive} from '@angular/router';
+import {Router, RouterLink, RouterLinkActive} from '@angular/router';
 import {TranslatePipe, TranslateService} from '@ngx-translate/core';
 import {MatMenu, MatMenuItem, MatMenuTrigger,} from '@angular/material/menu';
 import {MatIcon} from '@angular/material/icon';
@@ -21,6 +21,8 @@ import {AuthService} from '../../../../core/auth/auth.service';
   styleUrl: './header.scss',
 })
 export class Header {
+  private readonly router = inject(Router);
+
   private readonly translate = inject(TranslateService);
 
   protected readonly authService = inject(AuthService);
@@ -46,5 +48,8 @@ export class Header {
 
   logout(): void {
     this.authService.logout();
+
+    // Redirect after clearing the authentication state.
+    void this.router.navigate(['/login']);
   }
 }
